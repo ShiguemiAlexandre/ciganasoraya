@@ -4,25 +4,6 @@ export const SERVICE_FEE = 0.00;
 
 export const SERVICES: Service[] = [
   {
-    id: 's1',
-    category: ServiceCategory.DELIVERY,
-    name: '✨ O Oráculo do Ovo Dourado – Especial de Páscoa ✨',
-    description: 'Uma experiência única de Páscoa com Baralho Cigano e Tarot. Uma leitura completa revelando direcionamentos sobre espiritualidade, amor, prosperidade e saúde, com envio da Carta do Destino (a leitura) escrita com base nas revelações do oráculo, e mimos energéticos pelos correios.',
-    price: 'R$ 150,00',
-    image: 'https://storage.googleapis.com/www.ciganasoraya.com/public/ovo_dourado.jpeg',
-    details: [
-      'Atendimento offline',
-      'Leitura completa: Espiritualidade, Amor, Prosperidade e Saúde',
-      'Carta do Destino física preparada energeticamente e enviada pelo correio',
-      'Elementos simbólicos surpresa exclusivos desta edição',
-      'Atendimento personalizado e vagas limitadas',
-      'Pedidos aceitos até o dia 25 de março'
-    ],
-    isFeatured: true,
-    badge: 'ESPECIAL DE PÁSCOA',
-    isOffline: true
-  },
-  {
     id: 's2',
     category: ServiceCategory.SCHEDULED,
     name: 'O Círculo do Tempo',
@@ -31,7 +12,8 @@ export const SERVICES: Service[] = [
     price: 'R$ 225,00',
     image: 'https://img.freepik.com/premium-photo/magician-tarot-card-mysterious-3d-figure-channeling-energy-sky-earth_937679-88429.jpg',
     details: ['Perguntas ilimitadas dentro do tempo da sessão', 'Instrução de banho personalizada', 'Documento com direcionamentos da leitura (até 72h)',  'Análise dos campos: profissional, financeiro, saúde, espiritual, amoroso, energias e caminhos'],
-    isFeatured: false
+    isFeatured: true,
+    badge: 'LEITURA COMPLETA'
   },
   {
     id: 's3',

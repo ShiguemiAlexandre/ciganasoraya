@@ -23,7 +23,7 @@ const LandingPage: React.FC = () => {
   
   // Configuração do Hero: 3 itens base (Mantido para não alterar o Hero)
   const baseHeroServices = [
-    SERVICES.find(s => s.id === 's1'), 
+    SERVICES.find(s => s.id === 's2'), 
     SERVICES.find(s => s.id === 's4'), 
     SERVICES.find(s => s.id === 's3')
   ].filter(Boolean);

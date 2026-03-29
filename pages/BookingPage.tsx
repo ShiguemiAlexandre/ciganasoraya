@@ -22,15 +22,7 @@ const BookingPage: React.FC<BookingPageProps> = ({ addAppointment }) => {
     clientName: '',
     clientEmail: '',
     clientWhatsapp: '',
-    notes: '',
-    street: '',
-    number: '',
-    complement: '',
-    city: '',
-    state: '',
-    country: 'Brasil',
-    zipCode: '',
-    cpf: ''
+    notes: ''
   });
 
   const [loading, setLoading] = useState(false);
@@ -62,26 +54,15 @@ const BookingPage: React.FC<BookingPageProps> = ({ addAppointment }) => {
   }, 0);
   const totalPrice = basePrice > 0 ? basePrice + SERVICE_FEE : 0;
   const totalFormatted = `R$ ${totalPrice.toFixed(2).replace('.', ',')}`;
-  const isOvoDouradoSelected = formData.serviceIds.includes('s1');
 
   // Lógica de construção da mensagem movida para o corpo do componente para ser acessível em ambas as telas
   const serviceDetails = selectedServices.map(s => `• *${s.name}*: ${s.price}`).join('\n');
   
-  const addressInfo = isOvoDouradoSelected ? 
-    `📦 *DADOS PARA ENVIO (CORREIOS)*\n` +
-    `🏠 Rua: ${formData.street}, ${formData.number}\n` +
-    (formData.complement ? `🏢 Comp.: ${formData.complement}\n` : "") +
-    `🏙️ Cidade: ${formData.city} - ${formData.state}\n` +
-    `🌍 País: ${formData.country}\n` +
-    `📮 CEP: ${formData.zipCode}\n` +
-    `🪪 CPF: ${formData.cpf}\n\n` : "";
-
   const messageText = `✨ Olá! Gostaria de agendar uma consulta na PMC Cartomancia.\n\n` +
       `📌 *DADOS DO CONSULENTE*\n` +
       `👤 Nome: ${formData.clientName}\n` +
       `🕒 Período Preferido: ${formData.time}\n` +
       `💳 Forma de Pagamento: ${formData.paymentMethod}\n\n` +
-      addressInfo +
       `🔮 *ORÁCULOS ESCOLHIDOS*\n` +
       `${serviceDetails}\n\n` +
       `💰 *VALOR TOTAL: ${totalFormatted}*\n\n` +
@@ -131,17 +112,7 @@ const BookingPage: React.FC<BookingPageProps> = ({ addAppointment }) => {
         status: 'pending',
         notes: formData.notes,
         totalPrice: totalPrice,
-        createdAt: new Date().toISOString(),
-        address: isOvoDouradoSelected ? {
-          street: formData.street,
-          number: formData.number,
-          complement: formData.complement,
-          city: formData.city,
-          state: formData.state,
-          country: formData.country,
-          zipCode: formData.zipCode,
-          cpf: formData.cpf
-        } : undefined
+        createdAt: new Date().toISOString()
       };
       
       addAppointment(newAppt);
@@ -166,9 +137,6 @@ const BookingPage: React.FC<BookingPageProps> = ({ addAppointment }) => {
           </p>
           <div className="bg-black/40 p-6 rounded-2xl text-left border border-white/5 space-y-3">
              <div className="flex justify-between text-xs"><span className="text-gray-500 uppercase font-black tracking-widest">Serviços:</span> <span className="text-white font-bold">{selectedServices.map(s => s.name).join(', ')}</span></div>
-             {isOvoDouradoSelected && (
-               <div className="flex justify-between text-xs"><span className="text-gray-500 uppercase font-black tracking-widest">Entrega:</span> <span className="text-white font-bold">{formData.city} - {formData.state}</span></div>
-             )}
              <div className="flex justify-between text-xs"><span className="text-gray-500 uppercase font-black tracking-widest">Pagamento:</span> <span className="text-white font-bold">{formData.paymentMethod}</span></div>
              <div className="flex justify-between text-xs"><span className="text-gray-500 uppercase font-black tracking-widest">Total:</span> <span className="text-gold font-bold">R$ {totalPrice.toFixed(2).replace('.', ',')}</span></div>
           </div>
@@ -340,75 +308,6 @@ const BookingPage: React.FC<BookingPageProps> = ({ addAppointment }) => {
                           <input required type="text" placeholder="Como deseja ser chamado?" className="w-full pl-12 pr-4 py-4 bg-black/40 border border-white/10 rounded-2xl text-white outline-none focus:ring-2 focus:ring-gold/30" value={formData.clientName} onChange={e => setFormData({ ...formData, clientName: e.target.value })} />
                         </div>
                       </div>
-
-                      {isOvoDouradoSelected && (
-                        <div className="space-y-6 animate-in fade-in slide-in-from-top-4 duration-500">
-                          <div className="flex items-center space-x-3 p-4 bg-gold/5 border border-gold/20 rounded-2xl">
-                            <MapPin className="text-gold" size={20} />
-                            <h3 className="text-xs font-black uppercase tracking-widest text-white">Dados para Entrega (Correios)</h3>
-                          </div>
-
-                          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <div className="space-y-2">
-                              <label className="text-[10px] font-black uppercase text-purple-400 ml-2">Rua / Logradouro</label>
-                              <div className="relative">
-                                <MapPin className="absolute left-4 top-1/2 -translate-y-1/2 text-gold/50" size={16} />
-                                <input required type="text" placeholder="Ex: Rua das Flores" className="w-full pl-12 pr-4 py-3 bg-black/40 border border-white/10 rounded-xl text-white outline-none focus:ring-2 focus:ring-gold/30 text-sm" value={formData.street} onChange={e => setFormData({ ...formData, street: e.target.value })} />
-                              </div>
-                            </div>
-                            <div className="space-y-2">
-                              <label className="text-[10px] font-black uppercase text-purple-400 ml-2">Número</label>
-                              <div className="relative">
-                                <Hash className="absolute left-4 top-1/2 -translate-y-1/2 text-gold/50" size={16} />
-                                <input required type="text" placeholder="Ex: 123" className="w-full pl-12 pr-4 py-3 bg-black/40 border border-white/10 rounded-xl text-white outline-none focus:ring-2 focus:ring-gold/30 text-sm" value={formData.number} onChange={e => setFormData({ ...formData, number: e.target.value })} />
-                              </div>
-                            </div>
-                          </div>
-
-                          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <div className="space-y-2">
-                              <label className="text-[10px] font-black uppercase text-purple-400 ml-2">Complemento</label>
-                              <div className="relative">
-                                <Building className="absolute left-4 top-1/2 -translate-y-1/2 text-gold/50" size={16} />
-                                <input type="text" placeholder="Apto, Bloco, etc." className="w-full pl-12 pr-4 py-3 bg-black/40 border border-white/10 rounded-xl text-white outline-none focus:ring-2 focus:ring-gold/30 text-sm" value={formData.complement} onChange={e => setFormData({ ...formData, complement: e.target.value })} />
-                              </div>
-                            </div>
-                            <div className="space-y-2">
-                              <label className="text-[10px] font-black uppercase text-purple-400 ml-2">CEP</label>
-                              <div className="relative">
-                                <Map className="absolute left-4 top-1/2 -translate-y-1/2 text-gold/50" size={16} />
-                                <input required type="text" placeholder="00000-000" className="w-full pl-12 pr-4 py-3 bg-black/40 border border-white/10 rounded-xl text-white outline-none focus:ring-2 focus:ring-gold/30 text-sm" value={formData.zipCode} onChange={e => setFormData({ ...formData, zipCode: e.target.value })} />
-                              </div>
-                            </div>
-                          </div>
-
-                          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                            <div className="space-y-2">
-                              <label className="text-[10px] font-black uppercase text-purple-400 ml-2">Cidade</label>
-                              <input required type="text" placeholder="Cidade" className="w-full px-4 py-3 bg-black/40 border border-white/10 rounded-xl text-white outline-none focus:ring-2 focus:ring-gold/30 text-sm" value={formData.city} onChange={e => setFormData({ ...formData, city: e.target.value })} />
-                            </div>
-                            <div className="space-y-2">
-                              <label className="text-[10px] font-black uppercase text-purple-400 ml-2">Estado</label>
-                              <input required type="text" placeholder="UF" className="w-full px-4 py-3 bg-black/40 border border-white/10 rounded-xl text-white outline-none focus:ring-2 focus:ring-gold/30 text-sm" value={formData.state} onChange={e => setFormData({ ...formData, state: e.target.value })} />
-                            </div>
-                            <div className="space-y-2">
-                              <label className="text-[10px] font-black uppercase text-purple-400 ml-2">País</label>
-                              <div className="relative">
-                                <Flag className="absolute left-4 top-1/2 -translate-y-1/2 text-gold/50" size={16} />
-                                <input required type="text" placeholder="País" className="w-full pl-12 pr-4 py-3 bg-black/40 border border-white/10 rounded-xl text-white outline-none focus:ring-2 focus:ring-gold/30 text-sm" value={formData.country} onChange={e => setFormData({ ...formData, country: e.target.value })} />
-                              </div>
-                            </div>
-                          </div>
-
-                          <div className="space-y-2">
-                            <label className="text-[10px] font-black uppercase text-purple-400 ml-2">CPF do Destinatário</label>
-                            <div className="relative">
-                              <IdCard className="absolute left-4 top-1/2 -translate-y-1/2 text-gold/50" size={16} />
-                              <input required type="text" placeholder="000.000.000-00" className="w-full pl-12 pr-4 py-3 bg-black/40 border border-white/10 rounded-xl text-white outline-none focus:ring-2 focus:ring-gold/30 text-sm" value={formData.cpf} onChange={e => setFormData({ ...formData, cpf: e.target.value })} />
-                            </div>
-                          </div>
-                        </div>
-                      )}
                       
                       <div className="space-y-2">
                         <label className="text-[10px] font-black uppercase text-purple-400 ml-2">Notas Especiais (Opcional)</label>
