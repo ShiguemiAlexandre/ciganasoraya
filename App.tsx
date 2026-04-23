@@ -128,7 +128,7 @@ const NavigationContent = ({ user, handleLogout, isMenuOpen, setIsMenuOpen }: an
           <Link to="/" className={`transition-all duration-300 pb-1 border-b-2 ${isActive('/') ? 'text-white border-[#d4af37]' : 'text-gray-400 border-transparent hover:text-purple-300'}`}>Início</Link>
           <Link to="/jogos" className={`transition-all duration-300 pb-1 border-b-2 ${isActive('/jogos') ? 'text-white border-[#d4af37]' : 'text-gray-400 border-transparent hover:text-purple-300'}`}>Oráculos</Link>
           <Link to="/sobre" className={`transition-all duration-300 pb-1 border-b-2 ${isActive('/sobre') ? 'text-white border-[#d4af37]' : 'text-gray-400 border-transparent hover:text-purple-300'}`}>Sobre</Link>
-          <Link to="/curso" className="px-6 py-3 bg-white/5 text-gold rounded-full hover:bg-white/10 transition-all border border-gold/30">Curso</Link>
+          <Link to="/curso" className="px-6 py-3 bg-white/5 text-gold rounded-full hover:bg-white/10 transition-all border border-gold/30">Santuário</Link>
           <Link to="/agendar" className="px-6 py-3 bg-purple-600 text-white rounded-full hover:bg-purple-500 transition-all shadow-[0_0_15px_rgba(157,80,187,0.4)] border border-purple-400/20">Agendar Agora</Link>
           
           {user && user.role === 'admin' && (
@@ -160,27 +160,41 @@ const NavigationContent = ({ user, handleLogout, isMenuOpen, setIsMenuOpen }: an
             {/* Background Gradient */}
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(157,80,187,0.15)_0%,transparent_100%)] pointer-events-none"></div>
             
-            <div className="relative flex flex-col p-8 space-y-8">
-              <Link to="/" onClick={() => setIsMenuOpen(false)} className="text-2xl font-bold tracking-[0.2em] uppercase text-gray-300 hover:text-gold transition-colors flex items-center justify-between group">
+            <div className="relative flex flex-col p-8 space-y-6">
+              <Link to="/" onClick={() => setIsMenuOpen(false)} className="text-lg font-bold tracking-[0.2em] uppercase text-gray-400 hover:text-gold transition-colors flex items-center justify-between group px-2 py-4">
                 <span>Início</span>
-                <ChevronRight size={20} className="text-gold/30 group-hover:translate-x-1 transition-transform" />
+                <ChevronRight size={18} className="text-gold/20 group-hover:translate-x-1 transition-transform" />
               </Link>
-              <Link to="/jogos" onClick={() => setIsMenuOpen(false)} className="text-2xl font-bold tracking-[0.2em] uppercase text-gray-300 hover:text-gold transition-colors flex items-center justify-between group">
+              <Link to="/jogos" onClick={() => setIsMenuOpen(false)} className="text-lg font-bold tracking-[0.2em] uppercase text-gray-400 hover:text-gold transition-colors flex items-center justify-between group px-2 py-4">
                 <span>Nossos Oráculos</span>
-                <ChevronRight size={20} className="text-gold/30 group-hover:translate-x-1 transition-transform" />
+                <ChevronRight size={18} className="text-gold/20 group-hover:translate-x-1 transition-transform" />
               </Link>
-              <Link to="/sobre" onClick={() => setIsMenuOpen(false)} className="text-2xl font-bold tracking-[0.2em] uppercase text-gray-300 hover:text-gold transition-colors flex items-center justify-between group">
+              <Link to="/sobre" onClick={() => setIsMenuOpen(false)} className="text-lg font-bold tracking-[0.2em] uppercase text-gray-400 hover:text-gold transition-colors flex items-center justify-between group px-2 py-4">
                 <span>Quem sou eu</span>
-                <ChevronRight size={20} className="text-gold/30 group-hover:translate-x-1 transition-transform" />
+                <ChevronRight size={18} className="text-gold/20 group-hover:translate-x-1 transition-transform" />
               </Link>
-              <Link to="/curso" onClick={() => setIsMenuOpen(false)} className="text-2xl font-bold tracking-[0.2em] uppercase text-gold hover:text-white transition-colors flex items-center justify-between group">
-                <span>Curso de Maestria</span>
-                <ChevronRight size={20} className="text-white/30 group-hover:translate-x-1 transition-transform" />
-              </Link>
-              <Link to="/agendar" onClick={() => setIsMenuOpen(false)} className="text-2xl font-bold tracking-[0.2em] uppercase text-purple-400 hover:text-white transition-colors flex items-center justify-between group">
-                <span>Agendar Agora</span>
-                <ChevronRight size={20} className="text-purple-400/30 group-hover:translate-x-1 transition-transform" />
-              </Link>
+
+              <div className="pt-4 flex flex-col space-y-4">
+                {/* Secondary Style for Santuário */}
+                <Link 
+                  to="/curso" 
+                  onClick={() => setIsMenuOpen(false)} 
+                  className="w-full flex items-center justify-center space-x-3 px-8 py-5 bg-white/5 border border-gold/30 rounded-2xl text-gold font-black uppercase tracking-[0.2em] text-sm active:scale-95 transition-all shadow-lg"
+                >
+                  <Moon size={18} />
+                  <span>Santuário</span>
+                </Link>
+
+                {/* Primary Style for Agendar Agora */}
+                <Link 
+                  to="/agendar" 
+                  onClick={() => setIsMenuOpen(false)} 
+                  className="w-full flex items-center justify-center space-x-3 px-8 py-5 bg-purple-600 text-white rounded-2xl font-black uppercase tracking-[0.2em] text-sm active:scale-95 transition-all shadow-[0_10px_25px_rgba(168,85,247,0.4)] border border-purple-400/20"
+                >
+                  <Sparkles size={18} />
+                  <span>Agendar Agora</span>
+                </Link>
+              </div>
             </div>
           </motion.div>
         )}

@@ -36,6 +36,10 @@ const CoursePage: React.FC = () => {
   const HERO_IMAGE = "https://img.freepik.com/free-photo/mysterious-woman-holding-candle_23-2148118835.jpg";
 
   useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  useEffect(() => {
     if (isLoading) {
       document.body.style.overflow = 'hidden';
     } else {
@@ -100,11 +104,11 @@ const CoursePage: React.FC = () => {
     { title: "Prática Real", desc: "Resolução de consultas reais passo a passo para ganhar segurança." },
     { title: "Mesa Real", desc: "O método mais antigo e completo para previsões de longo prazo." },
     { title: "Assertividade", desc: "Alcançar a fluidez necessária para prever com precisão cirúrgica." },
-    { title: "Suporte Dedicado", desc: "Acompanhamento exclusivo durante 6 meses para tirar todas as suas dúvidas enquanto realiza o curso." }
+    { title: "Suporte Dedicado", desc: "Acompanhamento exclusivo durante 6 meses para tirar todas as suas dúvidas enquanto realiza o santuário." }
   ];
 
   const testimonials = [
-    { name: "Mariana S.", text: "O curso mudou minha percepção. Hoje atendo profissionalmente e recuperei o investimento em 1 mês!", role: "Aluna Formada" },
+    { name: "Mariana S.", text: "O santuário mudou minha percepção. Hoje atendo profissionalmente e recuperei o investimento em 1 mês!", role: "Aluna Formada" },
     { name: "Carlos R.", text: "A didática da Soraya é impecável. A Mesa Real, que era um bicho de sete cabeças, ficou simples.", role: "Cartomante em Evolução" },
     { name: "Luciana T.", text: "Suporte maravilhoso. Sinto que nunca estou sozinha na minha jornada.", role: "Nova Aluna" }
   ];
@@ -123,8 +127,8 @@ const CoursePage: React.FC = () => {
       answer: "O verdadeiro dom é ter um bom coração! A cartomancia é um método que une técnica e dedicação. Aqui você aprenderá tudo do absoluto zero, desde os fundamentos até o nível profissional."
     },
     {
-      question: "Vou ter suporte se comprar o Curso?",
-      answer: "Sim! Você terá suporte individual e dedicado durante 6 meses ou enquanto durar a realização do seu curso, via WhatsApp e e-mail."
+      question: "Vou ter suporte se comprar o Santuário?",
+      answer: "Sim! Você terá suporte individual e dedicado durante 6 meses ou enquanto durar a realização do seu santuário, via WhatsApp e e-mail."
     }
   ];
 
@@ -486,7 +490,7 @@ const CoursePage: React.FC = () => {
                  rotate: 1,
                  filter: "grayscale(0%)"
                }}
-               src="https://storage.googleapis.com/www.ciganasoraya.com/public/curso.jpg" 
+               src="https://storage.googleapis.com/www.ciganasoraya.com/public/santuario-hero.jpeg" 
                alt="Soraya" 
                referrerPolicy="no-referrer"
                className="relative z-10 w-full rounded-[3.5rem] border border-white/10 shadow-2xl grayscale-[30%] transition-all duration-700"
