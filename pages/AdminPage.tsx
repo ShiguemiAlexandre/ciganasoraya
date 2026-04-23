@@ -24,12 +24,12 @@ const AdminPage: React.FC<AdminPageProps> = ({ user, appointments, updateAppoint
   const [currentMonth, setCurrentMonth] = useState(new Date());
 
   const [dayConfigs, setDayConfigs] = useState<DayConfig[]>(() => {
-    const saved = localStorage.getItem('pmc_admin_calendar');
+    const saved = localStorage.getItem('soraya_admin_calendar');
     return saved ? JSON.parse(saved) : [];
   });
 
   useEffect(() => {
-    localStorage.setItem('pmc_admin_calendar', JSON.stringify(dayConfigs));
+    localStorage.setItem('soraya_admin_calendar', JSON.stringify(dayConfigs));
   }, [dayConfigs]);
 
   const formatDateValue = (date: Date) => {
@@ -186,7 +186,7 @@ const AdminPage: React.FC<AdminPageProps> = ({ user, appointments, updateAppoint
 
   return (
     <div className="min-h-screen bg-mystic-texture flex flex-col lg:flex-row">
-      <div className="lg:hidden bg-[#0d0517] p-6 flex items-center justify-between border-b border-white/5"><span className="serif font-bold text-white">PMC Admin</span><button className="text-gold" onClick={() => setIsMobileMenuOpen(true)}><Menu size={24} /></button></div>
+      <div className="lg:hidden bg-[#0d0517] p-6 flex items-center justify-between border-b border-white/5"><span className="serif font-bold text-white">Soraya Admin</span><button className="text-gold" onClick={() => setIsMobileMenuOpen(true)}><Menu size={24} /></button></div>
       {isMobileMenuOpen && <div className="fixed inset-0 bg-black/80 z-[60] lg:hidden" onClick={() => setIsMobileMenuOpen(false)}><div className="w-80 h-full bg-[#0d0517] p-10 border-r border-white/10" onClick={e => e.stopPropagation()}>
          <div className="flex justify-between items-center mb-12"><div className="flex items-center space-x-3 text-white serif font-bold"><Moon className="text-gold" /><span>Admin</span></div><button onClick={() => setIsMobileMenuOpen(false)} className="text-white"><X /></button></div>
          <nav className="space-y-6">
@@ -195,7 +195,7 @@ const AdminPage: React.FC<AdminPageProps> = ({ user, appointments, updateAppoint
       </div></div>}
       
       <div className="hidden lg:flex flex-col w-72 bg-[#0d0517] p-10 border-r border-white/10 shrink-0">
-         <div className="flex items-center space-x-3 text-white serif font-bold text-2xl mb-16"><Moon className="text-gold" /><span>PMC Admin</span></div>
+         <div className="flex items-center space-x-3 text-white serif font-bold text-2xl mb-16"><Moon className="text-gold" /><span>Soraya Admin</span></div>
          <nav className="space-y-4 flex-grow">
             {[{id:'dashboard', icon: LayoutDashboard}, {id:'agenda', icon: Calendar}].map(item => (
               <button key={item.id} onClick={() => setActiveTab(item.id as any)} className={`w-full flex items-center space-x-4 p-4 rounded-2xl transition-all font-bold text-[11px] uppercase tracking-widest ${activeTab === item.id ? 'bg-gold text-deep-purple shadow-xl shadow-gold/10' : 'text-gray-500 hover:text-white hover:bg-white/5'}`}>

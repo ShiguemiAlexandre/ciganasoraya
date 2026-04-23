@@ -37,11 +37,11 @@ const LoginPage: React.FC<LoginPageProps> = ({ onLogin }) => {
       }
 
       // Define se é admin baseado no e-mail padrão ou no seletor manual de desenvolvedor
-      const isAdmin = formData.email === 'admin@pmc.com' || forceAdmin;
+      const isAdmin = formData.email === 'admin@ciganasoraya.com' || forceAdmin;
       
       const user: User = {
         id: isAdmin ? 'admin-id' : 'user-' + Math.random().toString(36).substr(2, 5),
-        name: isLogin ? (isAdmin ? 'Admin PMC' : 'Irmão de Fé') : formData.name,
+        name: isLogin ? (isAdmin ? 'Admin Soraya' : 'Irmão de Fé') : formData.name,
         email: formData.email,
         role: isAdmin ? 'admin' : 'user'
       };
@@ -60,7 +60,7 @@ const LoginPage: React.FC<LoginPageProps> = ({ onLogin }) => {
             <Moon size={32} />
           </div>
           <h2 className="serif text-3xl font-bold mb-2 text-white">{isLogin ? 'Bem-vindo de volta' : 'Inicie sua jornada'}</h2>
-          <p className="text-gray-500 text-sm">Portal de Agendamento PMC</p>
+          <p className="text-gray-500 text-sm">Portal de Agendamento Cigana Soraya</p>
         </div>
 
         {error && <div className="mb-6 p-4 bg-red-900/20 text-red-400 rounded-2xl text-xs font-bold text-center border border-red-900/40">{error}</div>}

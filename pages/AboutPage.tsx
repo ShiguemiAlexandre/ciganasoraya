@@ -21,7 +21,7 @@ const AboutPage: React.FC = () => {
             <span className="text-purple-400 not-italic">Espiritual</span>
           </h1>
           <p className="text-lg md:text-xl text-gray-300 font-light max-w-2xl mx-auto leading-relaxed italic">
-            "A PMC Cartomancia nasceu no coração de um terreiro de Umbanda, com o propósito de levar clareza e acolhimento através dos oráculos sagrados."
+            "A Cigana Soraya nasceu no coração de um terreiro de Umbanda, com o propósito de levar clareza e acolhimento através dos oráculos sagrados."
           </p>
         </div>
       </section>
@@ -36,7 +36,7 @@ const AboutPage: React.FC = () => {
             </div>
             <div className="space-y-6 text-gray-400 leading-relaxed text-lg font-light">
               <p>
-                Diferente de previsões deterministas, a cartomancia na PMC é vista como um <span className="text-white italic">espelho da alma</span>. As cartas mostram as energias presentes no seu momento atual e os caminhos possíveis que se abrem diante de suas escolhas.
+                Diferente de previsões deterministas, a cartomancia com a Cigana Soraya é vista como um <span className="text-white italic">espelho da alma</span>. As cartas mostram as energias presentes no seu momento atual e os caminhos possíveis que se abrem diante de suas escolhas.
               </p>
               <p>
                 Através da intuição e do conhecimento técnico, o cartomante atua como um tradutor dos símbolos sagrados, conectando-os à sua realidade e aos conselhos da espiritualidade ancestral.

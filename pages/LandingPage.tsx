@@ -369,10 +369,10 @@ const LandingPage: React.FC = () => {
 
           <div className="space-y-12 md:space-y-16 animate-in slide-in-from-right-12 duration-1000 text-center lg:text-left">
             <div className="space-y-6">
-              <span className="text-gold text-[10px] font-black tracking-[0.5em] md:tracking-[0.6em] uppercase block mb-4 text-center lg:text-left">A Jornada na PMC</span>
+              <span className="text-gold text-[10px] font-black tracking-[0.5em] md:tracking-[0.6em] uppercase block mb-4 text-center lg:text-left">A Jornada com Soraya</span>
               <h2 className="serif text-4xl md:text-7xl text-white leading-tight text-center lg:text-left">Mais que cartas. <br /><span className="text-purple-400 italic">Direcionamento.</span></h2>
               <p className="text-gray-400 text-base md:text-xl font-light leading-relaxed max-w-xl mx-auto lg:mx-0 text-center lg:text-left">
-                Na PMC Cartomancia, cada leitura é conduzida com responsabilidade espiritual, sensibilidade e ética absoluta. Unimos a sabedoria ancestral aos caminhos do presente para te dar as chaves do seu futuro.
+                Com a Cigana Soraya, cada leitura é conduzida com responsabilidade espiritual, sensibilidade e ética absoluta. Unimos a sabedoria ancestral aos caminhos do presente para te dar as chaves do seu futuro.
               </p>
             </div>
 

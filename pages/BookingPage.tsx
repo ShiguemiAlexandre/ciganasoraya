@@ -58,7 +58,7 @@ const BookingPage: React.FC<BookingPageProps> = ({ addAppointment }) => {
   // Lógica de construção da mensagem movida para o corpo do componente para ser acessível em ambas as telas
   const serviceDetails = selectedServices.map(s => `• *${s.name}*: ${s.price}`).join('\n');
   
-  const messageText = `✨ Olá! Gostaria de agendar uma consulta na PMC Cartomancia.\n\n` +
+  const messageText = `✨ Olá! Gostaria de agendar uma consulta com a Cigana Soraya.\n\n` +
       `📌 *DADOS DO CONSULENTE*\n` +
       `👤 Nome: ${formData.clientName}\n` +
       `🕒 Período Preferido: ${formData.time}\n` +
@@ -103,7 +103,7 @@ const BookingPage: React.FC<BookingPageProps> = ({ addAppointment }) => {
       const newAppt: Appointment = {
         id: Math.random().toString(36).substr(2, 9),
         clientName: formData.clientName,
-        clientEmail: 'contato@pmc.com', 
+        clientEmail: 'contato@ciganasoraya.com', 
         clientWhatsapp: '5516988509762', 
         serviceId: formData.serviceIds.join(','),
         serviceName: selectedServices.map(s => s.name).join(' + '),
