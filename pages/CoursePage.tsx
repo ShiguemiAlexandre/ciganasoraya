@@ -12,7 +12,6 @@ import {
   BookOpen,
   Award,
   Video,
-  Star,
   Users,
   ShieldCheck,
   TrendingUp,
@@ -107,12 +106,6 @@ const CoursePage: React.FC = () => {
     { title: "Suporte Dedicado", desc: "Acompanhamento exclusivo durante 6 meses para tirar todas as suas dúvidas enquanto realiza o santuário." }
   ];
 
-  const testimonials = [
-    { name: "Mariana S.", text: "O santuário mudou minha percepção. Hoje atendo profissionalmente e recuperei o investimento em 1 mês!", role: "Aluna Formada" },
-    { name: "Carlos R.", text: "A didática da Soraya é impecável. A Mesa Real, que era um bicho de sete cabeças, ficou simples.", role: "Cartomante em Evolução" },
-    { name: "Luciana T.", text: "Suporte maravilhoso. Sinto que nunca estou sozinha na minha jornada.", role: "Nova Aluna" }
-  ];
-
   const faqs = [
     {
       question: "Quando será o lançamento?",
@@ -148,111 +141,112 @@ const CoursePage: React.FC = () => {
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="fixed inset-0 z-[3000] bg-[#050208] flex items-center justify-center overflow-hidden"
           >
-            {/* Nebulous Dust / Cosmic Clouds */}
+            {/* Nebulous Dust / Cosmic Clouds - Simplified blur for performance */}
             <div className="absolute inset-0 z-0">
               <motion.div 
                 animate={{ 
-                  scale: [1, 1.2, 1],
-                  opacity: [0.3, 0.5, 0.3],
-                  rotate: [0, 45, 0]
+                  scale: [1, 1.1, 1],
+                  opacity: [0.2, 0.4, 0.2],
                 }}
-                transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
-                className="absolute -top-[20%] -left-[20%] w-[80%] h-[80%] bg-[radial-gradient(circle,rgba(59,7,100,0.4)_0%,transparent_70%)] blur-[120px]"
+                transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                className="absolute -top-[10%] -left-[10%] w-full h-full bg-[radial-gradient(circle,rgba(59,7,100,0.3)_0%,transparent_70%)] blur-[60px] will-change-transform"
               />
               <motion.div 
                 animate={{ 
-                  scale: [1.2, 1, 1.2],
-                  opacity: [0.2, 0.4, 0.2],
-                  rotate: [0, -45, 0]
+                  scale: [1.1, 1, 1.1],
+                  opacity: [0.15, 0.3, 0.15],
                 }}
-                transition={{ duration: 12, repeat: Infinity, ease: "linear" }}
-                className="absolute -bottom-[20%] -right-[20%] w-[80%] h-[80%] bg-[radial-gradient(circle,rgba(30,27,75,0.4)_0%,transparent_70%)] blur-[120px]"
+                transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
+                className="absolute -bottom-[10%] -right-[10%] w-full h-full bg-[radial-gradient(circle,rgba(30,27,75,0.3)_0%,transparent_70%)] blur-[60px] will-change-transform"
               />
             </div>
 
-            {/* Galaxy Spiral (Portal effect) */}
+            {/* Galaxy Spiral (Portal effect) - Static rotation is fine */}
             <motion.div
               animate={{ rotate: 360 }}
-              transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-              className="absolute w-[800px] h-[800px] opacity-20 pointer-events-none"
+              transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+              className="absolute w-[800px] h-[800px] opacity-10 pointer-events-none will-change-transform"
             >
               <svg viewBox="0 0 200 200" className="w-full h-full text-purple-500">
                 <defs>
                   <radialGradient id="spiralGrad" cx="50%" cy="50%" r="50%">
-                    <stop offset="0%" stopColor="currentColor" stopOpacity="0.8" />
+                    <stop offset="0%" stopColor="currentColor" stopOpacity="0.6" />
                     <stop offset="100%" stopColor="currentColor" stopOpacity="0" />
                   </radialGradient>
                 </defs>
                 <path 
                   fill="none"
                   stroke="url(#spiralGrad)"
-                  strokeWidth="0.5"
+                  strokeWidth="0.4"
                   d="M100,100 C150,150 200,50 150,0 C100,50 50,100 0,150"
-                  className="opacity-50"
+                  className="opacity-40"
                 />
               </svg>
             </motion.div>
 
-            {/* Shooting Stars */}
-            {[...Array(4)].map((_, i) => (
+            {/* Shooting Stars - Reduced frequency */}
+            {[...Array(3)].map((_, i) => (
               <motion.div
                 key={`shooting-${i}`}
-                initial={{ x: "-100%", y: `${20 + i * 20}%`, opacity: 0 }}
+                initial={{ x: "-100%", y: `${25 + i * 25}%`, opacity: 0 }}
                 animate={{ 
                   x: "200%", 
-                  y: `${Math.random() * 100}%`,
-                  opacity: [0, 1, 0] 
+                  opacity: [0, 0.8, 0] 
                 }}
                 transition={{ 
-                  duration: 0.8 + Math.random(), 
-                  delay: 2 + i * 3, 
+                  duration: 1.2 + Math.random(), 
+                  delay: 3 + i * 4, 
                   repeat: Infinity,
-                  repeatDelay: 2 + Math.random() * 5
+                  repeatDelay: 5 + Math.random() * 5
                 }}
-                className="absolute w-32 h-[1px] bg-gradient-to-r from-transparent via-white to-transparent rotate-[-20deg] z-0"
+                className="absolute w-24 h-[1px] bg-gradient-to-r from-transparent via-white/50 to-transparent rotate-[-20deg] z-0 pointer-events-none"
               />
             ))}
 
-            {/* Supernova / Explosion Flash */}
+            {/* Supernova / Explosion Flash - Simplified */}
             <motion.div
               initial={{ scale: 0, opacity: 0 }}
               animate={{ 
-                scale: [0, 1.2, 1],
-                opacity: [0, 1, 0.8],
-                rotate: [0, 90]
+                scale: [0, 1.1, 1],
+                opacity: [0, 0.8, 0.6],
               }}
-              transition={{ duration: 2, ease: "easeOut" }}
-              className="absolute w-[600px] h-[600px] bg-[radial-gradient(circle,rgba(157,80,187,0.3)_0%,transparent_70%)] blur-3xl z-0"
+              transition={{ duration: 2.5, ease: "easeOut" }}
+              className="absolute w-[500px] h-[500px] bg-[radial-gradient(circle,rgba(157,80,187,0.2)_0%,transparent_70%)] blur-[40px] z-0 will-change-transform"
             />
             
-            {/* Explosive Particles */}
-            <div className="absolute inset-0 pointer-events-none z-20">
-              {[...Array(60)].map((_, i) => {
-                const angle = (Math.PI * 2 * i) / 60 + Math.random();
-                const distance = 400 + Math.random() * 600;
-                const size = 1 + Math.random() * 3;
+            {/* Explosive Particles - Optimized for visibility and performance */}
+            <div className="absolute inset-0 pointer-events-none z-20 overflow-hidden">
+              {[...Array(40)].map((_, i) => {
+                const angle = (Math.PI * 2 * i) / 40 + (Math.random() - 0.5) * 0.3;
+                const distance = 250 + Math.random() * 450;
+                const size = 3 + Math.random() * 4; // Increased size (3px to 7px)
                 return (
                   <motion.div
                     key={`p-${i}`}
                     style={{ 
                       willChange: "transform",
                       width: size, 
-                      height: size 
+                      height: size,
+                      filter: i % 4 === 0 ? "blur(1px)" : "none" // Subtle blur for some particles
                     }}
                     initial={{ x: 0, y: 0, opacity: 1, scale: 1 }}
                     animate={{ 
                       x: Math.cos(angle) * distance,
                       y: Math.sin(angle) * distance,
-                      opacity: [1, 0],
-                      scale: [1, 0],
+                      opacity: [1, 0.8, 0],
+                      scale: [1, 1.2, 0.2],
                     }}
                     transition={{ 
-                      duration: 1.2 + Math.random() * 0.8,
+                      duration: 1.2 + Math.random() * 1,
                       repeat: Infinity,
                       repeatDelay: Math.random() * 0.4,
                       ease: "easeOut"
                     }}
-                    className={`absolute left-1/2 top-1/2 rounded-full ${i % 3 === 0 ? 'bg-gold shadow-[0_0_10px_rgba(212,175,55,0.8)]' : i % 2 === 0 ? 'bg-purple-400 shadow-[0_0_10px_rgba(168,85,247,0.8)]' : 'bg-white shadow-[0_0_10px_rgba(255,255,255,0.8)]'}`}
+                    className={`absolute left-1/2 top-1/2 rounded-full ${
+                      i % 3 === 0 ? 'bg-gold shadow-[0_0_8px_rgba(212,175,55,0.6)]' : 
+                      i % 2 === 0 ? 'bg-purple-300 shadow-[0_0_8px_rgba(168,85,247,0.6)]' : 
+                      'bg-white shadow-[0_0_8px_rgba(255,255,255,0.6)]'
+                    }`}
                   />
                 );
               })}
@@ -720,8 +714,8 @@ const CoursePage: React.FC = () => {
         </div>
       </section>
 
-      {/* Testimonials */}
-      <section className="py-24 px-4 overflow-hidden">
+      {/* Oracles Taught Section */}
+      <section className="py-24 px-4 overflow-hidden bg-black/20">
         <div className="max-w-6xl mx-auto space-y-16">
           <motion.div 
             initial={{ opacity: 0, y: 30 }}
@@ -729,23 +723,31 @@ const CoursePage: React.FC = () => {
             viewport={{ once: true }}
             className="text-center space-y-4"
           >
-            <h2 className="serif text-4xl md:text-5xl font-bold italic underline decoration-gold/30 underline-offset-8">Quem já <span className="text-purple-400 not-italic">transformou</span> sua vida</h2>
-            <div className="flex justify-center space-x-1 text-gold">
-              {[1,2,3,4,5].map(i => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, scale: 0 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: 0.1 * i }}
-                >
-                  <Star size={16} fill="currentColor" />
-                </motion.div>
-              ))}
-            </div>
+            <h2 className="serif text-4xl md:text-5xl font-bold italic underline decoration-gold/30 underline-offset-8">A Trindade dos <span className="text-purple-400 not-italic">Oráculos</span></h2>
+            <p className="text-gray-500 text-[10px] font-black uppercase tracking-[0.5em]">O que você irá dominar neste Santuário</p>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {testimonials.map((t, idx) => (
+            {[
+              { 
+                name: "Tarô Clássico", 
+                desc: "A jornada arquetípica dos 78 arcanos. Aprenda a ler o destino através da simbologia universal e profunda.",
+                icon: BookOpen,
+                color: "text-purple-400"
+              },
+              { 
+                name: "Baralho Cigano", 
+                desc: "A magia do Petit Lenormand. Foco em respostas diretas, objetividade e clareza para questões do cotidiano.",
+                icon: Moon,
+                color: "text-gold"
+              },
+              { 
+                name: "Sibila Italiana", 
+                desc: "O oráculo dos segredos sociais e detalhes mundanos. Descubra as entrelinhas e as fofocas do destino.",
+                icon: Sparkles,
+                color: "text-blue-400"
+              }
+            ].map((oracle, idx) => (
               <motion.div 
                 key={idx}
                 initial={{ opacity: 0, y: 40 }}
@@ -753,21 +755,16 @@ const CoursePage: React.FC = () => {
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ delay: idx * 0.2, type: "spring" }}
                 whileHover={{ y: -10, scale: 1.02 }}
-                className="bg-white/5 p-10 rounded-[3rem] border border-white/5 space-y-6 italic relative group cursor-default"
+                className="bg-white/5 p-10 rounded-[3.5rem] border border-white/5 space-y-6 relative group cursor-default h-full flex flex-col items-center justify-center text-center"
               >
-                <div className="text-gold/20 absolute top-4 right-8 select-none group-hover:scale-150 group-hover:rotate-12 transition-transform duration-700">
-                  <Sparkles size={40} />
+                <div className={`p-6 rounded-3xl bg-white/5 ${oracle.color} border border-white/10 group-hover:scale-110 transition-transform duration-500 shadow-xl`}>
+                  <oracle.icon size={40} />
                 </div>
-                <p className="text-gray-300 font-light leading-relaxed relative z-10 group-hover:text-white transition-colors italic">"{t.text}"</p>
-                <div className="flex items-center space-x-4">
-                  <div className="w-10 h-10 bg-purple-600/20 rounded-full flex items-center justify-center text-purple-400 font-black text-[10px] group-hover:bg-purple-600 group-hover:text-white transition-all">
-                    {t.name[0]}
-                  </div>
-                  <div>
-                    <h5 className="text-white font-bold text-sm not-italic">{t.name}</h5>
-                    <p className="text-gray-500 text-[10px] uppercase font-bold tracking-widest not-italic group-hover:text-gold transition-colors">{t.role}</p>
-                  </div>
+                <div className="space-y-4">
+                  <h4 className="serif text-3xl font-bold text-white italic group-hover:text-gold transition-colors">{oracle.name}</h4>
+                  <p className="text-gray-400 font-light leading-relaxed italic">{oracle.desc}</p>
                 </div>
+                <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-[3.5rem] pointer-events-none"></div>
               </motion.div>
             ))}
           </div>
