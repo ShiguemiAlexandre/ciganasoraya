@@ -17,6 +17,15 @@ import { SERVICES } from '../constants';
 
 const LandingPage: React.FC = () => {
   const navigate = useNavigate();
+  const [showEventModal, setShowEventModal] = useState(false);
+
+  useEffect(() => {
+    // Show modal after a small delay
+    const timer = setTimeout(() => {
+      setShowEventModal(true);
+    }, 2000);
+    return () => clearTimeout(timer);
+  }, []);
 
   // Refs para os carrosséis
   const heroRef = useRef<HTMLDivElement>(null);
@@ -236,6 +245,61 @@ const LandingPage: React.FC = () => {
           </div>
         </div>
       </section>
+
+      <AnimatePresence>
+        {showEventModal && (
+          <div className="fixed inset-0 z-[5000] flex items-center justify-center p-4">
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setShowEventModal(false)}
+              className="absolute inset-0 bg-black/80 backdrop-blur-sm"
+            />
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.95 }}
+              className="relative w-auto max-w-[95vw] overflow-visible"
+            >
+              {/* Floating Close Button */}
+              <div className="absolute top-4 right-4 z-50">
+                <button 
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setShowEventModal(false);
+                  }}
+                  className="p-2 bg-black/50 text-white/70 rounded-full hover:bg-gold hover:text-black transition-all border border-white/10 backdrop-blur-md"
+                >
+                  <X size={24} />
+                </button>
+              </div>
+
+              {/* Main Image Content */}
+              <div 
+                className="relative flex justify-center items-center cursor-pointer overflow-visible p-4 md:p-8"
+                onClick={() => {
+                  setShowEventModal(false);
+                  navigate('/agendar?serviceId=s_fortuna');
+                }}
+              >
+                {/* Golden Glow Behind Image - High Intensity Volumetric Glow */}
+                <div className="absolute inset-0 z-0 flex items-center justify-center pointer-events-none scale-125">
+                  <div className="w-[120%] h-[120%] bg-gold/40 rounded-full blur-[140px] animate-pulse-slow"></div>
+                  <div className="absolute w-[80%] h-[80%] bg-yellow-500/30 rounded-full blur-[100px]"></div>
+                  <div className="absolute w-[40%] h-[40%] bg-white/20 rounded-full blur-[60px] animate-pulse"></div>
+                </div>
+
+                <img 
+                  src="https://storage.googleapis.com/www.ciganasoraya.com/public/event.jpeg" 
+                  alt="O Chamado da Fortuna" 
+                  className="relative z-10 h-[80vh] w-auto max-w-full object-contain block drop-shadow-[0_0_100px_rgba(212,175,55,0.7)] transition-all duration-700 hover:scale-[1.01] rounded-3xl"
+                />
+              </div>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
 
       {/* CONHEÇA OS JOGOS: Carrossel Mobile Otimizado (Lista Base Única com Wrap) */}
       <section className="py-20 md:py-32 px-0 bg-black/10 relative overflow-hidden">
