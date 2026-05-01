@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Sparkles, Clock, ChevronRight, X, Info, ArrowRight, Star, MessageCircle, HelpCircle, Rabbit, ChevronDown } from 'lucide-react';
+import { Sparkles, Clock, ChevronRight, X, Info, ArrowRight, Star, MessageCircle, HelpCircle, ChevronDown } from 'lucide-react';
 import { SERVICES } from '../constants';
 import { Service } from '../types';
 import { motion, AnimatePresence } from 'motion/react';
@@ -33,7 +33,7 @@ const CatalogPage: React.FC = () => {
     <div className="min-h-screen py-24 px-4 bg-mystic-texture relative overflow-hidden">
       {/* Background Floating Orbs */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-30">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-600/20 rounded-full blur-[120px] animate-pulse"></div>
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gold/10 rounded-full blur-[120px] animate-pulse"></div>
         <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-gold/5 rounded-full blur-[150px] animate-pulse" style={{ animationDelay: '2s' }}></div>
       </div>
 
@@ -43,15 +43,12 @@ const CatalogPage: React.FC = () => {
              <Sparkles size={14} className="animate-spin-slow" />
              <span>Obras da Espiritualidade</span>
           </div>
-          <h1 className="serif text-5xl md:text-7xl text-white italic">Nosso Catálogo <span className="text-purple-400 not-italic">Oficial</span></h1>
+          <h1 className="serif text-5xl md:text-7xl text-white italic">Nosso Catálogo <span className="text-gold not-italic">Oficial</span></h1>
           <p className="text-gray-500 max-w-2xl mx-auto text-lg font-light tracking-wide">
             Explore as ferramentas sagradas que a Cigana Soraya dispõe para iluminar sua caminhada.
           </p>
           
-          <div className="flex flex-col items-center mt-12">
-            <div className="w-24 h-[1px] bg-gradient-to-r from-transparent via-gold/50 to-transparent animate-pulse"></div>
-            <Rabbit size={18} className="text-gold/20 mt-4 animate-pulse" />
-          </div>
+
         </div>
 
         {/* Catalog Grid */}
@@ -99,10 +96,6 @@ const CatalogPage: React.FC = () => {
 
               {/* Card Body */}
               <div className="p-10 flex flex-col flex-grow relative">
-                {game.isFeatured && (
-                  <div className="absolute inset-0 bg-gold/5 pointer-events-none animate-pulse"></div>
-                )}
-
                 <h3 className={`serif text-3xl mb-6 transition-colors duration-500 ${game.isFeatured ? 'text-gold' : 'text-white group-hover:text-gold'}`}>
                   {game.name}
                 </h3>
@@ -117,7 +110,7 @@ const CatalogPage: React.FC = () => {
                       <span className="text-white font-bold text-xl group-hover:text-gold transition-colors">{game.price}</span>
                     </div>
                     {game.duration && (
-                      <span className="text-[9px] text-purple-400 font-black uppercase tracking-widest mt-1 opacity-70 group-hover:opacity-100 transition-opacity">{game.duration}</span>
+                      <span className="text-[9px] text-gold font-black uppercase tracking-widest mt-1 opacity-70 group-hover:opacity-100 transition-opacity">{game.duration}</span>
                     )}
                   </div>
                   <button 
@@ -133,7 +126,7 @@ const CatalogPage: React.FC = () => {
                   className={`w-full mt-8 py-4 rounded-2xl font-black text-xs uppercase tracking-widest transition-all duration-500 shadow-xl border overflow-hidden relative group/btn
                     ${game.isFeatured 
                       ? 'bg-gradient-to-r from-gold via-yellow-500 to-gold text-deep-purple border-gold hover:brightness-110' 
-                      : 'bg-white/5 text-white border-white/10 hover:bg-purple-600 hover:border-purple-500'
+                      : 'bg-white/5 text-white border-white/10 hover:bg-gold hover:border-gold hover:text-deep-purple'
                     }`}
                 >
                   <span className="relative z-10 flex items-center justify-center space-x-2">
@@ -148,7 +141,7 @@ const CatalogPage: React.FC = () => {
 
         {/* Footer Support Section */}
         <div className="mt-16 text-center p-8 bg-white/5 border border-white/10 rounded-[2rem] max-w-3xl mx-auto animate-in fade-in slide-in-from-bottom-4 duration-1000">
-           <div className="w-12 h-12 bg-purple-600/10 rounded-full flex items-center justify-center text-purple-400 mx-auto mb-4 border border-purple-500/10">
+           <div className="w-12 h-12 bg-gold/10 rounded-full flex items-center justify-center text-gold mx-auto mb-4 border border-gold/10">
              <HelpCircle size={24} />
            </div>
            <h3 className="serif text-xl text-white mb-2">Dúvidas sobre o oráculo ideal?</h3>
@@ -225,8 +218,8 @@ const CatalogPage: React.FC = () => {
                       </p>
                       
                       <div className="space-y-4">
-                        <h4 className="text-[10px] font-black text-purple-400 uppercase tracking-widest flex items-center">
-                          <div className="w-6 h-[1px] bg-purple-400/30 mr-3"></div>
+                        <h4 className="text-[10px] font-black text-gold uppercase tracking-widest flex items-center">
+                          <div className="w-6 h-[1px] bg-gold/30 mr-3"></div>
                           Incluso na Sessão
                         </h4>
                         <ul className="grid grid-cols-1 gap-3">
@@ -247,7 +240,7 @@ const CatalogPage: React.FC = () => {
                       <div className="text-center md:text-left">
                         <div className="text-white font-bold text-3xl">{selectedGame.price}</div>
                         {selectedGame.duration && (
-                          <div className="text-[10px] text-purple-400 uppercase tracking-widest mt-1 font-black">
+                          <div className="text-[10px] text-gold uppercase tracking-widest mt-1 font-black">
                             Duração: {selectedGame.duration}
                           </div>
                         )}
@@ -256,7 +249,7 @@ const CatalogPage: React.FC = () => {
                       <div className="flex flex-col gap-4">
                         <button 
                           onClick={() => navigate(`/agendar?serviceId=${selectedGame.id}`)}
-                          className="flex items-center justify-center space-x-2 px-8 py-5 rounded-full font-black text-xs uppercase tracking-[0.2em] transition-all bg-gradient-to-r from-purple-600 to-purple-500 text-white hover:brightness-110 active:scale-95 shadow-[0_10px_30px_rgba(157,80,187,0.3)]"
+                          className="flex items-center justify-center space-x-2 px-8 py-5 rounded-full font-black text-xs uppercase tracking-[0.2em] transition-all bg-gradient-to-r from-gold via-yellow-500 to-gold text-deep-purple hover:brightness-110 active:scale-95 shadow-[0_10px_30px_rgba(212,175,55,0.3)]"
                         >
                           <span>Reservar este Horário</span>
                           <ChevronRight size={18} />

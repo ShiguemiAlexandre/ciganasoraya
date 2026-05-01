@@ -25,6 +25,7 @@ import LoginPage from './pages/LoginPage';
 import AdminPage from './pages/AdminPage';
 import AboutPage from './pages/AboutPage';
 import CoursePage from './pages/CoursePage';
+import CookieConsent from './components/CookieConsent';
 
 const UrgencyBar = () => {
   const location = useLocation();
@@ -117,12 +118,47 @@ const NavigationContent = ({ user, handleLogout, isMenuOpen, setIsMenuOpen }: an
     <nav className="relative z-[1001] bg-[#1a0b2e]/90 backdrop-blur-xl border-b border-purple-500/10 px-4 py-4 md:px-8">
       <div className="max-w-7xl mx-auto flex justify-between items-center relative z-[1001]">
         <Link to="/" className="flex items-center space-x-3 group">
-          <div className="w-12 h-12 bg-purple-600 rounded-full flex items-center justify-center text-gold shadow-[0_0_15px_rgba(157,80,187,0.6)] transition-transform group-hover:scale-110">
-            <Moon size={24} />
-          </div>
-          <div className="flex flex-col">
-            <span className="serif font-bold text-xl md:text-2xl leading-tight text-white whitespace-nowrap">Cigana Soraya</span>
-          </div>
+          <motion.div 
+            whileHover="hover"
+            className="flex items-center space-x-3"
+          >
+            <div className="w-12 h-12 bg-purple-600 rounded-full flex items-center justify-center text-gold shadow-[0_0_15px_rgba(157,80,187,0.6)] relative overflow-visible transition-transform group-hover:scale-105">
+              {/* Cosmic Dust Particles - Increased intensity and count */}
+              {[...Array(12)].map((_, i) => (
+                <motion.div
+                  key={i}
+                  className="absolute rounded-full"
+                  style={{
+                    backgroundColor: i % 3 === 0 ? '#fff' : '#d4af37',
+                    boxShadow: i % 3 === 0 ? '0 0 6px #fff' : '0 0 6px #d4af37',
+                    width: '3px',
+                    height: '3px',
+                    left: '50%',
+                    top: '50%',
+                  }}
+                  initial={{ opacity: 0, x: -1.5, y: -1.5 }}
+                  variants={{
+                    hover: {
+                      x: (Math.cos(i * (360 / 12) * (Math.PI / 180)) * (28 + Math.random() * 15)) - 1.5,
+                      y: (Math.sin(i * (360 / 12) * (Math.PI / 180)) * (28 + Math.random() * 15)) - 1.5,
+                      opacity: [0, 1, 0.6, 0],
+                      scale: [0, 1.4, 0.7, 0],
+                      transition: {
+                        duration: 1.5 + Math.random() * 1,
+                        repeat: Infinity,
+                        ease: "easeOut",
+                        delay: i * 0.08,
+                      }
+                    }
+                  }}
+                />
+              ))}
+              <Moon size={24} className="relative z-10" />
+            </div>
+            <div className="flex flex-col">
+              <span className="serif font-bold text-xl md:text-2xl leading-tight text-white whitespace-nowrap">Cigana Soraya</span>
+            </div>
+          </motion.div>
         </Link>
         <div className="hidden md:flex items-center space-x-10 text-[11px] uppercase tracking-[0.2em] font-bold">
           <Link to="/" className={`transition-all duration-300 pb-1 border-b-2 ${isActive('/') ? 'text-white border-[#d4af37]' : 'text-gray-400 border-transparent hover:text-purple-300'}`}>Início</Link>
@@ -181,7 +217,7 @@ const NavigationContent = ({ user, handleLogout, isMenuOpen, setIsMenuOpen }: an
                   onClick={() => setIsMenuOpen(false)} 
                   className="w-full flex items-center justify-center space-x-3 px-8 py-5 bg-white/5 border border-gold/30 rounded-2xl text-gold font-black uppercase tracking-[0.2em] text-sm active:scale-95 transition-all shadow-lg"
                 >
-                  <Moon size={18} />
+                  <Sparkles size={18} />
                   <span>Santuário</span>
                 </Link>
 
@@ -247,11 +283,11 @@ const FooterContent = () => {
         <p className="text-[10px] uppercase tracking-[0.3em] text-gray-500">
           © {new Date().getFullYear()} Cigana Soraya. O atendimento espiritual não substitui ajuda médica.
         </p>
-        <div className="mt-6 flex items-center justify-center space-x-3 text-[9px] text-gray-600 font-medium opacity-40 hover:opacity-100 transition-opacity duration-500 tracking-widest">
+        <div className="mt-6 flex items-center justify-center space-x-3 text-[12px] text-gray-600 font-medium opacity-50 hover:opacity-100 transition-opacity duration-500 tracking-widest">
           <a href="https://www.japantech.com.br/" target="_blank" rel="noopener noreferrer" className="hover:text-gold transition-colors">
             Desenvolvido pela Japantech
           </a>
-          <span className="text-[10px] font-normal">伊藤</span>
+          <span className="font-normal">伊藤</span>
         </div>
       </div>
     </footer>
@@ -315,6 +351,7 @@ const AppContent: React.FC = () => {
         </Routes>
       </main>
       <FooterContent />
+      <CookieConsent />
     </div>
   );
 };

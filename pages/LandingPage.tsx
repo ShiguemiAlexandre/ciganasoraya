@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
+import { motion, AnimatePresence } from 'motion/react';
 import { 
   Sparkles, 
-  Moon, 
   ShieldCheck, 
   ChevronRight, 
   ChevronLeft,
@@ -10,13 +10,14 @@ import {
   Clock, 
   FileText, 
   Navigation,
-  Shield
+  Shield,
+  X
 } from 'lucide-react';
 import { SERVICES } from '../constants';
 
 const LandingPage: React.FC = () => {
   const navigate = useNavigate();
-  
+
   // Refs para os carrosséis
   const heroRef = useRef<HTMLDivElement>(null);
   const catalogRef = useRef<HTMLDivElement>(null);
@@ -130,13 +131,6 @@ const LandingPage: React.FC = () => {
     });
   };
 
-  const MysticDivider = () => (
-    <div className="relative w-full h-[1px] my-4 overflow-visible">
-      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-gold/30 to-transparent animate-pulse"></div>
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 bg-deep-purple border border-gold/40 rounded-full rotate-45 shadow-[0_0_10px_rgba(212,175,55,0.3)]"></div>
-    </div>
-  );
-
   return (
     <div className="overflow-hidden">
       {/* Hero Section */}
@@ -243,8 +237,6 @@ const LandingPage: React.FC = () => {
         </div>
       </section>
 
-      <MysticDivider />
-
       {/* CONHEÇA OS JOGOS: Carrossel Mobile Otimizado (Lista Base Única com Wrap) */}
       <section className="py-20 md:py-32 px-0 bg-black/10 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 md:px-0">
@@ -337,8 +329,6 @@ const LandingPage: React.FC = () => {
         </div>
       </section>
 
-      <MysticDivider />
-
       {/* EXPERIENCE SECTION */}
       <section className="relative py-24 md:py-32 px-4 bg-[#0d0517] overflow-hidden">
         <div className="absolute inset-0 z-0 opacity-20 bg-[linear-gradient(45deg,transparent_25%,rgba(157,80,187,0.05)_50%,transparent_75%)] bg-[length:200%_200%] animate-pulse"></div>
@@ -357,7 +347,7 @@ const LandingPage: React.FC = () => {
                     <div className="w-14 h-14 rounded-full bg-gold/10 border border-gold/30 flex items-center justify-center text-gold shadow-lg transition-all duration-500">
                       {i === 0 && <Shield size={22} />}
                       {i === 1 && <Navigation size={22} />}
-                      {i === 2 && <Moon size={22} className="fill-gold/40 text-gold" strokeWidth={1.5} />}
+                      {i === 2 && <Sparkles size={22} className="text-gold" />}
                       {i === 3 && <Eye size={22} />}
                       {i === 4 && <Sparkles size={22} />}
                     </div>
@@ -381,7 +371,7 @@ const LandingPage: React.FC = () => {
                 { icon: ShieldCheck, title: "Atendimento Reservado", desc: "Sua privacidade é sagrada e protegida sob sigilo absoluto em todas as sessões." },
                 { icon: Clock, title: "Tempo Dedicado", desc: "Sessões pontuais, profundas e sem pressa, respeitando o seu momento de conexão." },
                 { icon: FileText, title: "Orientações Pós-Consulta", desc: "Receba resumos, indicações de banhos ou conselhos práticos para sua caminhada." },
-                { icon: Moon, title: "Ética & Sensibilidade", desc: "Um ambiente de acolhimento real, livre de julgamentos e pautado na verdade espiritual." }
+                { icon: Sparkles, title: "Ética & Sensibilidade", desc: "Um ambiente de acolhimento real, livre de julgamentos e pautado na verdade espiritual." }
               ].map((item, i) => (
                 <div key={i} className="group p-6 bg-white/5 border border-white/5 rounded-3xl hover:border-purple-500/30 hover:bg-white/10 transition-all duration-500 hover:shadow-[0_0_30px_rgba(157,80,187,0.1)] text-left">
                   <item.icon className="text-gold mb-4 group-hover:scale-110 transition-transform" size={28} />
@@ -406,8 +396,6 @@ const LandingPage: React.FC = () => {
           </div>
         </div>
       </section>
-
-      <MysticDivider />
     </div>
   );
 };

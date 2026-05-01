@@ -20,6 +20,7 @@ const BookingPage: React.FC<BookingPageProps> = ({ addAppointment }) => {
     time: '',
     paymentMethod: '',
     clientName: '',
+    clientBirthDate: '',
     clientEmail: '',
     clientWhatsapp: '',
     notes: ''
@@ -27,6 +28,21 @@ const BookingPage: React.FC<BookingPageProps> = ({ addAppointment }) => {
 
   const [loading, setLoading] = useState(false);
   const [confirmed, setConfirmed] = useState(false);
+
+  // Função para formatar data de nascimento (DD/MM/AAAA)
+  const handleBirthDateChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    let value = e.target.value.replace(/\D/g, ''); // Remove tudo que não é número
+    if (value.length > 8) value = value.slice(0, 8);
+    
+    // Aplica a máscara
+    if (value.length > 4) {
+      value = `${value.slice(0, 2)}/${value.slice(2, 4)}/${value.slice(4)}`;
+    } else if (value.length > 2) {
+      value = `${value.slice(0, 2)}/${value.slice(2)}`;
+    }
+    
+    setFormData({ ...formData, clientBirthDate: value });
+  };
 
   // Efeito para capturar serviceId da URL e pré-selecionar sem pular de etapa
   useEffect(() => {
@@ -49,25 +65,41 @@ const BookingPage: React.FC<BookingPageProps> = ({ addAppointment }) => {
 
   const selectedServices = SERVICES.filter(s => formData.serviceIds.includes(s.id));
   const basePrice = selectedServices.reduce((acc, s) => {
-    const priceNum = parseFloat(s.price.replace('R$ ', '').replace('.', '').replace(',', '.'));
-    return acc + priceNum;
+    const numericPart = s.price.replace('R$ ', '').replace(/\./g, '').replace(',', '.');
+    const priceNum = parseFloat(numericPart);
+    return acc + (isNaN(priceNum) ? 0 : priceNum);
   }, 0);
   const totalPrice = basePrice > 0 ? basePrice + SERVICE_FEE : 0;
-  const totalFormatted = `R$ ${totalPrice.toFixed(2).replace('.', ',')}`;
+  const totalFormatted = basePrice > 0 
+    ? `R$ ${totalPrice.toFixed(2).replace('.', ',')}`
+    : 'A combinar';
 
   // Lógica de construção da mensagem movida para o corpo do componente para ser acessível em ambas as telas
   const serviceDetails = selectedServices.map(s => `• *${s.name}*: ${s.price}`).join('\n');
   
-  const messageText = `✨ Olá! Gostaria de agendar uma consulta com a Cigana Soraya.\n\n` +
-      `📌 *DADOS DO CONSULENTE*\n` +
-      `👤 Nome: ${formData.clientName}\n` +
-      `🕒 Período Preferido: ${formData.time}\n` +
-      `💳 Forma de Pagamento: ${formData.paymentMethod}\n\n` +
-      `🔮 *ORÁCULOS ESCOLHIDOS*\n` +
+  // Emojis em formato Unicode para máxima compatibilidade
+  const emojiSparkles = "\u2728";
+  const emojiFolder = "\uD83D\uDCC1"; // Folder icon
+  const emojiUser = "\uD83D\uDC64";
+  const emojiCalendar = "\uD83D\uDCC5";
+  const emojiClock = "\uD83D\uDD52";
+  const emojiCard = "\uD83D\uDCB3";
+  const emojiCrystal = "\uD83D\uDD2E";
+  const emojiMoney = "\uD83D\uDCB0";
+  const emojiNote = "\uD83D\uDCDD";
+  const emojiHeart = "\uD83E\uDD0D";
+
+  const messageText = `${emojiSparkles} Olá! Gostaria de agendar uma consulta com a Cigana Soraya.\n\n` +
+      `${emojiFolder} *DADOS DO CONSULENTE*\n` +
+      `${emojiUser} Nome: ${formData.clientName}\n` +
+      `${emojiCalendar} Nascimento: ${formData.clientBirthDate}\n` +
+      (formData.time ? `${emojiClock} Período Preferido: ${formData.time}\n` : '') +
+      `${emojiCard} Forma de Pagamento: ${formData.paymentMethod}\n\n` +
+      `${emojiCrystal} *ORÁCULOS ESCOLHIDOS*\n` +
       `${serviceDetails}\n\n` +
-      `💰 *VALOR TOTAL: ${totalFormatted}*\n\n` +
-      (formData.notes ? `📝 *NOTAS:*\n${formData.notes}\n\n` : "") +
-      `🤍 Fico no aguardo da confirmação do dia e horário exato para realizar o pagamento. Gratidão! ✨`;
+      `${emojiMoney} *VALOR TOTAL: ${totalFormatted}*\n\n` +
+      (formData.notes ? `${emojiNote} *NOTAS:*\n${formData.notes}\n\n` : "") +
+      `${emojiHeart} Fico no aguardo da confirmação do dia e horário exato para realizar o pagamento. Gratidão! ${emojiSparkles}`;
 
   const PERIODS = [
     { id: 'Manhã', label: 'Manhã', range: '09h às 12h', icon: Sunrise },
@@ -97,14 +129,14 @@ const BookingPage: React.FC<BookingPageProps> = ({ addAppointment }) => {
     
     const whatsappNumber = "5516988509762";
     // Normalização NFC garante que emojis não quebrem no encoding da URL
-    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(messageText.normalize('NFC'))}`;
+    const whatsappUrl = `https://api.whatsapp.com/send?phone=${whatsappNumber}&text=${encodeURIComponent(messageText)}`;
 
     setTimeout(() => {
       const newAppt: Appointment = {
         id: Math.random().toString(36).substr(2, 9),
         clientName: formData.clientName,
-        clientEmail: 'contato@ciganasoraya.com', 
-        clientWhatsapp: '5516988509762', 
+        clientEmail: formData.clientEmail || 'contato@ciganasoraya.com', 
+        clientWhatsapp: formData.whatsapp, 
         serviceId: formData.serviceIds.join(','),
         serviceName: selectedServices.map(s => s.name).join(' + '),
         date: formData.date,
@@ -143,7 +175,7 @@ const BookingPage: React.FC<BookingPageProps> = ({ addAppointment }) => {
           <div className="flex flex-col space-y-4">
             {/* Botão de Reabrir agora inclui a mensagem completa para manter a estrutura original */}
             <button 
-              onClick={() => window.open(`https://wa.me/5516988509762?text=${encodeURIComponent(messageText.normalize('NFC'))}`, '_blank')} 
+              onClick={() => window.open(`https://api.whatsapp.com/send?phone=5516988509762&text=${encodeURIComponent(messageText)}`, '_blank')} 
               className="w-full py-4 bg-green-600 text-white rounded-full font-bold uppercase text-[10px] tracking-widest hover:bg-green-500 transition-all shadow-lg active:scale-95"
             >
               Reabrir WhatsApp com Mensagem
@@ -194,10 +226,18 @@ const BookingPage: React.FC<BookingPageProps> = ({ addAppointment }) => {
                 <div className="flex justify-center">
                   <button 
                     disabled={formData.serviceIds.length === 0} 
-                    onClick={() => setStep(2)} 
+                    onClick={() => {
+                      if (formData.serviceIds.includes('s_fortuna') && formData.serviceIds.length === 1) {
+                        setStep(3);
+                      } else {
+                        setStep(2);
+                      }
+                    }} 
                     className={GoldButtonClasses}
                   >
-                    Escolher Período de Atendimento
+                    {formData.serviceIds.includes('s_fortuna') && formData.serviceIds.length === 1 
+                      ? 'Escolher Pagamento' 
+                      : 'Escolher Período de Atendimento'}
                   </button>
                 </div>
               </div>
@@ -254,7 +294,18 @@ const BookingPage: React.FC<BookingPageProps> = ({ addAppointment }) => {
 
             {step === 3 && (
               <div className="animate-in fade-in slide-in-from-right-4 duration-700">
-                <button onClick={() => setStep(2)} className="flex items-center text-[10px] font-black text-purple-400 mb-10 uppercase tracking-[0.4em] hover:text-gold transition-colors"><ChevronLeft size={16} className="mr-2" /> Voltar à Disponibilidade</button>
+                <button 
+                  onClick={() => {
+                    if (formData.serviceIds.includes('s_fortuna') && formData.serviceIds.length === 1) {
+                      setStep(1);
+                    } else {
+                      setStep(2);
+                    }
+                  }} 
+                  className="flex items-center text-[10px] font-black text-purple-400 mb-10 uppercase tracking-[0.4em] hover:text-gold transition-colors"
+                >
+                  <ChevronLeft size={16} className="mr-2" /> {formData.serviceIds.includes('s_fortuna') && formData.serviceIds.length === 1 ? 'Alterar Oráculos' : 'Voltar à Disponibilidade'}
+                </button>
                 
                 <div className="max-w-2xl mx-auto space-y-12 text-center">
                   <div className="space-y-4">
@@ -308,6 +359,23 @@ const BookingPage: React.FC<BookingPageProps> = ({ addAppointment }) => {
                           <input required type="text" placeholder="Como deseja ser chamado?" className="w-full pl-12 pr-4 py-4 bg-black/40 border border-white/10 rounded-2xl text-white outline-none focus:ring-2 focus:ring-gold/30" value={formData.clientName} onChange={e => setFormData({ ...formData, clientName: e.target.value })} />
                         </div>
                       </div>
+
+                      <div className="space-y-2">
+                        <label className="text-[10px] font-black uppercase text-purple-400 ml-2">Data de Nascimento</label>
+                        <div className="relative">
+                          <IdCard className="absolute left-4 top-1/2 -translate-y-1/2 text-gold" size={18} />
+                          <input 
+                            required 
+                            type="text" 
+                            inputMode="numeric"
+                            placeholder="DD/MM/AAAA" 
+                            className="w-full pl-12 pr-4 py-4 bg-black/40 border border-white/10 rounded-2xl text-white outline-none focus:ring-2 focus:ring-gold/30" 
+                            value={formData.clientBirthDate} 
+                            onChange={handleBirthDateChange}
+                            maxLength={10} 
+                          />
+                        </div>
+                      </div>
                       
                       <div className="space-y-2">
                         <label className="text-[10px] font-black uppercase text-purple-400 ml-2">Notas Especiais (Opcional)</label>
@@ -350,9 +418,13 @@ const BookingPage: React.FC<BookingPageProps> = ({ addAppointment }) => {
                       </a>
                     </div>
 
-                    <div className="p-6 bg-gold/5 border border-gold/20 rounded-2xl flex items-start space-x-4">
-                      <Info className="text-gold shrink-0" size={18} />
-                      <p className="text-[10px] text-gray-400 leading-relaxed italic">"Ao clicar no botão acima, você será direcionado ao WhatsApp da cartomante com os dados preenchidos."</p>
+                    <div className="p-6 bg-gold/5 border border-gold/20 rounded-2xl flex items-center space-x-4">
+                      <div className="w-8 h-8 rounded-full bg-gold/10 flex items-center justify-center shrink-0">
+                        <ExternalLink className="text-gold" size={14} />
+                      </div>
+                      <p className="text-[10px] text-gray-400 leading-relaxed font-medium italic">
+                        "Seus dados serão enviados de forma segura. Ao confirmar, você será redirecionado para concluir o agendamento diretamente no WhatsApp."
+                      </p>
                     </div>
                   </div>
                 </div>

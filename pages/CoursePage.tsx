@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
+import { useNavigate } from 'react-router-dom';
 import { 
   CheckCircle2, 
   Play, 
@@ -23,6 +24,7 @@ import {
 } from 'lucide-react';
 
 const CoursePage: React.FC = () => {
+  const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(true);
   const [cosmicDust, setCosmicDust] = useState<{ id: number; x: number; y: number; color: string }[]>([]);
   const [timeLeft, setTimeLeft] = useState({
