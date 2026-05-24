@@ -145,21 +145,4 @@ export const SERVICES: Service[] = [
     ],
     isOffline: true
   },
-  {
-    id: 's_fortuna',
-    category: ServiceCategory.DELIVERY,
-    name: 'O Chamado da Fortuna',
-    description: 'Um ritual de prosperidade e abertura de caminhos. Sinta a energia da abundância fluindo em sua vida através deste chamado ancestral.',
-    duration: '24h',
-    price: 'R$ 50,00',
-    isHidden: true,
-    image: 'https://storage.googleapis.com/www.ciganasoraya.com/public/event.jpeg',
-    details: [
-      'Ritual de Prosperidade',
-      'Abertura de Caminhos Financeiros',
-      'Atração de Abundância',
-      'Energização pessoal'
-    ],
-    isFeatured: false
-  }
 ];

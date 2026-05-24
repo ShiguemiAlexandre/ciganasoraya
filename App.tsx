@@ -27,64 +27,6 @@ import AboutPage from './pages/AboutPage';
 import CoursePage from './pages/CoursePage';
 import CookieConsent from './components/CookieConsent';
 
-const UrgencyBar = () => {
-  const location = useLocation();
-  const [timeLeft, setTimeLeft] = useState({
-    days: 0,
-    hours: 0,
-    minutes: 0,
-    seconds: 0
-  });
-
-  const showBar = location.pathname === '/' || location.pathname === '/curso';
-
-  useEffect(() => {
-    if (!showBar) return;
-    
-    const launchDate = new Date('2026-05-24T00:00:00').getTime();
-    
-    const timer = setInterval(() => {
-      const now = new Date().getTime();
-      const distance = launchDate - now;
-      
-      if (distance < 0) {
-        clearInterval(timer);
-        return;
-      }
-      
-      setTimeLeft({
-        days: Math.floor(distance / (1000 * 60 * 60 * 24)),
-        hours: Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
-        minutes: Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)),
-        seconds: Math.floor((distance % (1000 * 60)) / 1000)
-      });
-    }, 1000);
-    return () => clearInterval(timer);
-  }, [showBar]);
-
-  if (!showBar) return null;
-
-  return (
-    <div className="relative w-full z-[900] bg-[#1a0b2e] backdrop-blur-xl border-b border-purple-500/10 py-2 md:py-2.5 px-4 transition-all duration-500">
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-center items-center space-y-1 md:space-y-0 md:space-x-12">
-        <div className="flex items-center space-x-3 text-[10px] md:text-xs font-black uppercase tracking-[0.2em] text-white text-center md:text-left leading-tight">
-          <Sparkles size={14} className="animate-pulse text-gold hidden sm:block" />
-          <span className="text-gold">Lançamento Oficial:</span>
-          <span className="text-white">24 de Maio</span>
-        </div>
-        <div className="flex items-center space-x-6">
-          <span className="text-[9px] font-bold uppercase tracking-widest text-purple-300/60 hidden md:inline">Contagem Regressiva:</span>
-          <div className="flex space-x-4 md:space-x-4 font-mono text-xs md:text-base font-black text-white">
-            <div className="flex flex-col items-center"><span className="text-gold">{timeLeft.days}</span><span className="text-[7px] md:text-[8px] opacity-40 -mt-1">DIAS</span></div>
-            <div className="flex flex-col items-center"><span className="text-gold">{String(timeLeft.hours).padStart(2, '0')}</span><span className="text-[7px] md:text-[8px] opacity-40 -mt-1">HRS</span></div>
-            <div className="flex flex-col items-center"><span className="text-gold">{String(timeLeft.minutes).padStart(2, '0')}</span><span className="text-[7px] md:text-[8px] opacity-40 -mt-1">MIN</span></div>
-            <div className="flex flex-col items-center"><span className="text-gold">{String(timeLeft.seconds).padStart(2, '0')}</span><span className="text-[7px] md:text-[8px] opacity-40 -mt-1">SEG</span></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-};
 
 const ProtectedRoute = ({ user, children, adminOnly = false }: { user: User | null, children?: React.ReactNode, adminOnly?: boolean }) => {
   if (!user) {
@@ -330,13 +272,10 @@ const AppContent: React.FC = () => {
     localStorage.setItem('soraya_appointments', JSON.stringify(updated));
   };
 
-  const showUrgencyBar = location.pathname === '/' || location.pathname === '/curso';
-
   return (
     <div className="min-h-screen flex flex-col bg-mystic-texture">
       <header className="sticky top-0 z-[1000] w-full">
         <NavigationContent user={user} handleLogout={handleLogout} isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
-        <UrgencyBar />
       </header>
       <main className="flex-grow">
         <Routes>
