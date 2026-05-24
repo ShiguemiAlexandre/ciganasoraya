@@ -20,19 +20,12 @@ import {
   Zap,
   Flame,
   Moon,
-  Calendar
 } from 'lucide-react';
 
 const CoursePage: React.FC = () => {
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(true);
   const [cosmicDust, setCosmicDust] = useState<{ id: number; x: number; y: number; color: string }[]>([]);
-  const [timeLeft, setTimeLeft] = useState({
-    days: 0,
-    hours: 0,
-    minutes: 0,
-    seconds: 0
-  });
 
   const HERO_IMAGE = "https://img.freepik.com/free-photo/mysterious-woman-holding-candle_23-2148118835.jpg";
 
@@ -68,27 +61,6 @@ const CoursePage: React.FC = () => {
     });
   }, []);
 
-  useEffect(() => {
-    const launchDate = new Date('2026-05-24T00:00:00').getTime();
-    
-    const timer = setInterval(() => {
-      const now = new Date().getTime();
-      const distance = launchDate - now;
-      
-      if (distance < 0) {
-        clearInterval(timer);
-        return;
-      }
-      
-      setTimeLeft({
-        days: Math.floor(distance / (1000 * 60 * 60 * 24)),
-        hours: Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
-        minutes: Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)),
-        seconds: Math.floor((distance % (1000 * 60)) / 1000)
-      });
-    }, 1000);
-    return () => clearInterval(timer);
-  }, []);
 
   const handleMoonClick = () => {
     const newDust = Array.from({ length: 12 }).map(() => ({
@@ -359,7 +331,7 @@ const CoursePage: React.FC = () => {
             >
               <Zap size={16} className="text-gold" />
             </motion.div>
-            <span className="drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)] text-white">Prepare-se para o <span className="text-gold font-black">Grande Dia</span></span>
+            <span className="drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)] text-white">Santuário <span className="text-gold font-black">Disponível Agora</span></span>
           </motion.div>
 
           <motion.h1 
@@ -402,21 +374,26 @@ const CoursePage: React.FC = () => {
             transition={{ delay: 1, type: "spring" }}
             className="flex flex-col items-center pt-10 space-y-6"
           >
-            <motion.div 
+            <motion.a
+              href="/checkout"
               whileHover={{ scale: 1.05, y: -10 }}
               transition={{ type: "spring", stiffness: 300 }}
-              className="bg-white/5 border border-white/10 p-10 rounded-[3rem] w-full max-w-lg backdrop-blur-2xl shadow-[0_30px_100px_rgba(0,0,0,0.5)] relative overflow-hidden group border-t-purple-500/30 cursor-pointer"
+              className="bg-gradient-to-br from-purple-700/80 to-purple-900/80 border border-gold/30 p-10 rounded-[3rem] w-full max-w-lg backdrop-blur-2xl shadow-[0_30px_100px_rgba(157,80,187,0.4)] relative overflow-hidden group cursor-pointer block"
             >
               <div className="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-30 transition-all duration-700 transform group-hover:rotate-[30deg] group-hover:scale-150">
-                <Calendar size={120} />
+                <Sparkles size={120} />
               </div>
               <div className="space-y-6">
-                <div className="flex flex-col items-center">
-                  <h3 className="serif text-3xl font-bold text-gold group-hover:tracking-wider transition-all duration-500 italic">Lançamento em Breve</h3>
-                  <p className="text-gray-400 text-sm mt-2 uppercase tracking-widest font-bold">24 de Maio</p>
+                <div className="flex flex-col items-center space-y-3">
+                  <h3 className="serif text-3xl font-bold text-gold group-hover:tracking-wider transition-all duration-500 italic">Garantir Minha Vaga</h3>
+                  <p className="text-gray-300 text-sm uppercase tracking-widest font-bold">Acesso Imediato ao Santuário</p>
+                  <div className="flex items-center space-x-2 text-green-400 text-xs font-bold uppercase tracking-widest">
+                    <ShieldCheck size={14} />
+                    <span>Pagamento Seguro via Mercado Pago</span>
+                  </div>
                 </div>
               </div>
-            </motion.div>
+            </motion.a>
             <motion.p 
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -525,52 +502,36 @@ const CoursePage: React.FC = () => {
         </div>
 
         <div className="max-w-6xl mx-auto space-y-16 relative z-10">
-          <motion.div
+          <motion.a
+            href="/checkout"
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
+            whileHover={{ scale: 1.02 }}
             viewport={{ once: true }}
-            className="flex flex-col items-center justify-center space-y-4 mb-20 bg-white/5 border border-white/10 p-8 rounded-[3rem] backdrop-blur-xl shadow-2xl relative group overflow-hidden"
+            className="flex flex-col items-center justify-center space-y-4 mb-20 bg-gradient-to-br from-purple-700/40 to-purple-900/40 border border-gold/30 p-8 rounded-[3rem] backdrop-blur-xl shadow-2xl relative group overflow-hidden cursor-pointer block"
           >
             <div className="absolute -top-10 -right-10 w-40 h-40 bg-gold/5 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
             <div className="flex flex-col md:flex-row items-center justify-center space-y-6 md:space-y-0 md:space-x-12">
               <div className="flex items-center space-x-4">
                 <div className="w-12 h-12 bg-gold/10 text-gold rounded-2xl flex items-center justify-center shadow-lg group-hover:rotate-12 transition-transform">
-                  <Calendar size={24} />
+                  <Sparkles size={24} />
                 </div>
                 <div>
-                  <p className="text-[10px] font-black uppercase tracking-[0.3em] text-gold/60">Lançamento Oficial</p>
-                  <p className="text-2xl font-bold text-white italic">24 de Maio</p>
+                  <p className="text-[10px] font-black uppercase tracking-[0.3em] text-gold/60">Santuário</p>
+                  <p className="text-2xl font-bold text-white italic">Disponível Agora</p>
                 </div>
               </div>
 
               <div className="hidden md:block h-12 w-[1px] bg-white/10"></div>
 
-              <div className="flex flex-col items-center">
-                <p className="text-[10px] font-black uppercase tracking-[0.3em] text-purple-300/60 mb-2">Contagem Regressiva</p>
-                <div className="flex items-center space-x-5">
-                  <div className="flex flex-col items-center min-w-[50px]">
-                    <span className="text-3xl font-black text-white">{timeLeft.days}</span>
-                    <span className="text-[9px] font-bold text-gold/40 uppercase">Dias</span>
-                  </div>
-                  <span className="text-white/20 font-black mb-4 text-xl">:</span>
-                  <div className="flex flex-col items-center min-w-[50px]">
-                    <span className="text-3xl font-black text-white">{String(timeLeft.hours).padStart(2, '0')}</span>
-                    <span className="text-[9px] font-bold text-gold/40 uppercase">Hrs</span>
-                  </div>
-                  <span className="text-white/20 font-black mb-4 text-xl">:</span>
-                  <div className="flex flex-col items-center min-w-[50px]">
-                    <span className="text-3xl font-black text-white">{String(timeLeft.minutes).padStart(2, '0')}</span>
-                    <span className="text-[9px] font-bold text-gold/40 uppercase">Min</span>
-                  </div>
-                  <span className="text-white/20 font-black mb-4 text-xl">:</span>
-                  <div className="flex flex-col items-center min-w-[50px]">
-                    <span className="text-3xl font-black text-gold animate-pulse">{String(timeLeft.seconds).padStart(2, '0')}</span>
-                    <span className="text-[9px] font-bold text-gold/40 uppercase">Seg</span>
-                  </div>
-                </div>
+              <div className="flex flex-col items-center space-y-2">
+                <p className="text-[10px] font-black uppercase tracking-[0.3em] text-purple-300/60">Garanta sua vaga</p>
+                <span className="px-8 py-3 bg-purple-600 text-white rounded-full font-black uppercase tracking-[0.2em] text-sm shadow-[0_0_20px_rgba(157,80,187,0.5)] border border-purple-400/20 group-hover:bg-purple-500 transition-colors">
+                  Inscrever-me Agora
+                </span>
               </div>
             </div>
-          </motion.div>
+          </motion.a>
 
           <div className="text-center space-y-4">
             <motion.div
