@@ -375,7 +375,7 @@ const CoursePage: React.FC = () => {
             className="flex flex-col items-center pt-10 space-y-6"
           >
             <motion.a
-              href="/checkout"
+              href="https://www.ciganasoraya.com/checkout"
               whileHover={{ scale: 1.05, y: -10 }}
               transition={{ type: "spring", stiffness: 300 }}
               className="bg-gradient-to-br from-purple-700/80 to-purple-900/80 border border-gold/30 p-10 rounded-[3rem] w-full max-w-lg backdrop-blur-2xl shadow-[0_30px_100px_rgba(157,80,187,0.4)] relative overflow-hidden group cursor-pointer block"
@@ -503,7 +503,7 @@ const CoursePage: React.FC = () => {
 
         <div className="max-w-6xl mx-auto space-y-16 relative z-10">
           <motion.a
-            href="/checkout"
+            href="https://www.ciganasoraya.com/checkout"
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             whileHover={{ scale: 1.02 }}
