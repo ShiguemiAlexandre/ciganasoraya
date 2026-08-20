@@ -81,23 +81,6 @@ export const SERVICES: Service[] = [
     isFeatured: false
   },
   {
-    id: 's7',
-    category: ServiceCategory.DELIVERY,
-    name: 'Mapa Astral',
-    description: 'Análise de: Sol, Ascendente, Lua, Meio do Céu, Parte da Fortuna. Foco em: Autoconhecimento, Potenciais, Desenvolvimento pessoal, Caminhos profissionais.',
-    price: 'R$ 97,00',
-    image: 'https://img.freepik.com/premium-photo/paper-frames-decorative-backgrounds-vintageinspired-urban-themes-creative-templates_1020495-135976.jpg',
-    details: [
-      'Análise de Sol, Ascendente, Lua, Meio do Céu e Parte da Fortuna',
-      'Identificação de qualidades a serem desenvolvidas',
-      'Reconhecimento de potenciais e pontos fortes',
-      'Direcionamento para áreas de maior realização pessoal e profissional',
-      'Leitura focada em autoconhecimento e compreensão da personalidade',
-      'Documento com direcionamentos da leitura (até 72h)'
-    ],
-    isOffline: true
-  },
-  {
     id: 's8',
     category: ServiceCategory.DELIVERY,
     name: 'Três Perguntas',
