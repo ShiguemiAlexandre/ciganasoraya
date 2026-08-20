@@ -264,7 +264,7 @@ const LandingPage: React.FC = () => {
             <div 
               ref={catalogRef}
               onScroll={() => handleScroll(catalogRef, setActiveCatalogIdx, previewServices.length, 0.75)}
-              className={`relative z-10 w-full flex overflow-x-auto custom-scrollbar-hide snap-x snap-mandatory px-[12.5vw] md:grid md:grid-cols-4 md:gap-8 md:px-4 md:overflow-visible`}
+              className={`relative z-10 w-full flex overflow-x-auto custom-scrollbar-hide snap-x snap-mandatory px-[12.5vw] md:grid md:grid-cols-3 md:gap-8 md:px-4 md:max-w-4xl md:mx-auto md:overflow-visible`}
               style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
             >
               {previewServices.map((game, idx) => {
