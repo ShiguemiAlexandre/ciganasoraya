@@ -8,7 +8,7 @@ export const SERVICES: Service[] = [
     category: ServiceCategory.SCHEDULED,
     name: 'O Círculo do Tempo',
     description: 'Leitura completa com Mesa Real (Baralho Cigano) e Tarot (aprofundamentos). Análise: Profissional, Financeiro, Saúde, Espiritual, Amoroso, Energias e caminhos. Perguntas ilimitadas dentro do tempo. Envio de orientações + banho energético personalizado.',
-    duration: '1h30',
+    duration: '1h',
     price: 'R$ 225,00',
     image: 'https://img.freepik.com/premium-photo/magician-tarot-card-mysterious-3d-figure-channeling-energy-sky-earth_937679-88429.jpg',
     details: ['Perguntas ilimitadas dentro do tempo da sessão', 'Instrução de banho personalizada', 'Documento com direcionamentos da leitura (até 72h)',  'Análise dos campos: profissional, financeiro, saúde, espiritual, amoroso, energias e caminhos'],
