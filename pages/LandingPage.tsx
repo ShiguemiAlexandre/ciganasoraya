@@ -292,7 +292,6 @@ const LandingPage: React.FC = () => {
                       <div className="absolute inset-0 bg-gradient-to-t from-[#1a0b2e] via-[#1a0b2e]/30 to-transparent"></div>
                       <div className="absolute bottom-0 inset-x-0 p-6 md:p-8 flex flex-col items-center text-center pointer-events-none">
                         <div className={`w-full transition-transform duration-500 ${isActiveMobile || (!isMobile && hoveredPreviewIdx === idx) ? '-translate-y-2' : 'translate-y-0'}`}>
-                          <h4 className={`serif text-base md:text-xl mb-3 transition-colors ${isActiveMobile || (!isMobile && hoveredPreviewIdx === idx) ? 'text-gold' : 'text-white'}`}>{game.name}</h4>
                           <div className={`flex items-center justify-center space-x-2 text-[8px] font-black text-purple-400 uppercase tracking-widest transition-opacity duration-500 ${(isMobile && isActiveMobile) || (!isMobile && hoveredPreviewIdx === idx) ? 'opacity-100' : 'opacity-0'}`}>
                             <Eye size={12} />
                             <span>Explorar Oráculo</span>

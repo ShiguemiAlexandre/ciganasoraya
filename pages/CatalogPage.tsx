@@ -198,7 +198,7 @@ const CatalogPage: React.FC = () => {
               {/* Full Scrollable Container */}
               <div className="flex flex-col md:flex-row w-full overflow-y-auto md:overflow-hidden">
                 {/* Image Section */}
-                <div className="w-full md:w-1/2 min-h-[300px] md:h-auto overflow-hidden relative shrink-0">
+                <div className="w-full md:w-1/2 aspect-[2/3] md:aspect-auto md:h-auto overflow-hidden relative shrink-0">
                   <div className="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-[#1a0b2e] via-transparent to-transparent z-10"></div>
                   <img src={selectedGame.image} className="w-full h-full object-cover grayscale-[10%]" alt={selectedGame.name} />
                 </div>
