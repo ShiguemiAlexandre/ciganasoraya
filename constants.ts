@@ -19,10 +19,17 @@ export const SERVICES: Service[] = [
     id: 's3',
     category: ServiceCategory.DELIVERY,
     name: 'Mesa Real',
-    description: 'Leitura pela Mesa Real (Baralho Cigano). Sem perguntas objetivas — apenas interpretação espiritual e dúvidas sobre o que sair no jogo. Ideal para quem deseja ouvir a espiritualidade sem direcionamento prévio.',
+    description: 'Leitura da Mesa Real é realizada para compreender como estão seus caminhos, trazendo aconselhamentos e direcionamentos para cada área da vida. A leitura apresenta previsões para o futuro e mensagens da espiritualidade sobre os campos profissional, financeiro, amoroso, espiritual e da saúde. É ideal para quem prefere receber uma visão dos caminhos, em vez de fazer perguntas específicas.',
     price: 'R$ 170,00',
     image: 'https://img.freepik.com/free-photo/high-angle-occult-items-assortment_23-2149413250.jpg',
-    details: ['Análise dos caminhos considerando passado, presente e possibilidades futuras', 'Não são permitidas perguntas objetivas ao baralho', 'Interpretação Espiritual', 'Dúvidas apenas sobre os pontos revelados no jogo'],
+    details: [
+      'Compreensão de como estão seus caminhos',
+      'Aconselhamentos e direcionamentos para cada área da vida',
+      'Previsões para o futuro e mensagens da espiritualidade',
+      'Análise dos campos profissional, financeiro, amoroso, espiritual e da saúde',
+      'Não são permitidas perguntas objetivas ao baralho',
+      'Ideal para quem prefere uma visão dos caminhos em vez de perguntas específicas'
+    ],
     isOffline: true
   },
   {
