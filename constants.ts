@@ -29,7 +29,7 @@ export const SERVICES: Service[] = [
     id: 's4',
     category: ServiceCategory.SCHEDULED,
     name: 'Caminho de Ouro',
-    description: 'Foco: Vida profissional, Finanças, Carreira, Decisões e crescimento. Ferramentas: Mesa Real Profissional, Tarot, Astrologia (Mapa Astral). Perguntas objetivas durante o atendimento.',
+    description: 'Leitura voltada para compreender como estão os caminhos profissionais, financeiros e de estudos, trazendo previsões, tendências e os movimentos necessários para o momento. Ideal para quem busca um norte para a vida profissional, deseja tomar decisões mais conscientes e entender quais caminhos podem favorecer seu crescimento. A leitura também inclui uma análise de pontos importantes do Mapa Astral, identificando áreas e possibilidades mais compatíveis com você, além de orientar onde direcionar sua energia para alcançar maior fluidez no campo profissional e quais momentos são mais favoráveis para descanso e recuperação.',
     duration: '50 min',
     price: 'R$ 167,00',
     image: 'https://img.freepik.com/premium-photo/fortune-teller-secret-world-full-art-science-psychic_563241-71362.jpg',
