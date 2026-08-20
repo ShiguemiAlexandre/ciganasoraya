@@ -10,7 +10,7 @@ export const SERVICES: Service[] = [
     description: 'Leitura completa com Mesa Real (Baralho Cigano) e Tarot (aprofundamentos). Análise: Profissional, Financeiro, Saúde, Espiritual, Amoroso, Energias e caminhos. Perguntas ilimitadas dentro do tempo. Envio de orientações + banho energético personalizado.',
     duration: '1h',
     price: 'R$ 225,00',
-    image: 'https://img.freepik.com/premium-photo/magician-tarot-card-mysterious-3d-figure-channeling-energy-sky-earth_937679-88429.jpg',
+    image: 'https://storage.googleapis.com/www.ciganasoraya.com/public/circulo-do-tempo.jpeg',
     details: ['Perguntas ilimitadas dentro do tempo da sessão', 'Instrução de banho personalizada', 'Documento com direcionamentos da leitura (até 72h)',  'Análise dos campos: profissional, financeiro, saúde, espiritual, amoroso, energias e caminhos'],
     isFeatured: true,
     badge: 'LEITURA COMPLETA'
@@ -21,7 +21,7 @@ export const SERVICES: Service[] = [
     name: 'Mesa Real',
     description: 'Leitura da Mesa Real é realizada para compreender como estão seus caminhos, trazendo aconselhamentos e direcionamentos para cada área da vida. A leitura apresenta previsões para o futuro e mensagens da espiritualidade sobre os campos profissional, financeiro, amoroso, espiritual e da saúde. É ideal para quem prefere receber uma visão dos caminhos, em vez de fazer perguntas específicas.',
     price: 'R$ 170,00',
-    image: 'https://img.freepik.com/free-photo/high-angle-occult-items-assortment_23-2149413250.jpg',
+    image: 'https://storage.googleapis.com/www.ciganasoraya.com/public/mesa-real.jpeg',
     details: [
       'Compreensão de como estão seus caminhos',
       'Aconselhamentos e direcionamentos para cada área da vida',
@@ -60,7 +60,7 @@ export const SERVICES: Service[] = [
     description: 'Análise: Relacionamentos, Sentimentos, Intenções, Bloqueios afetivos. Oráculos: Mesa Real do Amor, Tarot, Sibilla Italiana. Perguntas permitidas dentro do tempo.',
     duration: '45 min',
     price: 'R$ 139,00',
-    image: 'https://img.freepik.com/premium-photo/lover-tarot-logo-art-architecture-archangel_53876-444418.jpg',
+    image: 'https://storage.googleapis.com/www.ciganasoraya.com/public/espelho%20coracao.jpeg',
     details: [
       'Mesa Real do Amor (Baralho Cigano)',
       'Aprofundamento com Tarot',
@@ -79,7 +79,7 @@ export const SERVICES: Service[] = [
     description: 'Perguntas objetivas sobre qualquer área da vida. Respostas claras com análise de passado, presente e futuro.',
     duration: '30 min',
     price: 'R$ 99,00',
-    image: 'https://img.freepik.com/premium-photo/golden-staircase-starry-sky_53876-1192822.jpg',
+    image: 'https://storage.googleapis.com/www.ciganasoraya.com/public/direcao-destino.jpeg',
     details: [
       'Perguntas objetivas sobre qualquer área da vida dentro do tempo da sessão',
       'Análise das influências do passado, presente e futuro',
@@ -94,7 +94,7 @@ export const SERVICES: Service[] = [
     name: 'Três Perguntas',
     description: 'Três perguntas objetivas ao Baralho Cigano. Resposta via canais digitais.',
     price: 'R$ 80,00',
-    image: 'https://img.freepik.com/premium-photo/tarot-card-with-candlelight-darkness-background-astrology-occult-magic-illustration-ma_926199-4103996.jpg',
+    image: 'https://storage.googleapis.com/www.ciganasoraya.com/public/tres-perguntas.jpeg',
     details: [
       'Baralho Cigano',
       'Três perguntas objetivas',
@@ -110,7 +110,7 @@ export const SERVICES: Service[] = [
     name: 'Uma Pergunta',
     description: 'Uma pergunta objetiva ao Baralho Cigano.',
     price: 'R$ 50,00',
-    image: 'https://img.freepik.com/premium-photo/tarot-card-with-candlelight-darkness-background-astrology-occult-magic-illustration-ma_926199-4115328.jpg',
+    image: 'https://storage.googleapis.com/www.ciganasoraya.com/public/uma-pergunta.jpeg',
     details: [
       'Baralho Cigano',
       '1 pergunta objetiva',
