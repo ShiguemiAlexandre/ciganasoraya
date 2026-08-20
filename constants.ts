@@ -114,22 +114,6 @@ export const SERVICES: Service[] = [
     isOffline: true
   },
   {
-    id: 's9',
-    category: ServiceCategory.DELIVERY,
-    name: 'O Silêncio do Vento',
-    description: 'Experiência sensorial escrita. Sem fala direta da cartomante. Inclui imagens ou vídeos energéticos. Indicado para: Reflexão profunda, Conexão emocional, Decisões internas.',
-    price: 'R$ 60,00',
-    image: 'https://img.freepik.com/premium-photo/celestial-woman-reaching-star-violet_886588-36469.jpg',
-    details: [
-      'Conselho e direcionamento indireto por escrito',
-      'Leitura sensível e intuitiva',
-      'Experiência com imagens ou vídeos selecionados',
-      'Reflexão e conexão interior',
-      'Entregue em até 48h'
-    ],
-    isOffline: true
-  },
-  {
     id: 's10',
     category: ServiceCategory.DELIVERY,
     name: 'Uma Pergunta',
