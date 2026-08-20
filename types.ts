@@ -17,6 +17,7 @@ export interface Service {
   details: string[];
   isOffline?: boolean;
   active?: boolean;
+  isHidden?: boolean;
 }
 
 export interface Appointment {

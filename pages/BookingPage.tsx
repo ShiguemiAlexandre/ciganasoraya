@@ -136,7 +136,7 @@ const BookingPage: React.FC<BookingPageProps> = ({ addAppointment }) => {
         id: Math.random().toString(36).substr(2, 9),
         clientName: formData.clientName,
         clientEmail: formData.clientEmail || 'contato@ciganasoraya.com', 
-        clientWhatsapp: formData.whatsapp,
+        clientWhatsapp: formData.clientWhatsapp,
         serviceId: formData.serviceIds.join(','),
         serviceName: selectedServices.map(s => s.name).join(' + '),
         date: formData.date,
