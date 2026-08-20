@@ -211,11 +211,11 @@ const LandingPage: React.FC = () => {
                       <img 
                         src={service.image} 
                         alt={service.name} 
-                        className={`w-full h-full object-cover transition-all duration-1000 
+                        className={`w-full h-full object-contain transition-all duration-1000
                           ${isActive ? 'grayscale-0' : 'grayscale-[40%]'}
                           ${!isMobile ? 'scale-[1.05]' : 'scale-100'}
                           ${!isMobile && isActive ? 'scale-[1.15]' : ''}
-                        `} 
+                        `}
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-[#0d0517] via-[#0d0517]/40 to-transparent"></div>
                       <div className="absolute bottom-0 inset-x-0 p-8 flex flex-col items-center text-center pointer-events-none">
@@ -286,8 +286,8 @@ const LandingPage: React.FC = () => {
                     <div className={`relative bg-white/5 border border-white/10 rounded-[2.5rem] overflow-hidden transition-all duration-700 shadow-xl 
                       ${isActiveMobile || (!isMobile && hoveredPreviewIdx === idx) ? 'border-gold/40' : 'md:group-hover:border-gold/30'}`}
                     >
-                      <div className="aspect-[4/5] overflow-hidden">
-                        <img src={game.image} alt={game.name} className={`w-full h-full object-cover transition-all duration-700 ${isMobile && !isActiveMobile ? 'grayscale-[60%]' : 'grayscale-0 group-hover:scale-110'}`} />
+                      <div className="aspect-[4/5] overflow-hidden bg-[#1a0b2e]">
+                        <img src={game.image} alt={game.name} className={`w-full h-full object-contain transition-all duration-700 ${isMobile && !isActiveMobile ? 'grayscale-[60%]' : 'grayscale-0 group-hover:scale-110'}`} />
                       </div>
                       <div className="absolute inset-0 bg-gradient-to-t from-[#1a0b2e] via-[#1a0b2e]/30 to-transparent"></div>
                       <div className="absolute bottom-0 inset-x-0 p-6 md:p-8 flex flex-col items-center text-center pointer-events-none">

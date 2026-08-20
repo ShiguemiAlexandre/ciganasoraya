@@ -136,7 +136,7 @@ const BookingPage: React.FC<BookingPageProps> = ({ addAppointment }) => {
         id: Math.random().toString(36).substr(2, 9),
         clientName: formData.clientName,
         clientEmail: formData.clientEmail || 'contato@ciganasoraya.com', 
-        clientWhatsapp: formData.whatsapp, 
+        clientWhatsapp: formData.whatsapp,
         serviceId: formData.serviceIds.join(','),
         serviceName: selectedServices.map(s => s.name).join(' + '),
         date: formData.date,
@@ -213,8 +213,8 @@ const BookingPage: React.FC<BookingPageProps> = ({ addAppointment }) => {
                           ${isSelected ? 'bg-purple-600/20 border-gold shadow-[0_0_40px_rgba(212,175,55,0.3)] scale-[1.03] z-10' : 'bg-black/20 border-white/10 opacity-70 hover:opacity-100 hover:border-purple-500/50'
                           }`}
                       >
-                        <div className="aspect-[3/4] w-full rounded-[2rem] overflow-hidden mb-6 relative border border-white/5">
-                          <img src={s.image} alt={s.name} className={`w-full h-full object-cover transition-all duration-1000 ${isSelected ? 'scale-110' : 'grayscale-[40%]'}`} />
+                        <div className="aspect-[3/4] w-full rounded-[2rem] overflow-hidden mb-6 relative border border-white/5 bg-[#1a0b2e]">
+                          <img src={s.image} alt={s.name} className={`w-full h-full object-contain transition-all duration-1000 ${isSelected ? 'scale-110' : 'grayscale-[40%]'}`} />
                           {isSelected && <div className="absolute inset-0 bg-gold/20 flex items-center justify-center backdrop-blur-[2px]"><Check size={32} className="text-gold" /></div>}
                         </div>
                         <h4 className={`serif text-xl font-bold ${isSelected ? 'text-gold' : 'text-white'}`}>{s.name}</h4>
