@@ -85,12 +85,12 @@ const CatalogPage: React.FC = () => {
               )}
 
               {/* Card Image Container */}
-              <div className="relative aspect-[4/3] overflow-hidden bg-[#1a0b2e]">
+              <div className="relative aspect-[2/3] overflow-hidden">
                 <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-700 z-10"></div>
                 <img
                   src={game.image}
                   alt={game.name}
-                  className={`w-full h-full object-contain transition-all duration-1000 transform group-hover:scale-110 ${game.isFeatured ? 'grayscale-0' : 'grayscale-[30%] group-hover:grayscale-0'}`}
+                  className={`w-full h-full object-cover transition-all duration-1000 transform group-hover:scale-110 ${game.isFeatured ? 'grayscale-0' : 'grayscale-[30%] group-hover:grayscale-0'}`}
                 />
               </div>
 
@@ -198,9 +198,9 @@ const CatalogPage: React.FC = () => {
               {/* Full Scrollable Container */}
               <div className="flex flex-col md:flex-row w-full overflow-y-auto md:overflow-hidden">
                 {/* Image Section */}
-                <div className="w-full md:w-1/2 min-h-[300px] md:h-auto overflow-hidden relative shrink-0 bg-[#1a0b2e]">
+                <div className="w-full md:w-1/2 min-h-[300px] md:h-auto overflow-hidden relative shrink-0">
                   <div className="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-[#1a0b2e] via-transparent to-transparent z-10"></div>
-                  <img src={selectedGame.image} className="w-full h-full object-contain grayscale-[10%]" alt={selectedGame.name} />
+                  <img src={selectedGame.image} className="w-full h-full object-cover grayscale-[10%]" alt={selectedGame.name} />
                 </div>
 
                 {/* Content Section */}
