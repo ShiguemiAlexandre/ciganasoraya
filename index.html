@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cigana Soraya - Edição de Halloween</title>
-    <meta name="description" content="Cigana Soraya — Consultas espirituais com responsabilidade, sigilo e direcionamento. Edição especial de Halloween: agende sua leitura com atendimento personalizado e acolhimento verdadeiro." />
+    <meta name="description" content="Cigana Soraya — Consultas espirituais com responsabilidade, sigilo e direcionamento. Edição especial de Halloween chegando em breve." />
     <link rel="canonical" href="https://www.ciganasoraya.com/" />
     <link rel="icon" type="image/svg+xml" href="./favicon-halloween.svg" />
     <link rel="icon" href="./favicon.ico" />
@@ -17,7 +17,7 @@
     <meta property="og:locale" content="pt_BR" />
     <meta property="og:url" content="https://www.ciganasoraya.com/" />
     <meta property="og:title" content="Cigana Soraya - Edição de Halloween" />
-    <meta property="og:description" content="Cigana Soraya — Consultas espirituais com responsabilidade, sigilo e direcionamento. Edição especial de Halloween: agende sua leitura com atendimento personalizado e acolhimento verdadeiro." />
+    <meta property="og:description" content="Cigana Soraya — Consultas espirituais com responsabilidade, sigilo e direcionamento. Edição especial de Halloween chegando em breve." />
     <meta property="og:image" content="https://www.ciganasoraya.com/og-image.png" />
     <meta property="og:image:width" content="1224" />
     <meta property="og:image:height" content="874" />
@@ -25,7 +25,7 @@
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Cigana Soraya - Edição de Halloween" />
-    <meta name="twitter:description" content="Cigana Soraya — Consultas espirituais com responsabilidade, sigilo e direcionamento. Edição especial de Halloween: agende sua leitura com atendimento personalizado e acolhimento verdadeiro." />
+    <meta name="twitter:description" content="Cigana Soraya — Consultas espirituais com responsabilidade, sigilo e direcionamento. Edição especial de Halloween chegando em breve." />
     <meta name="twitter:image" content="https://www.ciganasoraya.com/og-image.png" />
 
     <script src="https://cdn.tailwindcss.com"></script>
@@ -112,16 +112,16 @@
             animation: mystic-float 6s ease-in-out infinite;
         }
 
-        /* Bats rising out from behind a selected card */
+        /* Bats flying out from behind a selected card, each with its own
+           randomized escape vector (set via --bx/--by/--br inline).
+           A pure vertical rise never clears a tall card image, so bats
+           escape sideways past the card art instead. */
         @keyframes bat-rise {
-            0% { transform: translateY(0) scale(0.5) rotate(0deg); opacity: 0; }
+            0% { transform: translate(0, 0) scale(0.4) rotate(0deg); opacity: 0; }
             15% { opacity: 1; }
-            60% { transform: translateY(-80px) scale(1) rotate(-12deg); }
-            100% { transform: translateY(-150px) scale(0.9) rotate(10deg); opacity: 0; }
+            100% { transform: translate(var(--bx, 110px), var(--by, -70px)) scale(1) rotate(var(--br, 15deg)); opacity: 0; }
         }
-        .animate-bat-rise {
-            animation: bat-rise 1.1s ease-out forwards;
-        }
+        .animate-bat-rise { animation: bat-rise 1.1s ease-out forwards; }
 
         /* Card Sheen */
         .card-glow-overlay {

@@ -9,6 +9,18 @@ interface BookingPageProps {
   existingAppointments: Appointment[];
 }
 
+interface Bat {
+  key: string;
+  cardId: string;
+  left: number;
+  top: number;
+  size: number;
+  delay: number;
+  bx: number;
+  by: number;
+  br: number;
+}
+
 const BookingPage: React.FC<BookingPageProps> = ({ addAppointment }) => {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
@@ -28,7 +40,30 @@ const BookingPage: React.FC<BookingPageProps> = ({ addAppointment }) => {
 
   const [loading, setLoading] = useState(false);
   const [confirmed, setConfirmed] = useState(false);
-  const [batBurstId, setBatBurstId] = useState<string | null>(null);
+  const [bats, setBats] = useState<Bat[]>([]);
+
+  const spawnBats = (cardId: string) => {
+    const count = 4 + Math.floor(Math.random() * 3); // 4 a 6 morcegos
+    const burst: Bat[] = Array.from({ length: count }).map((_, i) => {
+      const fromLeft = Math.random() < 0.5;
+      const dxMag = 90 + Math.random() * 80;
+      return {
+        key: `${cardId}-${Date.now()}-${i}`,
+        cardId,
+        left: fromLeft ? 2 + Math.random() * 22 : 76 + Math.random() * 22,
+        top: 15 + Math.random() * 60,
+        size: 16 + Math.random() * 16,
+        delay: Math.random() * 0.4,
+        bx: fromLeft ? -dxMag : dxMag,
+        by: -90 + Math.random() * 150,
+        br: fromLeft ? -(8 + Math.random() * 24) : 8 + Math.random() * 24,
+      };
+    });
+    setBats(prev => [...prev, ...burst]);
+    setTimeout(() => {
+      setBats(prev => prev.filter(b => !burst.includes(b)));
+    }, 1300);
+  };
 
   // Função para formatar data de nascimento (DD/MM/AAAA)
   const handleBirthDateChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -123,8 +158,7 @@ const BookingPage: React.FC<BookingPageProps> = ({ addAppointment }) => {
         : [...prev.serviceIds, id]
     }));
     if (isSelecting) {
-      setBatBurstId(id);
-      setTimeout(() => setBatBurstId(curr => curr === id ? null : curr), 1200);
+      spawnBats(id);
     }
   };
 
@@ -219,12 +253,23 @@ const BookingPage: React.FC<BookingPageProps> = ({ addAppointment }) => {
                           ${isSelected ? 'bg-purple-600/20 border-gold shadow-[0_0_40px_rgba(255, 179, 0,0.3)] scale-[1.03] z-10' : 'bg-black/20 border-white/10 opacity-70 hover:opacity-100 hover:border-purple-500/50'
                           }`}
                       >
-                        {batBurstId === s.id && (
-                          <div className="absolute inset-0 flex items-center justify-center pointer-events-none overflow-visible">
-                            <span className="absolute text-xl animate-bat-rise" style={{ left: '28%', animationDelay: '0s' }}>🦇</span>
-                            <span className="absolute text-2xl animate-bat-rise" style={{ left: '48%', animationDelay: '0.1s' }}>🦇</span>
-                            <span className="absolute text-xl animate-bat-rise" style={{ left: '65%', animationDelay: '0.2s' }}>🦇</span>
-                            <span className="absolute text-lg animate-bat-rise" style={{ left: '38%', animationDelay: '0.3s' }}>🦇</span>
+                        {bats.some(b => b.cardId === s.id) && (
+                          <div className="absolute inset-0 pointer-events-none overflow-visible">
+                            {bats.filter(b => b.cardId === s.id).map(b => (
+                              <span
+                                key={b.key}
+                                className="absolute animate-bat-rise"
+                                style={{
+                                  left: `${b.left}%`,
+                                  top: `${b.top}%`,
+                                  fontSize: `${b.size}px`,
+                                  animationDelay: `${b.delay}s`,
+                                  ['--bx' as any]: `${b.bx}px`,
+                                  ['--by' as any]: `${b.by}px`,
+                                  ['--br' as any]: `${b.br}deg`,
+                                } as React.CSSProperties}
+                              >🦇</span>
+                            ))}
                           </div>
                         )}
                         <div className="aspect-[2/3] w-full rounded-[2rem] overflow-hidden mb-6 relative border border-white/5">

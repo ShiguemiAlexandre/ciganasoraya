@@ -60,7 +60,7 @@ const NavigationContent = ({ user, handleLogout, isMenuOpen, setIsMenuOpen }: an
   return (
     <>
       <div className="relative z-[1001] bg-purple-500 text-center py-2 px-4 text-[10px] md:text-xs font-black uppercase tracking-[0.2em] text-white">
-        🎃 Edição Especial de Halloween · Leituras místicas disponíveis até 31/10 👻
+        🎃 Edição Especial de Halloween chegando em breve 👻
       </div>
       <nav className="relative z-[1001] bg-[#1c0f06]/90 backdrop-blur-xl border-b border-purple-500/10 px-4 py-4 md:px-8">
       <div className="max-w-7xl mx-auto flex justify-between items-center relative z-[1001]">
