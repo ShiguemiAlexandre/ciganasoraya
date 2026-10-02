@@ -66,7 +66,7 @@ const CoursePage: React.FC = () => {
       id: Math.random(),
       x: (Math.random() - 0.5) * 300,
       y: (Math.random() - 0.5) * 300,
-      color: Math.random() > 0.5 ? '#ffb347' : '#5ee63f'
+      color: Math.random() > 0.5 ? '#ffb300' : '#5ee63f'
     }));
     setCosmicDust(prev => [...prev.slice(-30), ...newDust]);
   };
@@ -216,8 +216,8 @@ const CoursePage: React.FC = () => {
                       ease: "easeOut"
                     }}
                     className={`absolute left-1/2 top-1/2 rounded-full ${
-                      i % 3 === 0 ? 'bg-gold shadow-[0_0_8px_rgba(255, 179, 71,0.6)]' : 
-                      i % 2 === 0 ? 'bg-purple-300 shadow-[0_0_8px_rgba(232, 93, 4,0.6)]' : 
+                      i % 3 === 0 ? 'bg-gold shadow-[0_0_8px_rgba(255, 179, 0,0.6)]' : 
+                      i % 2 === 0 ? 'bg-purple-300 shadow-[0_0_8px_rgba(245, 78, 0,0.6)]' : 
                       'bg-white shadow-[0_0_8px_rgba(255,255,255,0.6)]'
                     }`}
                   />
@@ -236,10 +236,10 @@ const CoursePage: React.FC = () => {
                 whileTap={{ scale: 0.9 }}
                 onClick={handleMoonClick}
                 transition={{ duration: 1.5, ease: "backOut" }}
-                className="w-28 h-28 bg-gradient-to-tr from-purple-800 to-purple-950 rounded-full flex items-center justify-center text-gold relative border border-gold/50 shadow-[0_0_30px_rgba(255, 179, 71,0.4)] cursor-pointer select-none"
+                className="w-28 h-28 bg-gradient-to-tr from-purple-800 to-purple-950 rounded-full flex items-center justify-center text-gold relative border border-gold/50 shadow-[0_0_30px_rgba(255, 179, 0,0.4)] cursor-pointer select-none"
               >
                 <div className="relative z-10">
-                  <Ghost size={46} className="drop-shadow-[0_0_15px_rgba(255, 179, 71,1)]" />
+                  <Ghost size={46} className="drop-shadow-[0_0_15px_rgba(255, 179, 0,1)]" />
                 </div>
 
                 {/* Interactive Cosmic Dust */}
@@ -309,9 +309,9 @@ const CoursePage: React.FC = () => {
               opacity: 1, 
               y: 0,
               boxShadow: [
-                "0 0 0px rgba(255, 179, 71,0)",
-                "0 0 20px rgba(255, 179, 71,0.2)",
-                "0 0 0px rgba(255, 179, 71,0)"
+                "0 0 0px rgba(255, 179, 0,0)",
+                "0 0 20px rgba(255, 179, 0,0.2)",
+                "0 0 0px rgba(255, 179, 0,0)"
               ]
             }}
             transition={{ 
@@ -322,7 +322,7 @@ const CoursePage: React.FC = () => {
                 ease: "easeInOut"
               }
             }}
-            className="inline-flex items-center space-x-3 px-8 py-3 bg-purple-950/80 backdrop-blur-2xl border border-gold/40 rounded-full text-gold text-xs md:text-sm font-bold uppercase tracking-[0.2em] mb-4 cursor-default shadow-[0_0_15px_rgba(255, 179, 71,0.15)]"
+            className="inline-flex items-center space-x-3 px-8 py-3 bg-purple-950/80 backdrop-blur-2xl border border-gold/40 rounded-full text-gold text-xs md:text-sm font-bold uppercase tracking-[0.2em] mb-4 cursor-default shadow-[0_0_15px_rgba(255, 179, 0,0.15)]"
           >
             <motion.div
               animate={{ rotate: [0, 360] }}
@@ -550,7 +550,7 @@ const CoursePage: React.FC = () => {
               whileHover={{ 
                 y: -15, 
                 scale: 1.02,
-                boxShadow: "0 20px 40px rgba(232, 93, 4, 0.2)" 
+                boxShadow: "0 20px 40px rgba(245, 78, 0, 0.2)" 
               }}
               className="md:col-span-3 bg-white/5 p-8 rounded-[2.5rem] border border-white/5 hover:border-purple-500/50 hover:bg-white/10 transition-colors duration-500 flex flex-col justify-between group overflow-hidden relative"
             >
@@ -600,9 +600,9 @@ const CoursePage: React.FC = () => {
               whileHover={{ 
                 y: -20, 
                 scale: 1.03,
-                boxShadow: "0 30px 70px rgba(255, 179, 71, 0.3)" 
+                boxShadow: "0 30px 70px rgba(255, 179, 0, 0.3)" 
               }}
-              className="md:col-span-4 bg-gradient-to-br from-gold/25 via-purple-900/60 to-black/60 p-10 rounded-[3rem] border border-gold/30 hover:border-gold/80 shadow-[0_20px_50px_rgba(255, 179, 71,0.1)] transition-all duration-500 flex flex-col md:flex-row gap-8 items-center group relative overflow-hidden"
+              className="md:col-span-4 bg-gradient-to-br from-gold/25 via-purple-900/60 to-black/60 p-10 rounded-[3rem] border border-gold/30 hover:border-gold/80 shadow-[0_20px_50px_rgba(255, 179, 0,0.1)] transition-all duration-500 flex flex-col md:flex-row gap-8 items-center group relative overflow-hidden"
             >
               <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10 mix-blend-overlay"></div>
               <motion.div 
@@ -615,7 +615,7 @@ const CoursePage: React.FC = () => {
               >
                 <Flame size={300} className="text-gold" />
               </motion.div>
-              <div className="w-20 h-20 bg-gold/20 text-gold rounded-2xl flex items-center justify-center shrink-0 group-hover:rotate-[360deg] group-hover:scale-110 transition-all duration-700 shadow-[0_0_20px_rgba(255, 179, 71,0.3)]">
+              <div className="w-20 h-20 bg-gold/20 text-gold rounded-2xl flex items-center justify-center shrink-0 group-hover:rotate-[360deg] group-hover:scale-110 transition-all duration-700 shadow-[0_0_20px_rgba(255, 179, 0,0.3)]">
                 <Award size={40} />
               </div>
               <div className="space-y-4 relative z-10 text-left">
@@ -657,13 +657,13 @@ const CoursePage: React.FC = () => {
               whileHover={{ 
                 y: -10,
                 scale: 1.01,
-                boxShadow: "0 20px 50px rgba(232, 93, 4, 0.2)"
+                boxShadow: "0 20px 50px rgba(245, 78, 0, 0.2)"
               }}
               className="md:col-span-6 bg-gradient-to-r from-purple-900/40 via-purple-900/40 to-purple-900/40 border border-purple-500/30 p-8 rounded-[2.5rem] flex flex-col md:flex-row items-center justify-between gap-6 hover:border-gold/50 transition-all duration-500 border-dashed relative overflow-hidden group"
             >
               <div className="absolute inset-0 bg-gold/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
               <div className="flex items-center space-x-6 relative z-10">
-                <div className="w-14 h-14 bg-purple-500/20 text-purple-400 rounded-full flex items-center justify-center shrink-0 shadow-[0_0_20px_rgba(232, 93, 4,0.2)]">
+                <div className="w-14 h-14 bg-purple-500/20 text-purple-400 rounded-full flex items-center justify-center shrink-0 shadow-[0_0_20px_rgba(245, 78, 0,0.2)]">
                   <Users size={28} />
                 </div>
                 <div>
@@ -740,7 +740,7 @@ const CoursePage: React.FC = () => {
           whileInView={{ opacity: 1, scale: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ type: "spring", bounce: 0.4, duration: 1 }}
-          className="max-w-3xl mx-auto bg-gradient-to-br from-[#1c0f06] to-[#2e1608] border border-gold/30 p-12 md:p-20 rounded-[4rem] text-center space-y-8 shadow-[0_0_100px_rgba(255, 179, 71,0.2)] relative overflow-hidden group"
+          className="max-w-3xl mx-auto bg-gradient-to-br from-[#1c0f06] to-[#2e1608] border border-gold/30 p-12 md:p-20 rounded-[4rem] text-center space-y-8 shadow-[0_0_100px_rgba(255, 179, 0,0.2)] relative overflow-hidden group"
         >
           <div className="absolute -top-10 -left-10 w-40 h-40 bg-gold/5 blur-3xl animate-pulse"></div>
           <motion.div
@@ -750,7 +750,7 @@ const CoursePage: React.FC = () => {
             }}
             transition={{ duration: 6, repeat: Infinity, ease: "linear" }}
           >
-            <Award size={80} className="text-gold mx-auto drop-shadow-[0_0_15px_rgba(255, 179, 71,0.5)]" />
+            <Award size={80} className="text-gold mx-auto drop-shadow-[0_0_15px_rgba(255, 179, 0,0.5)]" />
           </motion.div>
           <div className="space-y-4">
             <motion.h2 

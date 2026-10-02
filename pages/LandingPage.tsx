@@ -137,6 +137,14 @@ const LandingPage: React.FC = () => {
            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[radial-gradient(circle_at_center,rgba(94, 230, 63,0.15)_0%,transparent_60%)]"></div>
         </div>
 
+        {/* Halloween bats */}
+        <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden text-2xl md:text-3xl opacity-50">
+          <span className="absolute left-[8%] top-[12%] animate-bounce" style={{ animationDuration: '3.5s', animationDelay: '0s' }}>🦇</span>
+          <span className="absolute right-[10%] top-[20%] animate-bounce" style={{ animationDuration: '4.2s', animationDelay: '0.6s' }}>🦇</span>
+          <span className="absolute left-[18%] top-[32%] animate-bounce text-lg" style={{ animationDuration: '3s', animationDelay: '1.2s' }}>🦇</span>
+          <span className="absolute right-[20%] top-[8%] animate-bounce text-lg" style={{ animationDuration: '3.8s', animationDelay: '0.3s' }}>🦇</span>
+        </div>
+
         <div className="relative z-10 w-full max-w-7xl mx-auto flex flex-col items-center">
           <div className="inline-flex items-center space-x-3 px-6 py-2 rounded-full bg-white/5 text-purple-300 text-[9px] md:text-[10px] font-black uppercase tracking-[0.3em] md:tracking-[0.5em] border border-white/10 mb-4 md:mb-6 shadow-2xl animate-in fade-in slide-in-from-top-4 duration-1000">
             <Flame size={12} className="text-gold" />
@@ -201,13 +209,13 @@ const LandingPage: React.FC = () => {
                   >
                     {showBadge && (
                       <div className={`absolute -top-10 left-0 right-0 z-[100] flex justify-center transition-all duration-500 animate-in zoom-in fade-in ${isActive ? 'scale-110' : 'scale-100'}`}>
-                        <div className={`bg-gold text-deep-purple px-5 py-2 rounded-full text-[9px] font-black uppercase tracking-[0.3em] shadow-2xl border border-white/20 whitespace-nowrap transition-all duration-500 ${isActive ? 'animate-pulse shadow-[0_0_20px_rgba(255, 179, 71,0.4)]' : 'shadow-black/40'}`}>
+                        <div className={`bg-gold text-deep-purple px-5 py-2 rounded-full text-[9px] font-black uppercase tracking-[0.3em] shadow-2xl border border-white/20 whitespace-nowrap transition-all duration-500 ${isActive ? 'animate-pulse shadow-[0_0_20px_rgba(255, 179, 0,0.4)]' : 'shadow-black/40'}`}>
                           {service.badge}
                         </div>
                       </div>
                     )}
                     <div className={`relative w-full aspect-[2/3] rounded-[2.5rem] overflow-hidden border-2 transition-all duration-700 shadow-2xl bg-[#0d0804] ${isActive ? 'brightness-110' : 'brightness-75'}`}
-                        style={{ borderColor: isActive ? 'rgba(255, 179, 71,0.5)' : 'rgba(94, 230, 63,0.1)' }}>
+                        style={{ borderColor: isActive ? 'rgba(255, 179, 0,0.5)' : 'rgba(94, 230, 63,0.1)' }}>
                       <img
                         src={service.image}
                         alt={service.name}

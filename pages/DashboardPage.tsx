@@ -36,7 +36,7 @@ const DashboardPage: React.FC<DashboardPageProps> = ({ user, appointments, updat
           {/* Active Appointments */}
           <section>
             <h2 className="serif text-2xl font-bold mb-6 flex items-center">
-              <Calendar className="mr-2 text-[#ffb347]" /> Próximas Consultas
+              <Calendar className="mr-2 text-[#ffb300]" /> Próximas Consultas
             </h2>
             {pending.length === 0 ? (
               <div className="bg-white p-12 rounded-3xl border border-dashed border-gray-200 text-center text-gray-400">
@@ -113,7 +113,7 @@ const DashboardPage: React.FC<DashboardPageProps> = ({ user, appointments, updat
         <div className="space-y-6">
           <div className="bg-deep-green text-white p-8 rounded-3xl shadow-xl space-y-6">
             <div className="flex items-center space-x-4">
-              <div className="w-16 h-16 bg-[#ffb347] rounded-full flex items-center justify-center text-deep-green">
+              <div className="w-16 h-16 bg-[#ffb300] rounded-full flex items-center justify-center text-deep-green">
                 <UserIcon size={32} />
               </div>
               <div>
@@ -132,7 +132,7 @@ const DashboardPage: React.FC<DashboardPageProps> = ({ user, appointments, updat
             </button>
           </div>
 
-          <div className="bg-[#fbf2e4] border border-[#ffb347]/20 p-6 rounded-3xl shadow-sm">
+          <div className="bg-[#fbf2e4] border border-[#ffb300]/20 p-6 rounded-3xl shadow-sm">
             <h4 className="serif font-bold text-deep-green mb-3">Informação Importante</h4>
             <p className="text-xs text-gray-500 leading-relaxed italic">
               "Para cancelamentos ou reagendamentos, pedimos a gentileza de avisar com pelo menos 24h de antecedência para liberação do horário para outros irmãos."

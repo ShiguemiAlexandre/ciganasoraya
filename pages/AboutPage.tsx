@@ -115,7 +115,7 @@ const AboutPage: React.FC = () => {
           <div className="relative z-10 pt-4">
             <Link 
               to="/agendar" 
-              className="inline-block px-16 py-6 bg-[#ffb347] text-[#1c0f06] rounded-full font-black text-xs uppercase tracking-[0.3em] shadow-[0_20px_50px_rgba(255, 179, 71,0.4)] hover:scale-105 hover:brightness-110 transition-all active:scale-95 shadow-2xl"
+              className="inline-block px-16 py-6 bg-[#ffb300] text-[#1c0f06] rounded-full font-black text-xs uppercase tracking-[0.3em] shadow-[0_20px_50px_rgba(255, 179, 0,0.4)] hover:scale-105 hover:brightness-110 transition-all active:scale-95 shadow-2xl"
             >
               Marcar Minha Consulta
             </Link>

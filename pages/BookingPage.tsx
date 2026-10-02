@@ -154,7 +154,7 @@ const BookingPage: React.FC<BookingPageProps> = ({ addAppointment }) => {
     }, 1500);
   };
 
-  const GoldButtonClasses = "px-16 py-6 bg-[#ffb347] text-[#1c0f06] rounded-full font-black text-xs uppercase tracking-[0.3em] shadow-2xl shadow-[rgba(255, 179, 71,0.4)] hover:scale-105 hover:brightness-110 transition-all active:scale-95 disabled:opacity-20 disabled:scale-100 disabled:shadow-none";
+  const GoldButtonClasses = "px-16 py-6 bg-[#ffb300] text-[#1c0f06] rounded-full font-black text-xs uppercase tracking-[0.3em] shadow-2xl shadow-[rgba(255, 179, 0,0.4)] hover:scale-105 hover:brightness-110 transition-all active:scale-95 disabled:opacity-20 disabled:scale-100 disabled:shadow-none";
 
   if (confirmed) {
     return (
@@ -210,7 +210,7 @@ const BookingPage: React.FC<BookingPageProps> = ({ addAppointment }) => {
                         key={s.id} 
                         onClick={() => toggleService(s.id)} 
                         className={`w-full group relative p-6 rounded-[2.5rem] border transition-all duration-500 flex flex-col items-center text-center 
-                          ${isSelected ? 'bg-purple-600/20 border-gold shadow-[0_0_40px_rgba(255, 179, 71,0.3)] scale-[1.03] z-10' : 'bg-black/20 border-white/10 opacity-70 hover:opacity-100 hover:border-purple-500/50'
+                          ${isSelected ? 'bg-purple-600/20 border-gold shadow-[0_0_40px_rgba(255, 179, 0,0.3)] scale-[1.03] z-10' : 'bg-black/20 border-white/10 opacity-70 hover:opacity-100 hover:border-purple-500/50'
                           }`}
                       >
                         <div className="aspect-[2/3] w-full rounded-[2rem] overflow-hidden mb-6 relative border border-white/5">
@@ -258,7 +258,7 @@ const BookingPage: React.FC<BookingPageProps> = ({ addAppointment }) => {
                       <button
                         key={period.id}
                         onClick={() => setFormData({ ...formData, time: period.id })}
-                        className={`flex flex-col items-center justify-center p-10 rounded-[2.5rem] border transition-all duration-500 space-y-4 ${formData.time === period.id ? 'bg-purple-600/20 border-gold shadow-[0_0_30px_rgba(255, 179, 71,0.2)] text-gold scale-105' : 'bg-black/20 border-white/5 text-gray-400 hover:border-white/20'}`}
+                        className={`flex flex-col items-center justify-center p-10 rounded-[2.5rem] border transition-all duration-500 space-y-4 ${formData.time === period.id ? 'bg-purple-600/20 border-gold shadow-[0_0_30px_rgba(255, 179, 0,0.2)] text-gold scale-105' : 'bg-black/20 border-white/5 text-gray-400 hover:border-white/20'}`}
                       >
                         <period.icon size={32} className={formData.time === period.id ? 'animate-pulse' : ''} />
                         <div className="text-center">
@@ -318,7 +318,7 @@ const BookingPage: React.FC<BookingPageProps> = ({ addAppointment }) => {
                       <button
                         key={method.id}
                         onClick={() => setFormData({ ...formData, paymentMethod: method.id })}
-                        className={`flex items-center p-8 rounded-[2rem] border transition-all duration-500 space-x-6 text-left group ${formData.paymentMethod === method.id ? 'bg-gold/10 border-gold shadow-[0_0_30px_rgba(255, 179, 71,0.1)]' : 'bg-black/20 border-white/5 hover:border-white/20'}`}
+                        className={`flex items-center p-8 rounded-[2rem] border transition-all duration-500 space-x-6 text-left group ${formData.paymentMethod === method.id ? 'bg-gold/10 border-gold shadow-[0_0_30px_rgba(255, 179, 0,0.1)]' : 'bg-black/20 border-white/5 hover:border-white/20'}`}
                       >
                         <div className={`w-14 h-14 rounded-2xl flex items-center justify-center transition-all ${formData.paymentMethod === method.id ? 'bg-gold text-deep-purple' : 'bg-white/5 text-gray-500'}`}>
                           <method.icon size={24} />

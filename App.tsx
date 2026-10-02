@@ -58,7 +58,11 @@ const NavigationContent = ({ user, handleLogout, isMenuOpen, setIsMenuOpen }: an
   if (isAdminView) return null;
 
   return (
-    <nav className="relative z-[1001] bg-[#1c0f06]/90 backdrop-blur-xl border-b border-purple-500/10 px-4 py-4 md:px-8">
+    <>
+      <div className="relative z-[1001] bg-purple-500 text-center py-2 px-4 text-[10px] md:text-xs font-black uppercase tracking-[0.2em] text-white">
+        🎃 Edição Especial de Halloween · Leituras místicas disponíveis até 31/10 👻
+      </div>
+      <nav className="relative z-[1001] bg-[#1c0f06]/90 backdrop-blur-xl border-b border-purple-500/10 px-4 py-4 md:px-8">
       <div className="max-w-7xl mx-auto flex justify-between items-center relative z-[1001]">
         <Link to="/" className="flex items-center space-x-3 group">
           <motion.div 
@@ -72,8 +76,8 @@ const NavigationContent = ({ user, handleLogout, isMenuOpen, setIsMenuOpen }: an
                   key={i}
                   className="absolute rounded-full"
                   style={{
-                    backgroundColor: i % 3 === 0 ? '#5ee63f' : '#ffb347',
-                    boxShadow: i % 3 === 0 ? '0 0 6px #5ee63f' : '0 0 6px #ffb347',
+                    backgroundColor: i % 3 === 0 ? '#5ee63f' : '#ffb300',
+                    boxShadow: i % 3 === 0 ? '0 0 6px #5ee63f' : '0 0 6px #ffb300',
                     width: '3px',
                     height: '3px',
                     left: '50%',
@@ -104,9 +108,9 @@ const NavigationContent = ({ user, handleLogout, isMenuOpen, setIsMenuOpen }: an
           </motion.div>
         </Link>
         <div className="hidden md:flex items-center space-x-10 text-[11px] uppercase tracking-[0.2em] font-bold">
-          <Link to="/" className={`transition-all duration-300 pb-1 border-b-2 ${isActive('/') ? 'text-white border-[#ffb347]' : 'text-gray-400 border-transparent hover:text-purple-300'}`}>Início</Link>
-          <Link to="/jogos" className={`transition-all duration-300 pb-1 border-b-2 ${isActive('/jogos') ? 'text-white border-[#ffb347]' : 'text-gray-400 border-transparent hover:text-purple-300'}`}>Oráculos</Link>
-          <Link to="/sobre" className={`transition-all duration-300 pb-1 border-b-2 ${isActive('/sobre') ? 'text-white border-[#ffb347]' : 'text-gray-400 border-transparent hover:text-purple-300'}`}>Sobre</Link>
+          <Link to="/" className={`transition-all duration-300 pb-1 border-b-2 ${isActive('/') ? 'text-white border-[#ffb300]' : 'text-gray-400 border-transparent hover:text-purple-300'}`}>Início</Link>
+          <Link to="/jogos" className={`transition-all duration-300 pb-1 border-b-2 ${isActive('/jogos') ? 'text-white border-[#ffb300]' : 'text-gray-400 border-transparent hover:text-purple-300'}`}>Oráculos</Link>
+          <Link to="/sobre" className={`transition-all duration-300 pb-1 border-b-2 ${isActive('/sobre') ? 'text-white border-[#ffb300]' : 'text-gray-400 border-transparent hover:text-purple-300'}`}>Sobre</Link>
           <Link to="/curso" className="px-6 py-3 bg-white/5 text-gold rounded-full hover:bg-white/10 transition-all border border-gold/30">Santuário</Link>
           <Link to="/agendar" className="px-6 py-3 bg-purple-600 text-white rounded-full hover:bg-purple-500 transition-all shadow-[0_0_15px_rgba(94, 230, 63,0.4)] border border-purple-400/20">Agendar Agora</Link>
           
@@ -168,7 +172,7 @@ const NavigationContent = ({ user, handleLogout, isMenuOpen, setIsMenuOpen }: an
                 <Link 
                   to="/agendar" 
                   onClick={() => setIsMenuOpen(false)} 
-                  className="w-full flex items-center justify-center space-x-3 px-8 py-5 bg-purple-600 text-white rounded-2xl font-black uppercase tracking-[0.2em] text-sm active:scale-95 transition-all shadow-[0_10px_25px_rgba(232, 93, 4,0.4)] border border-purple-400/20"
+                  className="w-full flex items-center justify-center space-x-3 px-8 py-5 bg-purple-600 text-white rounded-2xl font-black uppercase tracking-[0.2em] text-sm active:scale-95 transition-all shadow-[0_10px_25px_rgba(245, 78, 0,0.4)] border border-purple-400/20"
                 >
                   <Flame size={18} />
                   <span>Agendar Agora</span>
@@ -179,6 +183,7 @@ const NavigationContent = ({ user, handleLogout, isMenuOpen, setIsMenuOpen }: an
         )}
       </AnimatePresence>
     </nav>
+    </>
   );
 };
 

@@ -12,7 +12,8 @@ export default defineConfig(({ mode }) => {
       port: 3000,
       host: '0.0.0.0',
       allowedHosts: [
-        'aa9f-2804-7f0-6540-50cf-2119-72cc-e730-8905.ngrok-free.app'
+        'aa9f-2804-7f0-6540-50cf-2119-72cc-e730-8905.ngrok-free.app',
+        '.ngrok-free.app'
       ]
     },
 

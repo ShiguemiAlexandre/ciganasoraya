@@ -60,7 +60,7 @@ const CatalogPage: React.FC = () => {
               className={`group relative bg-white/5 border rounded-[2.5rem] overflow-hidden transition-all duration-700 flex flex-col h-full cursor-pointer
                 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'}
                 ${game.isFeatured 
-                  ? 'border-gold/60 shadow-[0_0_50px_rgba(255, 179, 71,0.15)] ring-2 ring-gold/10 lg:scale-[1.03] z-10' 
+                  ? 'border-gold/60 shadow-[0_0_50px_rgba(255, 179, 0,0.15)] ring-2 ring-gold/10 lg:scale-[1.03] z-10' 
                   : 'border-white/10 hover:border-gold/30'
                 }
                 hover:shadow-[0_20px_50px_rgba(0,0,0,0.5),0_0_20px_rgba(94, 230, 63,0.1)]
@@ -249,7 +249,7 @@ const CatalogPage: React.FC = () => {
                       <div className="flex flex-col gap-4">
                         <button 
                           onClick={() => navigate(`/agendar?serviceId=${selectedGame.id}`)}
-                          className="flex items-center justify-center space-x-2 px-8 py-5 rounded-full font-black text-xs uppercase tracking-[0.2em] transition-all bg-gradient-to-r from-gold via-yellow-500 to-gold text-deep-purple hover:brightness-110 active:scale-95 shadow-[0_10px_30px_rgba(255, 179, 71,0.3)]"
+                          className="flex items-center justify-center space-x-2 px-8 py-5 rounded-full font-black text-xs uppercase tracking-[0.2em] transition-all bg-gradient-to-r from-gold via-yellow-500 to-gold text-deep-purple hover:brightness-110 active:scale-95 shadow-[0_10px_30px_rgba(255, 179, 0,0.3)]"
                         >
                           <span>Reservar este Horário</span>
                           <ChevronRight size={18} />

@@ -123,7 +123,7 @@ const LoginPage: React.FC<LoginPageProps> = ({ onLogin }) => {
             <button
               type="button"
               onClick={() => setForceAdmin(!forceAdmin)}
-              className={`w-full flex items-center justify-between p-4 rounded-2xl border transition-all duration-500 ${forceAdmin ? 'bg-gold/10 border-gold shadow-[0_0_20px_rgba(255, 179, 71,0.2)]' : 'bg-black/20 border-white/5 opacity-60 hover:opacity-100'}`}
+              className={`w-full flex items-center justify-between p-4 rounded-2xl border transition-all duration-500 ${forceAdmin ? 'bg-gold/10 border-gold shadow-[0_0_20px_rgba(255, 179, 0,0.2)]' : 'bg-black/20 border-white/5 opacity-60 hover:opacity-100'}`}
             >
               <div className="flex items-center space-x-3">
                 <div className={`p-2 rounded-lg transition-colors ${forceAdmin ? 'bg-gold text-deep-purple' : 'bg-white/5 text-gray-500'}`}>
