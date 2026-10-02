@@ -1,18 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { HashRouter, Routes, Route, Link, Navigate, useLocation } from 'react-router-dom';
-import { 
-  Calendar, 
-  User as UserIcon, 
-  LogOut, 
-  Menu, 
-  X, 
-  ChevronRight, 
-  Clock, 
-  MessageSquare, 
+import {
+  Calendar,
+  User as UserIcon,
+  LogOut,
+  Menu,
+  X,
+  ChevronRight,
+  Clock,
+  MessageSquare,
   ShieldCheck,
-  Sparkles,
-  Moon,
+  Flame,
+  Candy,
+  Ghost,
   Library,
   Settings
 } from 'lucide-react';
@@ -57,22 +58,22 @@ const NavigationContent = ({ user, handleLogout, isMenuOpen, setIsMenuOpen }: an
   if (isAdminView) return null;
 
   return (
-    <nav className="relative z-[1001] bg-[#1a0b2e]/90 backdrop-blur-xl border-b border-purple-500/10 px-4 py-4 md:px-8">
+    <nav className="relative z-[1001] bg-[#1c0f06]/90 backdrop-blur-xl border-b border-purple-500/10 px-4 py-4 md:px-8">
       <div className="max-w-7xl mx-auto flex justify-between items-center relative z-[1001]">
         <Link to="/" className="flex items-center space-x-3 group">
           <motion.div 
             whileHover="hover"
             className="flex items-center space-x-3"
           >
-            <div className="w-12 h-12 bg-purple-600 rounded-full flex items-center justify-center text-gold shadow-[0_0_15px_rgba(157,80,187,0.6)] relative overflow-visible transition-transform group-hover:scale-105">
+            <div className="w-12 h-12 bg-purple-600 rounded-full flex items-center justify-center text-gold shadow-[0_0_15px_rgba(94, 230, 63,0.6)] relative overflow-visible transition-transform group-hover:scale-105">
               {/* Cosmic Dust Particles - Increased intensity and count */}
               {[...Array(12)].map((_, i) => (
                 <motion.div
                   key={i}
                   className="absolute rounded-full"
                   style={{
-                    backgroundColor: i % 3 === 0 ? '#fff' : '#d4af37',
-                    boxShadow: i % 3 === 0 ? '0 0 6px #fff' : '0 0 6px #d4af37',
+                    backgroundColor: i % 3 === 0 ? '#5ee63f' : '#ffb347',
+                    boxShadow: i % 3 === 0 ? '0 0 6px #5ee63f' : '0 0 6px #ffb347',
                     width: '3px',
                     height: '3px',
                     left: '50%',
@@ -95,7 +96,7 @@ const NavigationContent = ({ user, handleLogout, isMenuOpen, setIsMenuOpen }: an
                   }}
                 />
               ))}
-              <Moon size={24} className="relative z-10" />
+              <Ghost size={24} className="relative z-10" />
             </div>
             <div className="flex flex-col">
               <span className="serif font-bold text-xl md:text-2xl leading-tight text-white whitespace-nowrap">Cigana Soraya</span>
@@ -103,11 +104,11 @@ const NavigationContent = ({ user, handleLogout, isMenuOpen, setIsMenuOpen }: an
           </motion.div>
         </Link>
         <div className="hidden md:flex items-center space-x-10 text-[11px] uppercase tracking-[0.2em] font-bold">
-          <Link to="/" className={`transition-all duration-300 pb-1 border-b-2 ${isActive('/') ? 'text-white border-[#d4af37]' : 'text-gray-400 border-transparent hover:text-purple-300'}`}>Início</Link>
-          <Link to="/jogos" className={`transition-all duration-300 pb-1 border-b-2 ${isActive('/jogos') ? 'text-white border-[#d4af37]' : 'text-gray-400 border-transparent hover:text-purple-300'}`}>Oráculos</Link>
-          <Link to="/sobre" className={`transition-all duration-300 pb-1 border-b-2 ${isActive('/sobre') ? 'text-white border-[#d4af37]' : 'text-gray-400 border-transparent hover:text-purple-300'}`}>Sobre</Link>
+          <Link to="/" className={`transition-all duration-300 pb-1 border-b-2 ${isActive('/') ? 'text-white border-[#ffb347]' : 'text-gray-400 border-transparent hover:text-purple-300'}`}>Início</Link>
+          <Link to="/jogos" className={`transition-all duration-300 pb-1 border-b-2 ${isActive('/jogos') ? 'text-white border-[#ffb347]' : 'text-gray-400 border-transparent hover:text-purple-300'}`}>Oráculos</Link>
+          <Link to="/sobre" className={`transition-all duration-300 pb-1 border-b-2 ${isActive('/sobre') ? 'text-white border-[#ffb347]' : 'text-gray-400 border-transparent hover:text-purple-300'}`}>Sobre</Link>
           <Link to="/curso" className="px-6 py-3 bg-white/5 text-gold rounded-full hover:bg-white/10 transition-all border border-gold/30">Santuário</Link>
-          <Link to="/agendar" className="px-6 py-3 bg-purple-600 text-white rounded-full hover:bg-purple-500 transition-all shadow-[0_0_15px_rgba(157,80,187,0.4)] border border-purple-400/20">Agendar Agora</Link>
+          <Link to="/agendar" className="px-6 py-3 bg-purple-600 text-white rounded-full hover:bg-purple-500 transition-all shadow-[0_0_15px_rgba(94, 230, 63,0.4)] border border-purple-400/20">Agendar Agora</Link>
           
           {user && user.role === 'admin' && (
             <div className="flex items-center space-x-6 border-l border-white/10 pl-10">
@@ -133,10 +134,10 @@ const NavigationContent = ({ user, handleLogout, isMenuOpen, setIsMenuOpen }: an
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="md:hidden absolute top-full left-0 w-full bg-[#0f071a] z-[2000] overflow-hidden border-t border-purple-500/20"
+            className="md:hidden absolute top-full left-0 w-full bg-[#120905] z-[2000] overflow-hidden border-t border-purple-500/20"
           >
             {/* Background Gradient */}
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(157,80,187,0.15)_0%,transparent_100%)] pointer-events-none"></div>
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(94, 230, 63,0.15)_0%,transparent_100%)] pointer-events-none"></div>
             
             <div className="relative flex flex-col p-8 space-y-6">
               <Link to="/" onClick={() => setIsMenuOpen(false)} className="text-lg font-bold tracking-[0.2em] uppercase text-gray-400 hover:text-gold transition-colors flex items-center justify-between group px-2 py-4">
@@ -159,7 +160,7 @@ const NavigationContent = ({ user, handleLogout, isMenuOpen, setIsMenuOpen }: an
                   onClick={() => setIsMenuOpen(false)} 
                   className="w-full flex items-center justify-center space-x-3 px-8 py-5 bg-white/5 border border-gold/30 rounded-2xl text-gold font-black uppercase tracking-[0.2em] text-sm active:scale-95 transition-all shadow-lg"
                 >
-                  <Sparkles size={18} />
+                  <Candy size={18} />
                   <span>Santuário</span>
                 </Link>
 
@@ -167,9 +168,9 @@ const NavigationContent = ({ user, handleLogout, isMenuOpen, setIsMenuOpen }: an
                 <Link 
                   to="/agendar" 
                   onClick={() => setIsMenuOpen(false)} 
-                  className="w-full flex items-center justify-center space-x-3 px-8 py-5 bg-purple-600 text-white rounded-2xl font-black uppercase tracking-[0.2em] text-sm active:scale-95 transition-all shadow-[0_10px_25px_rgba(168,85,247,0.4)] border border-purple-400/20"
+                  className="w-full flex items-center justify-center space-x-3 px-8 py-5 bg-purple-600 text-white rounded-2xl font-black uppercase tracking-[0.2em] text-sm active:scale-95 transition-all shadow-[0_10px_25px_rgba(232, 93, 4,0.4)] border border-purple-400/20"
                 >
-                  <Sparkles size={18} />
+                  <Flame size={18} />
                   <span>Agendar Agora</span>
                 </Link>
               </div>
@@ -192,7 +193,7 @@ const FooterContent = () => {
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12 text-center md:text-left">
         <div className="md:col-span-2 space-y-4">
           <div className="flex items-center justify-center md:justify-start space-x-3">
-            <Moon className="text-purple-400" size={24} />
+            <Ghost className="text-purple-400" size={24} />
             <span className="serif font-bold text-2xl text-white">Cigana Soraya</span>
           </div>
           <p className="max-w-sm mx-auto md:mx-0 font-light leading-relaxed">Descubra as respostas que as cartas revelam com ética e verdade espiritual.</p>

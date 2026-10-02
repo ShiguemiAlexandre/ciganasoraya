@@ -29,7 +29,7 @@ const CookieConsent: React.FC = () => {
           exit={{ y: 100, opacity: 0 }}
           className="fixed bottom-6 left-6 right-6 z-[6000] md:left-auto md:max-w-md"
         >
-          <div className="bg-[#1a0b2e]/95 backdrop-blur-xl border border-gold/30 rounded-3xl p-6 shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
+          <div className="bg-[#1c0f06]/95 backdrop-blur-xl border border-gold/30 rounded-3xl p-6 shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
             <div className="flex items-start gap-4">
               <div className="w-10 h-10 bg-gold/10 rounded-full flex items-center justify-center shrink-0">
                 <ShieldCheck className="text-gold" size={20} />

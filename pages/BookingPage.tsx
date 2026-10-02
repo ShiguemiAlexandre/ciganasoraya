@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
-import { ChevronLeft, Sparkles, Moon, Check, Info, Sun, Sunrise, Sunset, User, CreditCard, QrCode, Globe, AlertTriangle, ExternalLink, MapPin, Hash, Building, Map, Flag, IdCard } from 'lucide-react';
+import { ChevronLeft, Flame, Ghost, Check, Info, Sun, Sunrise, Sunset, User, CreditCard, QrCode, Globe, AlertTriangle, ExternalLink, MapPin, Hash, Building, Map, Flag, IdCard } from 'lucide-react';
 import { SERVICES, SERVICE_FEE } from '../constants';
 import { Appointment } from '../types';
 
@@ -154,14 +154,14 @@ const BookingPage: React.FC<BookingPageProps> = ({ addAppointment }) => {
     }, 1500);
   };
 
-  const GoldButtonClasses = "px-16 py-6 bg-[#d4af37] text-[#1a0b2e] rounded-full font-black text-xs uppercase tracking-[0.3em] shadow-2xl shadow-[rgba(212,175,55,0.4)] hover:scale-105 hover:brightness-110 transition-all active:scale-95 disabled:opacity-20 disabled:scale-100 disabled:shadow-none";
+  const GoldButtonClasses = "px-16 py-6 bg-[#ffb347] text-[#1c0f06] rounded-full font-black text-xs uppercase tracking-[0.3em] shadow-2xl shadow-[rgba(255, 179, 71,0.4)] hover:scale-105 hover:brightness-110 transition-all active:scale-95 disabled:opacity-20 disabled:scale-100 disabled:shadow-none";
 
   if (confirmed) {
     return (
       <div className="bg-mystic-texture min-h-screen flex items-center justify-center py-20 px-4">
-        <div className="max-w-xl w-full bg-[#1a0b2e]/80 backdrop-blur-xl p-12 rounded-[3.5rem] shadow-[0_0_100px_rgba(157,80,187,0.2)] text-center space-y-8 border border-purple-500/30 animate-in zoom-in-95">
+        <div className="max-w-xl w-full bg-[#1c0f06]/80 backdrop-blur-xl p-12 rounded-[3.5rem] shadow-[0_0_100px_rgba(94, 230, 63,0.2)] text-center space-y-8 border border-purple-500/30 animate-in zoom-in-95">
           <div className="w-24 h-24 bg-gold/10 text-gold rounded-full flex items-center justify-center mx-auto mb-4 border border-gold/30">
-            <Sparkles size={48} className="animate-pulse" />
+            <Flame size={48} className="animate-pulse" />
           </div>
           <h2 className="serif text-4xl md:text-5xl font-bold text-white italic leading-tight">Sua solicitação foi <br /><span className="text-gold not-italic">enviada</span></h2>
           <p className="text-gray-300 text-lg leading-relaxed italic font-light">
@@ -210,7 +210,7 @@ const BookingPage: React.FC<BookingPageProps> = ({ addAppointment }) => {
                         key={s.id} 
                         onClick={() => toggleService(s.id)} 
                         className={`w-full group relative p-6 rounded-[2.5rem] border transition-all duration-500 flex flex-col items-center text-center 
-                          ${isSelected ? 'bg-purple-600/20 border-gold shadow-[0_0_40px_rgba(212,175,55,0.3)] scale-[1.03] z-10' : 'bg-black/20 border-white/10 opacity-70 hover:opacity-100 hover:border-purple-500/50'
+                          ${isSelected ? 'bg-purple-600/20 border-gold shadow-[0_0_40px_rgba(255, 179, 71,0.3)] scale-[1.03] z-10' : 'bg-black/20 border-white/10 opacity-70 hover:opacity-100 hover:border-purple-500/50'
                           }`}
                       >
                         <div className="aspect-[2/3] w-full rounded-[2rem] overflow-hidden mb-6 relative border border-white/5">
@@ -258,7 +258,7 @@ const BookingPage: React.FC<BookingPageProps> = ({ addAppointment }) => {
                       <button
                         key={period.id}
                         onClick={() => setFormData({ ...formData, time: period.id })}
-                        className={`flex flex-col items-center justify-center p-10 rounded-[2.5rem] border transition-all duration-500 space-y-4 ${formData.time === period.id ? 'bg-purple-600/20 border-gold shadow-[0_0_30px_rgba(212,175,55,0.2)] text-gold scale-105' : 'bg-black/20 border-white/5 text-gray-400 hover:border-white/20'}`}
+                        className={`flex flex-col items-center justify-center p-10 rounded-[2.5rem] border transition-all duration-500 space-y-4 ${formData.time === period.id ? 'bg-purple-600/20 border-gold shadow-[0_0_30px_rgba(255, 179, 71,0.2)] text-gold scale-105' : 'bg-black/20 border-white/5 text-gray-400 hover:border-white/20'}`}
                       >
                         <period.icon size={32} className={formData.time === period.id ? 'animate-pulse' : ''} />
                         <div className="text-center">
@@ -318,7 +318,7 @@ const BookingPage: React.FC<BookingPageProps> = ({ addAppointment }) => {
                       <button
                         key={method.id}
                         onClick={() => setFormData({ ...formData, paymentMethod: method.id })}
-                        className={`flex items-center p-8 rounded-[2rem] border transition-all duration-500 space-x-6 text-left group ${formData.paymentMethod === method.id ? 'bg-gold/10 border-gold shadow-[0_0_30px_rgba(212,175,55,0.1)]' : 'bg-black/20 border-white/5 hover:border-white/20'}`}
+                        className={`flex items-center p-8 rounded-[2rem] border transition-all duration-500 space-x-6 text-left group ${formData.paymentMethod === method.id ? 'bg-gold/10 border-gold shadow-[0_0_30px_rgba(255, 179, 71,0.1)]' : 'bg-black/20 border-white/5 hover:border-white/20'}`}
                       >
                         <div className={`w-14 h-14 rounded-2xl flex items-center justify-center transition-all ${formData.paymentMethod === method.id ? 'bg-gold text-deep-purple' : 'bg-white/5 text-gray-500'}`}>
                           <method.icon size={24} />
@@ -386,7 +386,7 @@ const BookingPage: React.FC<BookingPageProps> = ({ addAppointment }) => {
                       {loading ? 'Preparando firmeza...' : 'Enviar Solicitação via WhatsApp'}
                     </button>
                   </form>
-                  <div className="bg-[#0d0517] border border-white/10 rounded-[2.5rem] p-10 space-y-8">
+                  <div className="bg-[#0d0804] border border-white/10 rounded-[2.5rem] p-10 space-y-8">
                     <h3 className="serif text-2xl text-white">Resumo da Consulta</h3>
                     <div className="space-y-4">
                       {selectedServices.map(s => <div key={s.id} className="flex justify-between text-sm text-gray-400"><span>{s.name}</span><span>{s.price}</span></div>)}

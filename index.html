@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cigana Soraya - Portal Místico</title>
-    <meta name="description" content="Cigana Soraya — Consultas espirituais com responsabilidade, sigilo e direcionamento. Agende sua leitura com atendimento personalizado e acolhimento verdadeiro." />
+    <title>Cigana Soraya - Edição de Halloween</title>
+    <meta name="description" content="Cigana Soraya — Consultas espirituais com responsabilidade, sigilo e direcionamento. Edição especial de Halloween: agende sua leitura com atendimento personalizado e acolhimento verdadeiro." />
     <link rel="canonical" href="https://www.ciganasoraya.com/" />
+    <link rel="icon" type="image/svg+xml" href="./favicon-halloween.svg" />
     <link rel="icon" href="./favicon.ico" />
     <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png"/>
     <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png"/>
@@ -15,27 +16,61 @@
     <meta property="og:site_name" content="Cigana Soraya" />
     <meta property="og:locale" content="pt_BR" />
     <meta property="og:url" content="https://www.ciganasoraya.com/" />
-    <meta property="og:title" content="Cigana Soraya - Portal Místico" />
-    <meta property="og:description" content="Cigana Soraya — Consultas espirituais com responsabilidade, sigilo e direcionamento. Agende sua leitura com atendimento personalizado e acolhimento verdadeiro." />
+    <meta property="og:title" content="Cigana Soraya - Edição de Halloween" />
+    <meta property="og:description" content="Cigana Soraya — Consultas espirituais com responsabilidade, sigilo e direcionamento. Edição especial de Halloween: agende sua leitura com atendimento personalizado e acolhimento verdadeiro." />
     <meta property="og:image" content="https://www.ciganasoraya.com/og-image.png" />
     <meta property="og:image:width" content="1224" />
     <meta property="og:image:height" content="874" />
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Cigana Soraya - Portal Místico" />
-    <meta name="twitter:description" content="Cigana Soraya — Consultas espirituais com responsabilidade, sigilo e direcionamento. Agende sua leitura com atendimento personalizado e acolhimento verdadeiro." />
+    <meta name="twitter:title" content="Cigana Soraya - Edição de Halloween" />
+    <meta name="twitter:description" content="Cigana Soraya — Consultas espirituais com responsabilidade, sigilo e direcionamento. Edição especial de Halloween: agende sua leitura com atendimento personalizado e acolhimento verdadeiro." />
     <meta name="twitter:image" content="https://www.ciganasoraya.com/og-image.png" />
 
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        purple: {
+                            50: '#fff3e6',
+                            100: '#ffe0bf',
+                            200: '#ffc180',
+                            300: '#ff9d4d',
+                            400: '#ff7518',
+                            500: '#e85d04',
+                            600: '#c2460a',
+                            700: '#99350a',
+                            800: '#6e260a',
+                            900: '#4a1a08',
+                            950: '#2e1608',
+                        },
+                        gold: {
+                            DEFAULT: '#ffb347',
+                            50: '#fff7e8',
+                            100: '#ffecc4',
+                            200: '#ffd98a',
+                            300: '#ffc257',
+                            400: '#ffb347',
+                            500: '#f59e1f',
+                            600: '#d9830f',
+                        },
+                        'deep-purple': '#1c0f06',
+                    },
+                },
+            },
+        };
+    </script>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --deep-purple: #1a0b2e;
-            --mid-purple: #3d1d5e;
-            --mystic-lilac: #9d50bb;
-            --mystic-gold: #d4af37;
-            --ethereal-white: #fdfcfb;
+            --deep-purple: #1c0f06;
+            --mid-purple: #3d1708;
+            --mystic-lilac: #5ee63f;
+            --mystic-gold: #ffb347;
+            --ethereal-white: #fbf2e4;
         }
         body {
             font-family: 'Inter', sans-serif;
@@ -47,9 +82,9 @@
             font-family: 'Playfair Display', serif;
         }
         .bg-mystic-texture {
-            background-image: 
-                radial-gradient(circle at 20% 30%, rgba(157, 80, 187, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 70%, rgba(212, 175, 55, 0.05) 0%, transparent 50%),
+            background-image:
+                radial-gradient(circle at 20% 30%, rgba(94, 230, 63, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(255, 179, 71, 0.07) 0%, transparent 50%),
                 url("https://www.transparenttextures.com/patterns/dark-matter.png");
             background-attachment: fixed;
         }
@@ -79,7 +114,7 @@
 
         /* Card Sheen */
         .card-glow-overlay {
-            background: radial-gradient(circle at var(--x) var(--y), rgba(212, 175, 55, 0.15) 0%, transparent 50%);
+            background: radial-gradient(circle at var(--x) var(--y), rgba(255, 179, 71, 0.15) 0%, transparent 50%);
             pointer-events: none;
         }
 

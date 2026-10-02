@@ -8,8 +8,7 @@ import {
   ArrowRight, 
   MessageCircle, 
   Mail, 
-  Clock, 
-  Sparkles,
+  Clock,
   BookOpen,
   Award,
   Video,
@@ -19,7 +18,7 @@ import {
   Gift,
   Zap,
   Flame,
-  Moon,
+  Ghost,
 } from 'lucide-react';
 
 const CoursePage: React.FC = () => {
@@ -67,7 +66,7 @@ const CoursePage: React.FC = () => {
       id: Math.random(),
       x: (Math.random() - 0.5) * 300,
       y: (Math.random() - 0.5) * 300,
-      color: Math.random() > 0.5 ? '#d4af37' : '#9d50bb'
+      color: Math.random() > 0.5 ? '#ffb347' : '#5ee63f'
     }));
     setCosmicDust(prev => [...prev.slice(-30), ...newDust]);
   };
@@ -102,7 +101,7 @@ const CoursePage: React.FC = () => {
   const CTA_URL = "#";
 
   return (
-    <div className="relative min-h-screen bg-[#0a0510] overflow-x-hidden">
+    <div className="relative min-h-screen bg-[#0a0603] overflow-x-hidden">
       <AnimatePresence>
         {isLoading && (
           <motion.div
@@ -113,7 +112,7 @@ const CoursePage: React.FC = () => {
               scale: 1.1,
             }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="fixed inset-0 z-[3000] bg-[#050208] flex items-center justify-center overflow-hidden"
+            className="fixed inset-0 z-[3000] bg-[#050301] flex items-center justify-center overflow-hidden"
           >
             {/* Nebulous Dust / Cosmic Clouds - Simplified blur for performance */}
             <div className="absolute inset-0 z-0">
@@ -123,7 +122,7 @@ const CoursePage: React.FC = () => {
                   opacity: [0.2, 0.4, 0.2],
                 }}
                 transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                className="absolute -top-[10%] -left-[10%] w-full h-full bg-[radial-gradient(circle,rgba(59,7,100,0.3)_0%,transparent_70%)] blur-[60px] will-change-transform"
+                className="absolute -top-[10%] -left-[10%] w-full h-full bg-[radial-gradient(circle,rgba(61,23,8,0.3)_0%,transparent_70%)] blur-[60px] will-change-transform"
               />
               <motion.div 
                 animate={{ 
@@ -131,7 +130,7 @@ const CoursePage: React.FC = () => {
                   opacity: [0.15, 0.3, 0.15],
                 }}
                 transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
-                className="absolute -bottom-[10%] -right-[10%] w-full h-full bg-[radial-gradient(circle,rgba(30,27,75,0.3)_0%,transparent_70%)] blur-[60px] will-change-transform"
+                className="absolute -bottom-[10%] -right-[10%] w-full h-full bg-[radial-gradient(circle,rgba(46,22,8,0.3)_0%,transparent_70%)] blur-[60px] will-change-transform"
               />
             </div>
 
@@ -185,7 +184,7 @@ const CoursePage: React.FC = () => {
                 opacity: [0, 0.8, 0.6],
               }}
               transition={{ duration: 2.5, ease: "easeOut" }}
-              className="absolute w-[500px] h-[500px] bg-[radial-gradient(circle,rgba(157,80,187,0.2)_0%,transparent_70%)] blur-[40px] z-0 will-change-transform"
+              className="absolute w-[500px] h-[500px] bg-[radial-gradient(circle,rgba(94, 230, 63,0.2)_0%,transparent_70%)] blur-[40px] z-0 will-change-transform"
             />
             
             {/* Explosive Particles - Optimized for visibility and performance */}
@@ -217,8 +216,8 @@ const CoursePage: React.FC = () => {
                       ease: "easeOut"
                     }}
                     className={`absolute left-1/2 top-1/2 rounded-full ${
-                      i % 3 === 0 ? 'bg-gold shadow-[0_0_8px_rgba(212,175,55,0.6)]' : 
-                      i % 2 === 0 ? 'bg-purple-300 shadow-[0_0_8px_rgba(168,85,247,0.6)]' : 
+                      i % 3 === 0 ? 'bg-gold shadow-[0_0_8px_rgba(255, 179, 71,0.6)]' : 
+                      i % 2 === 0 ? 'bg-purple-300 shadow-[0_0_8px_rgba(232, 93, 4,0.6)]' : 
                       'bg-white shadow-[0_0_8px_rgba(255,255,255,0.6)]'
                     }`}
                   />
@@ -237,10 +236,10 @@ const CoursePage: React.FC = () => {
                 whileTap={{ scale: 0.9 }}
                 onClick={handleMoonClick}
                 transition={{ duration: 1.5, ease: "backOut" }}
-                className="w-28 h-28 bg-gradient-to-tr from-purple-800 to-indigo-950 rounded-full flex items-center justify-center text-gold relative border border-gold/50 shadow-[0_0_30px_rgba(212,175,55,0.4)] cursor-pointer select-none"
+                className="w-28 h-28 bg-gradient-to-tr from-purple-800 to-purple-950 rounded-full flex items-center justify-center text-gold relative border border-gold/50 shadow-[0_0_30px_rgba(255, 179, 71,0.4)] cursor-pointer select-none"
               >
                 <div className="relative z-10">
-                  <Moon size={46} className="drop-shadow-[0_0_15px_rgba(212,175,55,1)]" />
+                  <Ghost size={46} className="drop-shadow-[0_0_15px_rgba(255, 179, 71,1)]" />
                 </div>
 
                 {/* Interactive Cosmic Dust */}
@@ -270,7 +269,7 @@ const CoursePage: React.FC = () => {
                 </h2>
                 <div className="flex items-center justify-center space-x-2">
                   <div className="h-[1px] w-8 bg-gradient-to-r from-transparent to-gold"></div>
-                  <Sparkles size={16} className="text-gold animate-spin-slow" />
+                  <Flame size={16} className="text-gold animate-spin-slow" />
                   <div className="h-[1px] w-8 bg-gradient-to-l from-transparent to-gold"></div>
                 </div>
               </motion.div>
@@ -302,7 +301,7 @@ const CoursePage: React.FC = () => {
       >
         {/* Hero Section */}
           <section className="relative pt-14 md:pt-28 pb-20 px-4 overflow-hidden">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[800px] bg-[radial-gradient(circle_at_center,rgba(157,80,187,0.2)_0%,transparent_70%)] pointer-events-none"></div>
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[800px] bg-[radial-gradient(circle_at_center,rgba(94, 230, 63,0.2)_0%,transparent_70%)] pointer-events-none"></div>
         <div className="max-w-5xl mx-auto text-center space-y-10 relative">
           <motion.div 
             initial={{ opacity: 0, y: -20 }}
@@ -310,9 +309,9 @@ const CoursePage: React.FC = () => {
               opacity: 1, 
               y: 0,
               boxShadow: [
-                "0 0 0px rgba(212,175,55,0)",
-                "0 0 20px rgba(212,175,55,0.2)",
-                "0 0 0px rgba(212,175,55,0)"
+                "0 0 0px rgba(255, 179, 71,0)",
+                "0 0 20px rgba(255, 179, 71,0.2)",
+                "0 0 0px rgba(255, 179, 71,0)"
               ]
             }}
             transition={{ 
@@ -323,7 +322,7 @@ const CoursePage: React.FC = () => {
                 ease: "easeInOut"
               }
             }}
-            className="inline-flex items-center space-x-3 px-8 py-3 bg-purple-950/80 backdrop-blur-2xl border border-gold/40 rounded-full text-gold text-xs md:text-sm font-bold uppercase tracking-[0.2em] mb-4 cursor-default shadow-[0_0_15px_rgba(212,175,55,0.15)]"
+            className="inline-flex items-center space-x-3 px-8 py-3 bg-purple-950/80 backdrop-blur-2xl border border-gold/40 rounded-full text-gold text-xs md:text-sm font-bold uppercase tracking-[0.2em] mb-4 cursor-default shadow-[0_0_15px_rgba(255, 179, 71,0.15)]"
           >
             <motion.div
               animate={{ rotate: [0, 360] }}
@@ -378,10 +377,10 @@ const CoursePage: React.FC = () => {
               href="https://imperio.ciganasoraya.com/checkout"
               whileHover={{ scale: 1.05, y: -10 }}
               transition={{ type: "spring", stiffness: 300 }}
-              className="bg-gradient-to-br from-purple-700/80 to-purple-900/80 border border-gold/30 p-10 rounded-[3rem] w-full max-w-lg backdrop-blur-2xl shadow-[0_30px_100px_rgba(157,80,187,0.4)] relative overflow-hidden group cursor-pointer block"
+              className="bg-gradient-to-br from-purple-700/80 to-purple-900/80 border border-gold/30 p-10 rounded-[3rem] w-full max-w-lg backdrop-blur-2xl shadow-[0_30px_100px_rgba(94, 230, 63,0.4)] relative overflow-hidden group cursor-pointer block"
             >
               <div className="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-30 transition-all duration-700 transform group-hover:rotate-[30deg] group-hover:scale-150">
-                <Sparkles size={120} />
+                <Flame size={120} />
               </div>
               <div className="space-y-6">
                 <div className="flex flex-col items-center space-y-3">
@@ -514,7 +513,7 @@ const CoursePage: React.FC = () => {
             <div className="flex flex-col md:flex-row items-center justify-center space-y-6 md:space-y-0 md:space-x-12">
               <div className="flex items-center space-x-4">
                 <div className="w-12 h-12 bg-gold/10 text-gold rounded-2xl flex items-center justify-center shadow-lg group-hover:rotate-12 transition-transform">
-                  <Sparkles size={24} />
+                  <Flame size={24} />
                 </div>
                 <div>
                   <p className="text-[10px] font-black uppercase tracking-[0.3em] text-gold/60">Santuário</p>
@@ -526,7 +525,7 @@ const CoursePage: React.FC = () => {
 
               <div className="flex flex-col items-center space-y-2">
                 <p className="text-[10px] font-black uppercase tracking-[0.3em] text-purple-300/60">Garanta sua vaga</p>
-                <span className="px-8 py-3 bg-purple-600 text-white rounded-full font-black uppercase tracking-[0.2em] text-sm shadow-[0_0_20px_rgba(157,80,187,0.5)] border border-purple-400/20 group-hover:bg-purple-500 transition-colors">
+                <span className="px-8 py-3 bg-purple-600 text-white rounded-full font-black uppercase tracking-[0.2em] text-sm shadow-[0_0_20px_rgba(94, 230, 63,0.5)] border border-purple-400/20 group-hover:bg-purple-500 transition-colors">
                   Inscrever-me Agora
                 </span>
               </div>
@@ -539,7 +538,7 @@ const CoursePage: React.FC = () => {
               whileInView={{ opacity: 1 }}
               className="flex justify-center mb-4"
             >
-              <Moon size={40} className="text-gold/40 animate-pulse" />
+              <Ghost size={40} className="text-gold/40 animate-pulse" />
             </motion.div>
             <h2 className="serif text-4xl md:text-6xl font-bold italic">O que você vai <span className="text-gold">dominar</span></h2>
             <p className="text-gray-500 text-[10px] font-black uppercase tracking-[0.5em]">A estrutura da sua evolução profissional</p>
@@ -551,13 +550,13 @@ const CoursePage: React.FC = () => {
               whileHover={{ 
                 y: -15, 
                 scale: 1.02,
-                boxShadow: "0 20px 40px rgba(168, 85, 247, 0.2)" 
+                boxShadow: "0 20px 40px rgba(232, 93, 4, 0.2)" 
               }}
               className="md:col-span-3 bg-white/5 p-8 rounded-[2.5rem] border border-white/5 hover:border-purple-500/50 hover:bg-white/10 transition-colors duration-500 flex flex-col justify-between group overflow-hidden relative"
             >
               <div className="absolute inset-0 bg-gradient-to-br from-purple-500/0 via-purple-500/0 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
               <div className="absolute -right-4 -top-4 opacity-5 group-hover:opacity-30 transition-all duration-700 group-hover:rotate-45 group-hover:scale-125">
-                <Sparkles size={80} />
+                <Flame size={80} />
               </div>
               <div className="relative z-10">
                 <motion.div 
@@ -601,9 +600,9 @@ const CoursePage: React.FC = () => {
               whileHover={{ 
                 y: -20, 
                 scale: 1.03,
-                boxShadow: "0 30px 70px rgba(212, 175, 55, 0.3)" 
+                boxShadow: "0 30px 70px rgba(255, 179, 71, 0.3)" 
               }}
-              className="md:col-span-4 bg-gradient-to-br from-gold/25 via-purple-900/60 to-black/60 p-10 rounded-[3rem] border border-gold/30 hover:border-gold/80 shadow-[0_20px_50px_rgba(212,175,55,0.1)] transition-all duration-500 flex flex-col md:flex-row gap-8 items-center group relative overflow-hidden"
+              className="md:col-span-4 bg-gradient-to-br from-gold/25 via-purple-900/60 to-black/60 p-10 rounded-[3rem] border border-gold/30 hover:border-gold/80 shadow-[0_20px_50px_rgba(255, 179, 71,0.1)] transition-all duration-500 flex flex-col md:flex-row gap-8 items-center group relative overflow-hidden"
             >
               <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10 mix-blend-overlay"></div>
               <motion.div 
@@ -614,9 +613,9 @@ const CoursePage: React.FC = () => {
                 transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
                 className="absolute -right-20 -bottom-20 opacity-10 group-hover:opacity-30 transition-opacity duration-700 pointer-events-none"
               >
-                <Sparkles size={300} className="text-gold" />
+                <Flame size={300} className="text-gold" />
               </motion.div>
-              <div className="w-20 h-20 bg-gold/20 text-gold rounded-2xl flex items-center justify-center shrink-0 group-hover:rotate-[360deg] group-hover:scale-110 transition-all duration-700 shadow-[0_0_20px_rgba(212,175,55,0.3)]">
+              <div className="w-20 h-20 bg-gold/20 text-gold rounded-2xl flex items-center justify-center shrink-0 group-hover:rotate-[360deg] group-hover:scale-110 transition-all duration-700 shadow-[0_0_20px_rgba(255, 179, 71,0.3)]">
                 <Award size={40} />
               </div>
               <div className="space-y-4 relative z-10 text-left">
@@ -658,13 +657,13 @@ const CoursePage: React.FC = () => {
               whileHover={{ 
                 y: -10,
                 scale: 1.01,
-                boxShadow: "0 20px 50px rgba(168, 85, 247, 0.2)"
+                boxShadow: "0 20px 50px rgba(232, 93, 4, 0.2)"
               }}
-              className="md:col-span-6 bg-gradient-to-r from-purple-900/40 via-indigo-900/40 to-purple-900/40 border border-purple-500/30 p-8 rounded-[2.5rem] flex flex-col md:flex-row items-center justify-between gap-6 hover:border-gold/50 transition-all duration-500 border-dashed relative overflow-hidden group"
+              className="md:col-span-6 bg-gradient-to-r from-purple-900/40 via-purple-900/40 to-purple-900/40 border border-purple-500/30 p-8 rounded-[2.5rem] flex flex-col md:flex-row items-center justify-between gap-6 hover:border-gold/50 transition-all duration-500 border-dashed relative overflow-hidden group"
             >
               <div className="absolute inset-0 bg-gold/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
               <div className="flex items-center space-x-6 relative z-10">
-                <div className="w-14 h-14 bg-purple-500/20 text-purple-400 rounded-full flex items-center justify-center shrink-0 shadow-[0_0_20px_rgba(168,85,247,0.2)]">
+                <div className="w-14 h-14 bg-purple-500/20 text-purple-400 rounded-full flex items-center justify-center shrink-0 shadow-[0_0_20px_rgba(232, 93, 4,0.2)]">
                   <Users size={28} />
                 </div>
                 <div>
@@ -701,13 +700,13 @@ const CoursePage: React.FC = () => {
               { 
                 name: "Baralho Cigano", 
                 desc: "A magia do Petit Lenormand. Foco em respostas diretas, objetividade e clareza para questões do cotidiano.",
-                icon: Moon,
+                icon: Ghost,
                 color: "text-gold"
               },
               { 
                 name: "Sibila Italiana", 
                 desc: "O oráculo dos segredos sociais e detalhes mundanos. Descubra as entrelinhas e as fofocas do destino.",
-                icon: Sparkles,
+                icon: Flame,
                 color: "text-blue-400"
               }
             ].map((oracle, idx) => (
@@ -741,7 +740,7 @@ const CoursePage: React.FC = () => {
           whileInView={{ opacity: 1, scale: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ type: "spring", bounce: 0.4, duration: 1 }}
-          className="max-w-3xl mx-auto bg-gradient-to-br from-[#1a0b2e] to-[#2d144d] border border-gold/30 p-12 md:p-20 rounded-[4rem] text-center space-y-8 shadow-[0_0_100px_rgba(212,175,55,0.2)] relative overflow-hidden group"
+          className="max-w-3xl mx-auto bg-gradient-to-br from-[#1c0f06] to-[#2e1608] border border-gold/30 p-12 md:p-20 rounded-[4rem] text-center space-y-8 shadow-[0_0_100px_rgba(255, 179, 71,0.2)] relative overflow-hidden group"
         >
           <div className="absolute -top-10 -left-10 w-40 h-40 bg-gold/5 blur-3xl animate-pulse"></div>
           <motion.div
@@ -751,7 +750,7 @@ const CoursePage: React.FC = () => {
             }}
             transition={{ duration: 6, repeat: Infinity, ease: "linear" }}
           >
-            <Award size={80} className="text-gold mx-auto drop-shadow-[0_0_15px_rgba(212,175,55,0.5)]" />
+            <Award size={80} className="text-gold mx-auto drop-shadow-[0_0_15px_rgba(255, 179, 71,0.5)]" />
           </motion.div>
           <div className="space-y-4">
             <motion.h2 

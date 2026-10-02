@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { 
-  Sparkles, 
+  Flame, 
   ShieldCheck, 
   ChevronRight, 
   ChevronLeft,
@@ -134,12 +134,12 @@ const LandingPage: React.FC = () => {
       {/* Hero Section */}
       <section className="relative min-h-screen flex flex-col items-center justify-start px-0 md:px-4 pt-4 md:pt-6 pb-20 overflow-hidden">
         <div className="absolute inset-0 z-0 pointer-events-none opacity-40">
-           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[radial-gradient(circle_at_center,rgba(157,80,187,0.15)_0%,transparent_60%)]"></div>
+           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[radial-gradient(circle_at_center,rgba(94, 230, 63,0.15)_0%,transparent_60%)]"></div>
         </div>
 
         <div className="relative z-10 w-full max-w-7xl mx-auto flex flex-col items-center">
           <div className="inline-flex items-center space-x-3 px-6 py-2 rounded-full bg-white/5 text-purple-300 text-[9px] md:text-[10px] font-black uppercase tracking-[0.3em] md:tracking-[0.5em] border border-white/10 mb-4 md:mb-6 shadow-2xl animate-in fade-in slide-in-from-top-4 duration-1000">
-            <Sparkles size={12} className="text-gold" />
+            <Flame size={12} className="text-gold" />
             <span>Os Oráculos Principais</span>
           </div>
           
@@ -155,13 +155,13 @@ const LandingPage: React.FC = () => {
               <>
                 <button 
                   onClick={() => scrollStep(heroRef, 'left', 0.8, baseHeroServices.length)} 
-                  className="absolute left-2 top-1/2 -translate-y-1/2 z-[100] w-14 h-14 bg-[#0d0517]/90 backdrop-blur-xl rounded-full flex items-center justify-center text-gold border border-gold/40 shadow-2xl active:scale-90 transition-transform"
+                  className="absolute left-2 top-1/2 -translate-y-1/2 z-[100] w-14 h-14 bg-[#0d0804]/90 backdrop-blur-xl rounded-full flex items-center justify-center text-gold border border-gold/40 shadow-2xl active:scale-90 transition-transform"
                 >
                   <ChevronLeft size={32} />
                 </button>
                 <button 
                   onClick={() => scrollStep(heroRef, 'right', 0.8, baseHeroServices.length)} 
-                  className="absolute right-2 top-1/2 -translate-y-1/2 z-[100] w-14 h-14 bg-[#0d0517]/90 backdrop-blur-xl rounded-full flex items-center justify-center text-gold border border-gold/40 shadow-2xl active:scale-90 transition-transform"
+                  className="absolute right-2 top-1/2 -translate-y-1/2 z-[100] w-14 h-14 bg-[#0d0804]/90 backdrop-blur-xl rounded-full flex items-center justify-center text-gold border border-gold/40 shadow-2xl active:scale-90 transition-transform"
                 >
                   <ChevronRight size={32} />
                 </button>
@@ -201,13 +201,13 @@ const LandingPage: React.FC = () => {
                   >
                     {showBadge && (
                       <div className={`absolute -top-10 left-0 right-0 z-[100] flex justify-center transition-all duration-500 animate-in zoom-in fade-in ${isActive ? 'scale-110' : 'scale-100'}`}>
-                        <div className={`bg-gold text-deep-purple px-5 py-2 rounded-full text-[9px] font-black uppercase tracking-[0.3em] shadow-2xl border border-white/20 whitespace-nowrap transition-all duration-500 ${isActive ? 'animate-pulse shadow-[0_0_20px_rgba(212,175,55,0.4)]' : 'shadow-black/40'}`}>
+                        <div className={`bg-gold text-deep-purple px-5 py-2 rounded-full text-[9px] font-black uppercase tracking-[0.3em] shadow-2xl border border-white/20 whitespace-nowrap transition-all duration-500 ${isActive ? 'animate-pulse shadow-[0_0_20px_rgba(255, 179, 71,0.4)]' : 'shadow-black/40'}`}>
                           {service.badge}
                         </div>
                       </div>
                     )}
-                    <div className={`relative w-full aspect-[2/3] rounded-[2.5rem] overflow-hidden border-2 transition-all duration-700 shadow-2xl bg-[#0d0517] ${isActive ? 'brightness-110' : 'brightness-75'}`}
-                        style={{ borderColor: isActive ? 'rgba(212,175,55,0.5)' : 'rgba(157,80,187,0.1)' }}>
+                    <div className={`relative w-full aspect-[2/3] rounded-[2.5rem] overflow-hidden border-2 transition-all duration-700 shadow-2xl bg-[#0d0804] ${isActive ? 'brightness-110' : 'brightness-75'}`}
+                        style={{ borderColor: isActive ? 'rgba(255, 179, 71,0.5)' : 'rgba(94, 230, 63,0.1)' }}>
                       <img
                         src={service.image}
                         alt={service.name}
@@ -217,7 +217,7 @@ const LandingPage: React.FC = () => {
                           ${!isMobile && isActive ? 'scale-[1.15]' : ''}
                         `}
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-[#0d0517] via-[#0d0517]/40 to-transparent"></div>
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#0d0804] via-[#0d0804]/40 to-transparent"></div>
                       <div className="absolute bottom-0 inset-x-0 p-8 flex flex-col items-center text-center pointer-events-none">
                         <div className={`w-full transition-all duration-500 transform ${isActive ? '-translate-y-6' : 'translate-y-0'}`}>
                           <h3 className={`serif text-2xl md:text-3xl font-bold ${isActive ? 'text-gold' : 'text-white'}`}>{service.name}</h3>
@@ -248,13 +248,13 @@ const LandingPage: React.FC = () => {
               <>
                 <button 
                   onClick={() => scrollStep(catalogRef, 'left', 0.75, previewServices.length)} 
-                  className="absolute left-2 top-1/2 -translate-y-1/2 z-[100] w-14 h-14 bg-[#1a0b2e]/90 backdrop-blur-xl rounded-full flex items-center justify-center text-gold border border-gold/40 shadow-2xl active:scale-90 transition-transform"
+                  className="absolute left-2 top-1/2 -translate-y-1/2 z-[100] w-14 h-14 bg-[#1c0f06]/90 backdrop-blur-xl rounded-full flex items-center justify-center text-gold border border-gold/40 shadow-2xl active:scale-90 transition-transform"
                 >
                   <ChevronLeft size={28} />
                 </button>
                 <button 
                   onClick={() => scrollStep(catalogRef, 'right', 0.75, previewServices.length)} 
-                  className="absolute right-2 top-1/2 -translate-y-1/2 z-[100] w-14 h-14 bg-[#1a0b2e]/90 backdrop-blur-xl rounded-full flex items-center justify-center text-gold border border-gold/40 shadow-2xl active:scale-90 transition-transform"
+                  className="absolute right-2 top-1/2 -translate-y-1/2 z-[100] w-14 h-14 bg-[#1c0f06]/90 backdrop-blur-xl rounded-full flex items-center justify-center text-gold border border-gold/40 shadow-2xl active:scale-90 transition-transform"
                 >
                   <ChevronRight size={28} />
                 </button>
@@ -289,7 +289,7 @@ const LandingPage: React.FC = () => {
                       <div className="aspect-[2/3] overflow-hidden">
                         <img src={game.image} alt={game.name} className={`w-full h-full object-cover transition-all duration-700 ${isMobile && !isActiveMobile ? 'grayscale-[60%]' : 'grayscale-0 group-hover:scale-110'}`} />
                       </div>
-                      <div className="absolute inset-0 bg-gradient-to-t from-[#1a0b2e] via-[#1a0b2e]/30 to-transparent"></div>
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#1c0f06] via-[#1c0f06]/30 to-transparent"></div>
                       <div className="absolute bottom-0 inset-x-0 p-6 md:p-8 flex flex-col items-center text-center pointer-events-none">
                         <div className={`w-full transition-transform duration-500 ${isActiveMobile || (!isMobile && hoveredPreviewIdx === idx) ? '-translate-y-2' : 'translate-y-0'}`}>
                           <div className={`flex items-center justify-center space-x-2 text-[8px] font-black text-purple-400 uppercase tracking-widest transition-opacity duration-500 ${(isMobile && isActiveMobile) || (!isMobile && hoveredPreviewIdx === idx) ? 'opacity-100' : 'opacity-0'}`}>
@@ -327,8 +327,8 @@ const LandingPage: React.FC = () => {
       </section>
 
       {/* EXPERIENCE SECTION */}
-      <section className="relative py-24 md:py-32 px-4 bg-[#0d0517] overflow-hidden">
-        <div className="absolute inset-0 z-0 opacity-20 bg-[linear-gradient(45deg,transparent_25%,rgba(157,80,187,0.05)_50%,transparent_75%)] bg-[length:200%_200%] animate-pulse"></div>
+      <section className="relative py-24 md:py-32 px-4 bg-[#0d0804] overflow-hidden">
+        <div className="absolute inset-0 z-0 opacity-20 bg-[linear-gradient(45deg,transparent_25%,rgba(94, 230, 63,0.05)_50%,transparent_75%)] bg-[length:200%_200%] animate-pulse"></div>
         
         <div className="max-w-7xl mx-auto relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-20 md:gap-24 items-center">
           <div className="relative group hidden lg:flex items-center justify-center h-[600px]">
@@ -337,16 +337,16 @@ const LandingPage: React.FC = () => {
               {[...Array(5)].map((_, i) => (
                 <div 
                   key={i}
-                  className="absolute inset-0 w-full h-full rounded-[2rem] border border-gold/40 bg-[#1a0b2e] shadow-2xl transition-all duration-700 ease-out flex flex-col items-center justify-center p-6 overflow-hidden"
+                  className="absolute inset-0 w-full h-full rounded-[2rem] border border-gold/40 bg-[#1c0f06] shadow-2xl transition-all duration-700 ease-out flex flex-col items-center justify-center p-6 overflow-hidden"
                   style={{ transform: `rotate(${(i - 2) * 6}deg) translateX(${(i - 2) * 10}px)`, zIndex: 10 + i } as any}
                 >
                   <div className="relative flex flex-col items-center justify-center text-center space-y-4">
                     <div className="w-14 h-14 rounded-full bg-gold/10 border border-gold/30 flex items-center justify-center text-gold shadow-lg transition-all duration-500">
                       {i === 0 && <Shield size={22} />}
                       {i === 1 && <Navigation size={22} />}
-                      {i === 2 && <Sparkles size={22} className="text-gold" />}
+                      {i === 2 && <Flame size={22} className="text-gold" />}
                       {i === 3 && <Eye size={22} />}
-                      {i === 4 && <Sparkles size={22} />}
+                      {i === 4 && <Flame size={22} />}
                     </div>
                   </div>
                 </div>
@@ -368,9 +368,9 @@ const LandingPage: React.FC = () => {
                 { icon: ShieldCheck, title: "Atendimento Reservado", desc: "Sua privacidade é sagrada e protegida sob sigilo absoluto em todas as sessões." },
                 { icon: Clock, title: "Tempo Dedicado", desc: "Sessões pontuais, profundas e sem pressa, respeitando o seu momento de conexão." },
                 { icon: FileText, title: "Orientações Pós-Consulta", desc: "Receba resumos, indicações de banhos ou conselhos práticos para sua caminhada." },
-                { icon: Sparkles, title: "Ética & Sensibilidade", desc: "Um ambiente de acolhimento real, livre de julgamentos e pautado na verdade espiritual." }
+                { icon: Flame, title: "Ética & Sensibilidade", desc: "Um ambiente de acolhimento real, livre de julgamentos e pautado na verdade espiritual." }
               ].map((item, i) => (
-                <div key={i} className="group p-6 bg-white/5 border border-white/5 rounded-3xl hover:border-purple-500/30 hover:bg-white/10 transition-all duration-500 hover:shadow-[0_0_30px_rgba(157,80,187,0.1)] text-left">
+                <div key={i} className="group p-6 bg-white/5 border border-white/5 rounded-3xl hover:border-purple-500/30 hover:bg-white/10 transition-all duration-500 hover:shadow-[0_0_30px_rgba(94, 230, 63,0.1)] text-left">
                   <item.icon className="text-gold mb-4 group-hover:scale-110 transition-transform" size={28} />
                   <h4 className="text-white font-bold mb-2">{item.title}</h4>
                   <p className="text-xs text-gray-500 leading-relaxed font-light">{item.desc}</p>
@@ -381,10 +381,10 @@ const LandingPage: React.FC = () => {
             <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-6 pt-8">
               <button 
                 onClick={() => navigate('/agendar')}
-                className="w-full sm:w-auto px-10 md:px-12 py-4 md:py-5 bg-gradient-to-r from-purple-600 to-purple-500 text-white rounded-full font-black text-[10px] md:text-xs uppercase tracking-[0.2em] hover:from-purple-500 hover:to-purple-400 transition-all shadow-[0_10px_30px_rgba(157,80,187,0.3)] border border-purple-400/20 active:scale-95 flex items-center justify-center space-x-3 group text-center"
+                className="w-full sm:w-auto px-10 md:px-12 py-4 md:py-5 bg-gradient-to-r from-purple-600 to-purple-500 text-white rounded-full font-black text-[10px] md:text-xs uppercase tracking-[0.2em] hover:from-purple-500 hover:to-purple-400 transition-all shadow-[0_10px_30px_rgba(94, 230, 63,0.3)] border border-purple-400/20 active:scale-95 flex items-center justify-center space-x-3 group text-center"
               >
                 <span>Agendar meu jogo agora</span>
-                <Sparkles size={16} className="group-hover:rotate-12 transition-transform" />
+                <Flame size={16} className="group-hover:rotate-12 transition-transform" />
               </button>
               <Link to="/jogos" className="w-full sm:w-auto px-10 md:px-12 py-4 md:py-5 bg-white/5 border border-white/10 text-white rounded-full font-black text-[10px] md:text-xs uppercase tracking-[0.2em] hover:bg-white/10 transition-all hover:border-gold/30 text-center">
                 Explorar Catálogo

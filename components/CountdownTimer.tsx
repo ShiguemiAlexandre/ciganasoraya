@@ -35,7 +35,7 @@ const CountdownTimer: React.FC<CountdownTimerProps> = ({ targetDate }) => {
   const isLongWait = timeLeft.days > 3;
 
   return (
-    <div className="inline-flex items-center space-x-2 bg-purple-950/60 border border-purple-500/50 px-3 py-1.5 rounded-lg shadow-[0_0_15px_rgba(147,51,234,0.3)] animate-pulse mb-2 backdrop-blur-sm">
+    <div className="inline-flex items-center space-x-2 bg-purple-950/60 border border-purple-500/50 px-3 py-1.5 rounded-lg shadow-[0_0_15px_rgba(194, 70, 10,0.3)] animate-pulse mb-2 backdrop-blur-sm">
       <Clock size={14} className="text-purple-400" />
       <span className="text-[10px] font-bold text-purple-200 uppercase tracking-wider">
         {isLongWait ? (

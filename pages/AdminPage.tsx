@@ -2,7 +2,7 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { Navigate } from 'react-router-dom';
 import { 
-  Users, Calendar, Settings, CheckCircle, XCircle, Filter, Download, Search, MessageSquare, Clock, LayoutDashboard, CreditCard, ShoppingBag, Plus, Trash2, Edit, AlertTriangle, ChevronLeft, ChevronRight, Eye, LogOut, Smartphone, Info, ArrowRight, Menu, X, Circle, Lock, Zap, TrendingUp, Coins, CalendarDays, Coffee, Sparkles, Mail, Moon
+  Users, Calendar, Settings, CheckCircle, XCircle, Filter, Download, Search, MessageSquare, Clock, LayoutDashboard, CreditCard, ShoppingBag, Plus, Trash2, Edit, AlertTriangle, ChevronLeft, ChevronRight, Eye, LogOut, Smartphone, Info, ArrowRight, Menu, X, Circle, Lock, Zap, TrendingUp, Coins, CalendarDays, Coffee, Flame, Mail, Ghost
 } from 'lucide-react';
 import { User, Appointment, Service, DayConfig, PriceLog, ServiceCategory } from '../types';
 import { SERVICES as INITIAL_SERVICES } from '../constants';
@@ -177,7 +177,7 @@ const AdminPage: React.FC<AdminPageProps> = ({ user, appointments, updateAppoint
           </div>
        </div>
        <div className="p-8 bg-gold/5 border border-gold/10 rounded-[2.5rem] flex flex-col justify-center text-center space-y-4">
-          <Sparkles className="text-gold mx-auto" size={40} />
+          <Flame className="text-gold mx-auto" size={40} />
           <h4 className="serif text-2xl text-white">Controle de Fluxo</h4>
           <p className="text-gray-400 text-sm font-light">"Clique nos dias para alternar entre Disponível, Lotado e Bloqueado. Isso reflete instantaneamente no calendário do cliente."</p>
        </div>
@@ -186,16 +186,16 @@ const AdminPage: React.FC<AdminPageProps> = ({ user, appointments, updateAppoint
 
   return (
     <div className="min-h-screen bg-mystic-texture flex flex-col lg:flex-row">
-      <div className="lg:hidden bg-[#0d0517] p-6 flex items-center justify-between border-b border-white/5"><span className="serif font-bold text-white">Soraya Admin</span><button className="text-gold" onClick={() => setIsMobileMenuOpen(true)}><Menu size={24} /></button></div>
-      {isMobileMenuOpen && <div className="fixed inset-0 bg-black/80 z-[60] lg:hidden" onClick={() => setIsMobileMenuOpen(false)}><div className="w-80 h-full bg-[#0d0517] p-10 border-r border-white/10" onClick={e => e.stopPropagation()}>
-         <div className="flex justify-between items-center mb-12"><div className="flex items-center space-x-3 text-white serif font-bold"><Moon className="text-gold" /><span>Admin</span></div><button onClick={() => setIsMobileMenuOpen(false)} className="text-white"><X /></button></div>
+      <div className="lg:hidden bg-[#0d0804] p-6 flex items-center justify-between border-b border-white/5"><span className="serif font-bold text-white">Soraya Admin</span><button className="text-gold" onClick={() => setIsMobileMenuOpen(true)}><Menu size={24} /></button></div>
+      {isMobileMenuOpen && <div className="fixed inset-0 bg-black/80 z-[60] lg:hidden" onClick={() => setIsMobileMenuOpen(false)}><div className="w-80 h-full bg-[#0d0804] p-10 border-r border-white/10" onClick={e => e.stopPropagation()}>
+         <div className="flex justify-between items-center mb-12"><div className="flex items-center space-x-3 text-white serif font-bold"><Ghost className="text-gold" /><span>Admin</span></div><button onClick={() => setIsMobileMenuOpen(false)} className="text-white"><X /></button></div>
          <nav className="space-y-6">
             {['dashboard', 'agenda'].map(tab => <button key={tab} onClick={() => { setActiveTab(tab as any); setIsMobileMenuOpen(false); }} className={`w-full text-left p-4 rounded-xl font-bold uppercase tracking-widest text-[10px] ${activeTab === tab ? 'bg-gold text-deep-purple' : 'text-gray-400'}`}>{tab}</button>)}
          </nav>
       </div></div>}
       
-      <div className="hidden lg:flex flex-col w-72 bg-[#0d0517] p-10 border-r border-white/10 shrink-0">
-         <div className="flex items-center space-x-3 text-white serif font-bold text-2xl mb-16"><Moon className="text-gold" /><span>Soraya Admin</span></div>
+      <div className="hidden lg:flex flex-col w-72 bg-[#0d0804] p-10 border-r border-white/10 shrink-0">
+         <div className="flex items-center space-x-3 text-white serif font-bold text-2xl mb-16"><Ghost className="text-gold" /><span>Soraya Admin</span></div>
          <nav className="space-y-4 flex-grow">
             {[{id:'dashboard', icon: LayoutDashboard}, {id:'agenda', icon: Calendar}].map(item => (
               <button key={item.id} onClick={() => setActiveTab(item.id as any)} className={`w-full flex items-center space-x-4 p-4 rounded-2xl transition-all font-bold text-[11px] uppercase tracking-widest ${activeTab === item.id ? 'bg-gold text-deep-purple shadow-xl shadow-gold/10' : 'text-gray-500 hover:text-white hover:bg-white/5'}`}>

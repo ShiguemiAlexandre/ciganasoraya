@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ShieldCheck, Heart, Sparkles, Moon, Star } from 'lucide-react';
+import { ShieldCheck, Heart, Flame, Ghost, Skull, Bone } from 'lucide-react';
 
 const AboutPage: React.FC = () => {
   return (
@@ -8,12 +8,12 @@ const AboutPage: React.FC = () => {
       {/* Hero Section */}
       <section className="relative py-24 md:py-32 px-4 overflow-hidden border-b border-purple-500/10">
         <div className="absolute inset-0 z-0 pointer-events-none opacity-40">
-           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[radial-gradient(circle_at_center,rgba(157,80,187,0.2)_0%,transparent_60%)]"></div>
+           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[radial-gradient(circle_at_center,rgba(94, 230, 63,0.2)_0%,transparent_60%)]"></div>
         </div>
         
         <div className="max-w-4xl mx-auto text-center space-y-8 relative z-10">
           <div className="inline-flex items-center space-x-2 text-gold text-[10px] font-black uppercase tracking-[0.5em] mb-4">
-             <Star size={14} className="animate-pulse" />
+             <Skull size={14} className="animate-pulse" />
              <span>Nossa Essência</span>
           </div>
           <h1 className="serif text-5xl md:text-7xl font-bold text-white italic leading-tight">
@@ -45,7 +45,7 @@ const AboutPage: React.FC = () => {
             <div className="pt-6">
               <Link to="/jogos" className="text-gold text-xs font-black uppercase tracking-widest flex items-center group">
                 <span>Conheça os Oráculos</span>
-                <Sparkles size={16} className="ml-3 group-hover:rotate-12 transition-transform" />
+                <Flame size={16} className="ml-3 group-hover:rotate-12 transition-transform" />
               </Link>
             </div>
           </div>
@@ -58,7 +58,7 @@ const AboutPage: React.FC = () => {
                 alt="Cartas de Tarot em ambiente místico" 
                 className="w-full h-full object-cover grayscale-[20%] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-1000"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#1a0b2e] via-transparent to-transparent opacity-60"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-[#1c0f06] via-transparent to-transparent opacity-60"></div>
             </div>
           </div>
         </div>
@@ -83,7 +83,7 @@ const AboutPage: React.FC = () => {
                  desc: "Não julgamos suas questões ou caminhos. Nosso papel é orientar com amor, empatia e verdade."
                },
                {
-                 icon: Sparkles,
+                 icon: Flame,
                  title: "Responsabilidade",
                  desc: "Damos orientações realistas. A espiritualidade auxilia, mas nunca substitui a medicina ou psicologia."
                }
@@ -100,9 +100,9 @@ const AboutPage: React.FC = () => {
         </div>
 
         {/* Call to Action */}
-        <div className="relative p-10 md:p-20 rounded-[3.5rem] bg-gradient-to-br from-[#1a0b2e] via-[#2d144d] to-[#1a0b2e] text-white text-center space-y-10 shadow-[0_30px_60px_rgba(0,0,0,0.5)] border border-purple-500/20 overflow-hidden">
+        <div className="relative p-10 md:p-20 rounded-[3.5rem] bg-gradient-to-br from-[#1c0f06] via-[#2e1608] to-[#1c0f06] text-white text-center space-y-10 shadow-[0_30px_60px_rgba(0,0,0,0.5)] border border-purple-500/20 overflow-hidden">
           <div className="absolute top-0 right-0 p-8 opacity-10">
-            <Moon size={120} className="text-gold rotate-12" />
+            <Ghost size={120} className="text-gold rotate-12" />
           </div>
           
           <div className="relative z-10 space-y-6">
@@ -115,7 +115,7 @@ const AboutPage: React.FC = () => {
           <div className="relative z-10 pt-4">
             <Link 
               to="/agendar" 
-              className="inline-block px-16 py-6 bg-[#d4af37] text-[#1a0b2e] rounded-full font-black text-xs uppercase tracking-[0.3em] shadow-[0_20px_50px_rgba(212,175,55,0.4)] hover:scale-105 hover:brightness-110 transition-all active:scale-95 shadow-2xl"
+              className="inline-block px-16 py-6 bg-[#ffb347] text-[#1c0f06] rounded-full font-black text-xs uppercase tracking-[0.3em] shadow-[0_20px_50px_rgba(255, 179, 71,0.4)] hover:scale-105 hover:brightness-110 transition-all active:scale-95 shadow-2xl"
             >
               Marcar Minha Consulta
             </Link>
@@ -127,9 +127,9 @@ const AboutPage: React.FC = () => {
       <section className="bg-black/40 py-16 px-4 border-t border-white/5">
         <div className="max-w-2xl mx-auto text-center space-y-6">
            <div className="flex justify-center space-x-2 text-red-500/50">
-             <Star size={12} fill="currentColor" />
-             <Star size={12} fill="currentColor" />
-             <Star size={12} fill="currentColor" />
+             <Bone size={12} fill="currentColor" />
+             <Bone size={12} fill="currentColor" />
+             <Bone size={12} fill="currentColor" />
            </div>
            <p className="text-[10px] text-gray-500 font-bold uppercase tracking-[0.4em]">Aviso de Responsabilidade</p>
            <p className="text-sm text-gray-500 italic leading-relaxed font-light">

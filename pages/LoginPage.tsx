@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
-import { Mail, Lock, User as UserIcon, ArrowRight, Moon, ShieldCheck, Sparkles } from 'lucide-react';
+import { Mail, Lock, User as UserIcon, ArrowRight, Ghost, ShieldCheck, Flame } from 'lucide-react';
 import { User } from '../types';
 
 interface LoginPageProps {
@@ -54,10 +54,10 @@ const LoginPage: React.FC<LoginPageProps> = ({ onLogin }) => {
 
   return (
     <div className="max-w-md mx-auto my-20 px-4">
-      <div className="bg-[#1a0b2e]/60 backdrop-blur-xl p-10 rounded-[3rem] shadow-2xl border border-purple-500/20 animate-in fade-in zoom-in-95">
+      <div className="bg-[#1c0f06]/60 backdrop-blur-xl p-10 rounded-[3rem] shadow-2xl border border-purple-500/20 animate-in fade-in zoom-in-95">
         <div className="text-center mb-10">
           <div className="w-16 h-16 bg-purple-600/10 rounded-2xl flex items-center justify-center text-purple-400 mx-auto mb-6 border border-purple-500/20">
-            <Moon size={32} />
+            <Ghost size={32} />
           </div>
           <h2 className="serif text-3xl font-bold mb-2 text-white">{isLogin ? 'Bem-vindo de volta' : 'Inicie sua jornada'}</h2>
           <p className="text-gray-500 text-sm">Portal de Agendamento Cigana Soraya</p>
@@ -123,7 +123,7 @@ const LoginPage: React.FC<LoginPageProps> = ({ onLogin }) => {
             <button
               type="button"
               onClick={() => setForceAdmin(!forceAdmin)}
-              className={`w-full flex items-center justify-between p-4 rounded-2xl border transition-all duration-500 ${forceAdmin ? 'bg-gold/10 border-gold shadow-[0_0_20px_rgba(212,175,55,0.2)]' : 'bg-black/20 border-white/5 opacity-60 hover:opacity-100'}`}
+              className={`w-full flex items-center justify-between p-4 rounded-2xl border transition-all duration-500 ${forceAdmin ? 'bg-gold/10 border-gold shadow-[0_0_20px_rgba(255, 179, 71,0.2)]' : 'bg-black/20 border-white/5 opacity-60 hover:opacity-100'}`}
             >
               <div className="flex items-center space-x-3">
                 <div className={`p-2 rounded-lg transition-colors ${forceAdmin ? 'bg-gold text-deep-purple' : 'bg-white/5 text-gray-500'}`}>
@@ -153,7 +153,7 @@ const LoginPage: React.FC<LoginPageProps> = ({ onLogin }) => {
               <div className="w-6 h-6 border-2 border-white/20 border-t-white rounded-full animate-spin"></div>
             ) : (
               <>
-                <Sparkles size={18} className={`${forceAdmin ? 'text-gold' : 'text-white/30'} transition-colors`} />
+                <Flame size={18} className={`${forceAdmin ? 'text-gold' : 'text-white/30'} transition-colors`} />
                 <span>{isLogin ? 'Entrar no Portal' : 'Criar minha Conta'}</span>
                 <ArrowRight size={18} />
               </>

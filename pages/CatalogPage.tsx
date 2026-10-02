@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Sparkles, Clock, ChevronRight, X, Info, ArrowRight, Star, MessageCircle, HelpCircle, ChevronDown } from 'lucide-react';
+import { Flame, Clock, ChevronRight, X, Info, ArrowRight, Skull, MessageCircle, HelpCircle, ChevronDown } from 'lucide-react';
 import { SERVICES } from '../constants';
 import { Service } from '../types';
 import { motion, AnimatePresence } from 'motion/react';
@@ -40,7 +40,7 @@ const CatalogPage: React.FC = () => {
       <div className="max-w-7xl mx-auto relative z-10">
         <div className={`text-center mb-20 space-y-6 transition-all duration-1000 transform ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
           <div className="inline-flex items-center space-x-2 text-gold text-[10px] font-black uppercase tracking-[0.5em] mb-4">
-             <Sparkles size={14} className="animate-spin-slow" />
+             <Flame size={14} className="animate-spin-slow" />
              <span>Obras da Espiritualidade</span>
           </div>
           <h1 className="serif text-5xl md:text-7xl text-white italic">Nosso Catálogo <span className="text-gold not-italic">Oficial</span></h1>
@@ -60,10 +60,10 @@ const CatalogPage: React.FC = () => {
               className={`group relative bg-white/5 border rounded-[2.5rem] overflow-hidden transition-all duration-700 flex flex-col h-full cursor-pointer
                 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'}
                 ${game.isFeatured 
-                  ? 'border-gold/60 shadow-[0_0_50px_rgba(212,175,55,0.15)] ring-2 ring-gold/10 lg:scale-[1.03] z-10' 
+                  ? 'border-gold/60 shadow-[0_0_50px_rgba(255, 179, 71,0.15)] ring-2 ring-gold/10 lg:scale-[1.03] z-10' 
                   : 'border-white/10 hover:border-gold/30'
                 }
-                hover:shadow-[0_20px_50px_rgba(0,0,0,0.5),0_0_20px_rgba(157,80,187,0.1)]
+                hover:shadow-[0_20px_50px_rgba(0,0,0,0.5),0_0_20px_rgba(94, 230, 63,0.1)]
                 hover:-translate-y-3
               `}
               style={{ 
@@ -79,7 +79,7 @@ const CatalogPage: React.FC = () => {
               {/* Featured Badge Overlay */}
               {game.isFeatured && (
                 <div className="absolute top-6 left-6 z-30 flex items-center space-x-2 bg-gradient-to-r from-gold via-yellow-400 to-gold text-deep-purple px-5 py-2 rounded-full shadow-[0_4px_20px_rgba(0,0,0,0.6)] border border-deep-purple/20 animate-bounce-subtle">
-                  <Star size={14} className="fill-deep-purple animate-pulse" />
+                  <Skull size={14} className="fill-deep-purple animate-pulse" />
                   <span className="text-[10px] font-black uppercase tracking-[0.15em]">{game.badge}</span>
                 </div>
               )}
@@ -170,7 +170,7 @@ const CatalogPage: React.FC = () => {
               exit={{ y: "100%", opacity: 0 }}
               transition={{ type: "spring", damping: 30, stiffness: 300, duration: 0.5 }}
               onClick={(e) => e.stopPropagation()}
-              className="relative w-full max-w-5xl bg-[#1a0b2e] border-t md:border border-white/10 rounded-t-[2.5rem] md:rounded-[3rem] overflow-hidden shadow-[0_0_100px_rgba(157,80,187,0.2)] flex flex-col md:flex-row h-[90vh] md:h-auto md:max-h-[80vh] cursor-default"
+              className="relative w-full max-w-5xl bg-[#1c0f06] border-t md:border border-white/10 rounded-t-[2.5rem] md:rounded-[3rem] overflow-hidden shadow-[0_0_100px_rgba(94, 230, 63,0.2)] flex flex-col md:flex-row h-[90vh] md:h-auto md:max-h-[80vh] cursor-default"
             >
               {/* Mobile Drag Handle */}
               <div className="w-12 h-1.5 bg-white/20 rounded-full mx-auto my-4 shrink-0 md:hidden"></div>
@@ -189,7 +189,7 @@ const CatalogPage: React.FC = () => {
               <div className="fixed bottom-8 right-6 z-[110] md:hidden">
                 <button 
                   onClick={() => setSelectedGame(null)}
-                  className="w-14 h-14 bg-purple-600 shadow-[0_10px_30px_rgba(157,80,187,0.5)] text-white rounded-full flex items-center justify-center border border-purple-400/30"
+                  className="w-14 h-14 bg-purple-600 shadow-[0_10px_30px_rgba(94, 230, 63,0.5)] text-white rounded-full flex items-center justify-center border border-purple-400/30"
                 >
                   <ChevronDown size={32} />
                 </button>
@@ -199,7 +199,7 @@ const CatalogPage: React.FC = () => {
               <div className="flex flex-col md:flex-row w-full overflow-y-auto md:overflow-hidden">
                 {/* Image Section */}
                 <div className="w-full md:w-1/2 aspect-[2/3] md:aspect-auto md:h-auto overflow-hidden relative shrink-0">
-                  <div className="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-[#1a0b2e] via-transparent to-transparent z-10"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-[#1c0f06] via-transparent to-transparent z-10"></div>
                   <img src={selectedGame.image} className="w-full h-full object-cover grayscale-[10%]" alt={selectedGame.name} />
                 </div>
 
@@ -207,7 +207,7 @@ const CatalogPage: React.FC = () => {
                 <div className="w-full md:w-1/2 p-6 md:p-10 lg:p-14 flex flex-col bg-mystic-texture md:overflow-y-auto">
                   <div className="flex-grow">
                     <div className="flex items-center space-x-2 text-gold text-[10px] font-black tracking-[0.4em] uppercase mb-4">
-                      <Sparkles size={14} />
+                      <Flame size={14} />
                       <span>Detalhes Sagrados</span>
                     </div>
                     <h2 className="serif text-3xl md:text-4xl lg:text-5xl text-white mb-6 leading-tight">{selectedGame.name}</h2>
@@ -225,7 +225,7 @@ const CatalogPage: React.FC = () => {
                         <ul className="grid grid-cols-1 gap-3">
                           {selectedGame.details.map((detail, idx) => (
                             <li key={idx} className="flex items-start text-xs text-gray-400 group/item">
-                              <Sparkles size={12} className="text-gold mr-3 mt-1 shrink-0" />
+                              <Flame size={12} className="text-gold mr-3 mt-1 shrink-0" />
                               <span className="group-hover/item:text-white transition-colors">{detail}</span>
                             </li>
                           ))}
@@ -249,7 +249,7 @@ const CatalogPage: React.FC = () => {
                       <div className="flex flex-col gap-4">
                         <button 
                           onClick={() => navigate(`/agendar?serviceId=${selectedGame.id}`)}
-                          className="flex items-center justify-center space-x-2 px-8 py-5 rounded-full font-black text-xs uppercase tracking-[0.2em] transition-all bg-gradient-to-r from-gold via-yellow-500 to-gold text-deep-purple hover:brightness-110 active:scale-95 shadow-[0_10px_30px_rgba(212,175,55,0.3)]"
+                          className="flex items-center justify-center space-x-2 px-8 py-5 rounded-full font-black text-xs uppercase tracking-[0.2em] transition-all bg-gradient-to-r from-gold via-yellow-500 to-gold text-deep-purple hover:brightness-110 active:scale-95 shadow-[0_10px_30px_rgba(255, 179, 71,0.3)]"
                         >
                           <span>Reservar este Horário</span>
                           <ChevronRight size={18} />
