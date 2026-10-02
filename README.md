@@ -1,20 +1,20 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# Cigana Soraya — Catálogo (v1)
 
-# Run and deploy your AI Studio app
+Primeira versão do site de agendamento e catálogo de jogos de cartas (leituras) da Cigana Soraya. Ver [[pmc/README.md]] para o contexto completo dos projetos da marca.
 
-This contains everything you need to run your app locally.
+Superada por [`catalogo/v2`](../v2/frontend), que reescreve a mesma ideia com arquitetura mais organizada. Mantida aqui como referência histórica.
 
-View your app in AI Studio: https://ai.studio/apps/c14b4948-a2bd-47b0-8e36-37b8f4e73891
+## O que tem aqui
 
-## Run Locally
+- React + Vite + TypeScript, roteamento com `react-router-dom`
+- Landing, catálogo de serviços, wizard de agendamento, login, área admin, página "sobre" e página de curso (institucional, sem integração real com o portal de cursos)
+- `services/gemini.ts`: chama a API do Gemini **diretamente do navegador** — não existe backend próprio para esta versão. Agendamentos e usuários não persistem em nenhum servidor.
+- Tailwind via CDN (não recomendado para produção — corrigido na v2)
 
-**Prerequisites:**  Node.js
+## Rodando localmente
 
+**Pré-requisito:** Node.js
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+1. `npm install`
+2. Defina `GEMINI_API_KEY` em `.env.local`
+3. `npm run dev`

@@ -137,12 +137,18 @@ const LandingPage: React.FC = () => {
            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[radial-gradient(circle_at_center,rgba(94, 230, 63,0.15)_0%,transparent_60%)]"></div>
         </div>
 
-        {/* Halloween bats */}
+        {/* Halloween bats, pumpkins & ghosts */}
         <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden text-2xl md:text-3xl opacity-50">
           <span className="absolute left-[8%] top-[12%] animate-bounce" style={{ animationDuration: '3.5s', animationDelay: '0s' }}>🦇</span>
           <span className="absolute right-[10%] top-[20%] animate-bounce" style={{ animationDuration: '4.2s', animationDelay: '0.6s' }}>🦇</span>
           <span className="absolute left-[18%] top-[32%] animate-bounce text-lg" style={{ animationDuration: '3s', animationDelay: '1.2s' }}>🦇</span>
           <span className="absolute right-[20%] top-[8%] animate-bounce text-lg" style={{ animationDuration: '3.8s', animationDelay: '0.3s' }}>🦇</span>
+          <span className="absolute left-[4%] top-[55%] animate-bounce text-3xl" style={{ animationDuration: '4.5s', animationDelay: '0.2s' }}>🎃</span>
+          <span className="absolute right-[6%] top-[62%] animate-bounce text-2xl" style={{ animationDuration: '3.9s', animationDelay: '0.9s' }}>🎃</span>
+          <span className="absolute left-[30%] top-[6%] animate-bounce text-lg" style={{ animationDuration: '3.3s', animationDelay: '1.5s' }}>🎃</span>
+          <span className="absolute left-[12%] top-[78%] animate-bounce text-3xl" style={{ animationDuration: '4s', animationDelay: '0.4s' }}>👻</span>
+          <span className="absolute right-[14%] top-[40%] animate-bounce text-2xl" style={{ animationDuration: '3.6s', animationDelay: '1.1s' }}>👻</span>
+          <span className="absolute right-[28%] top-[85%] animate-bounce text-lg" style={{ animationDuration: '4.3s', animationDelay: '0.7s' }}>👻</span>
         </div>
 
         <div className="relative z-10 w-full max-w-7xl mx-auto flex flex-col items-center">
