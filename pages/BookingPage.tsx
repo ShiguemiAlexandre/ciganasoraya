@@ -12,6 +12,7 @@ interface BookingPageProps {
 interface Bat {
   key: string;
   cardId: string;
+  emoji: string;
   left: number;
   top: number;
   size: number;
@@ -20,6 +21,14 @@ interface Bat {
   by: number;
   br: number;
 }
+
+// Cada carta sempre usa o mesmo emoji (hash estável do id), só a posição varia a cada seleção.
+const HALLOWEEN_EMOJIS = ['🦇', '🎃', '👻', '💀', '🕷️', '🧙', '🧛', '🕸️'];
+const emojiForCard = (id: string) => {
+  let hash = 0;
+  for (let i = 0; i < id.length; i++) hash = (hash * 31 + id.charCodeAt(i)) >>> 0;
+  return HALLOWEEN_EMOJIS[hash % HALLOWEEN_EMOJIS.length];
+};
 
 const BookingPage: React.FC<BookingPageProps> = ({ addAppointment }) => {
   const navigate = useNavigate();
@@ -43,13 +52,15 @@ const BookingPage: React.FC<BookingPageProps> = ({ addAppointment }) => {
   const [bats, setBats] = useState<Bat[]>([]);
 
   const spawnBats = (cardId: string) => {
-    const count = 4 + Math.floor(Math.random() * 3); // 4 a 6 morcegos
+    const emoji = emojiForCard(cardId);
+    const count = 4 + Math.floor(Math.random() * 3); // 4 a 6 emojis
     const burst: Bat[] = Array.from({ length: count }).map((_, i) => {
       const fromLeft = Math.random() < 0.5;
       const dxMag = 90 + Math.random() * 80;
       return {
         key: `${cardId}-${Date.now()}-${i}`,
         cardId,
+        emoji,
         left: fromLeft ? 2 + Math.random() * 22 : 76 + Math.random() * 22,
         top: 15 + Math.random() * 60,
         size: 16 + Math.random() * 16,
@@ -268,7 +279,7 @@ const BookingPage: React.FC<BookingPageProps> = ({ addAppointment }) => {
                                   ['--by' as any]: `${b.by}px`,
                                   ['--br' as any]: `${b.br}deg`,
                                 } as React.CSSProperties}
-                              >🦇</span>
+                              >{b.emoji}</span>
                             ))}
                           </div>
                         )}
