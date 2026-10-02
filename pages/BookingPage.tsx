@@ -28,6 +28,7 @@ const BookingPage: React.FC<BookingPageProps> = ({ addAppointment }) => {
 
   const [loading, setLoading] = useState(false);
   const [confirmed, setConfirmed] = useState(false);
+  const [batBurstId, setBatBurstId] = useState<string | null>(null);
 
   // Função para formatar data de nascimento (DD/MM/AAAA)
   const handleBirthDateChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -114,12 +115,17 @@ const BookingPage: React.FC<BookingPageProps> = ({ addAppointment }) => {
   ];
 
   const toggleService = (id: string) => {
+    const isSelecting = !formData.serviceIds.includes(id);
     setFormData(prev => ({
       ...prev,
       serviceIds: prev.serviceIds.includes(id)
         ? prev.serviceIds.filter(sid => sid !== id)
         : [...prev.serviceIds, id]
     }));
+    if (isSelecting) {
+      setBatBurstId(id);
+      setTimeout(() => setBatBurstId(curr => curr === id ? null : curr), 1200);
+    }
   };
 
   const handleFinalSubmit = (e: React.FormEvent) => {
@@ -213,6 +219,14 @@ const BookingPage: React.FC<BookingPageProps> = ({ addAppointment }) => {
                           ${isSelected ? 'bg-purple-600/20 border-gold shadow-[0_0_40px_rgba(255, 179, 0,0.3)] scale-[1.03] z-10' : 'bg-black/20 border-white/10 opacity-70 hover:opacity-100 hover:border-purple-500/50'
                           }`}
                       >
+                        {batBurstId === s.id && (
+                          <div className="absolute inset-0 flex items-center justify-center pointer-events-none overflow-visible">
+                            <span className="absolute text-xl animate-bat-rise" style={{ left: '28%', animationDelay: '0s' }}>🦇</span>
+                            <span className="absolute text-2xl animate-bat-rise" style={{ left: '48%', animationDelay: '0.1s' }}>🦇</span>
+                            <span className="absolute text-xl animate-bat-rise" style={{ left: '65%', animationDelay: '0.2s' }}>🦇</span>
+                            <span className="absolute text-lg animate-bat-rise" style={{ left: '38%', animationDelay: '0.3s' }}>🦇</span>
+                          </div>
+                        )}
                         <div className="aspect-[2/3] w-full rounded-[2rem] overflow-hidden mb-6 relative border border-white/5">
                           <img src={s.image} alt={s.name} className={`w-full h-full object-cover transition-all duration-1000 ${isSelected ? 'scale-110' : 'grayscale-[40%]'}`} />
                           {isSelected && <div className="absolute inset-0 bg-gold/20 flex items-center justify-center backdrop-blur-[2px]"><Check size={32} className="text-gold" /></div>}
