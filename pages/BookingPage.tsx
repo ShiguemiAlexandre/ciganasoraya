@@ -63,7 +63,7 @@ const BookingPage: React.FC<BookingPageProps> = ({ addAppointment }) => {
         emoji,
         left: fromLeft ? 2 + Math.random() * 22 : 76 + Math.random() * 22,
         top: 15 + Math.random() * 60,
-        size: 16 + Math.random() * 16,
+        size: 28 + Math.random() * 22,
         delay: Math.random() * 0.4,
         bx: fromLeft ? -dxMag : dxMag,
         by: -90 + Math.random() * 150,
