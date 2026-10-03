@@ -65,6 +65,11 @@
     </script>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
+        html {
+            /* Evita que o navegador "compense" a rolagem quando o conteúdo
+               acima muda de altura (ex: trocar de etapa no agendamento) */
+            overflow-anchor: none;
+        }
         :root {
             --deep-purple: #1c0f06;
             --mid-purple: #3d1708;
@@ -122,6 +127,22 @@
             100% { transform: translate(var(--bx, 110px), var(--by, -70px)) scale(1) rotate(var(--br, 15deg)); opacity: 0; }
         }
         .animate-bat-rise { animation: bat-rise 1.1s ease-out forwards; }
+
+        /* Playful wiggle for an icon when its button is hovered */
+        @keyframes icon-wiggle {
+            0%, 100% { transform: rotate(0deg) scale(1); }
+            25% { transform: rotate(-14deg) scale(1.12); }
+            75% { transform: rotate(14deg) scale(1.12); }
+        }
+        .icon-wiggle { transition: transform 0.2s ease; }
+        button:hover .icon-wiggle { animation: icon-wiggle 0.5s ease-in-out; }
+
+        /* Ember glow pulse for a selected choice (payment method, etc.) */
+        @keyframes ember-pulse {
+            0%, 100% { box-shadow: 0 0 20px rgba(255, 179, 0, 0.15); }
+            50% { box-shadow: 0 0 42px rgba(255, 179, 0, 0.5); }
+        }
+        .animate-ember-pulse { animation: ember-pulse 2.4s ease-in-out infinite; }
 
         /* Card Sheen */
         .card-glow-overlay {

@@ -220,13 +220,13 @@ const LandingPage: React.FC = () => {
                         </div>
                       </div>
                     )}
-                    <div className={`relative w-full aspect-[2/3] rounded-[2.5rem] overflow-hidden border-2 transition-all duration-700 shadow-2xl bg-[#0d0804] ${isActive ? 'brightness-110' : 'brightness-75'}`}
+                    <div className={`relative w-full aspect-[2/3] rounded-[2.5rem] overflow-hidden border-2 transition-all duration-700 shadow-2xl bg-[#0d0804] ${isActive ? 'brightness-110' : 'brightness-100'}`}
                         style={{ borderColor: isActive ? 'rgba(255, 179, 0,0.5)' : 'rgba(94, 230, 63,0.1)' }}>
                       <img
                         src={service.image}
                         alt={service.name}
                         className={`w-full h-full object-cover transition-all duration-1000
-                          ${isActive ? 'grayscale-0' : 'grayscale-[40%]'}
+                          ${isActive ? 'grayscale-0' : 'grayscale-[10%]'}
                           ${!isMobile ? 'scale-[1.05]' : 'scale-100'}
                           ${!isMobile && isActive ? 'scale-[1.15]' : ''}
                         `}
