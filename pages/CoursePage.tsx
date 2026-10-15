@@ -741,7 +741,7 @@ const CoursePage: React.FC = () => {
           whileInView={{ opacity: 1, scale: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ type: "spring", bounce: 0.4, duration: 1 }}
-          className="max-w-3xl mx-auto bg-gradient-to-br from-[#1a0b2e] to-[#2d144d] border border-gold/30 p-12 md:p-20 rounded-[4rem] text-center space-y-8 shadow-[0_0_100px_rgba(212,175,55,0.2)] relative overflow-hidden group"
+          className="max-w-3xl mx-auto bg-gradient-to-br from-black to-[#2d144d] border border-gold/30 p-12 md:p-20 rounded-[4rem] text-center space-y-8 shadow-[0_0_100px_rgba(212,175,55,0.2)] relative overflow-hidden group"
         >
           <div className="absolute -top-10 -left-10 w-40 h-40 bg-gold/5 blur-3xl animate-pulse"></div>
           <motion.div

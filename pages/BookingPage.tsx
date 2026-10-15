@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { ChevronLeft, Sparkles, Moon, Check, Info, Sun, Sunrise, Sunset, User, CreditCard, QrCode, Globe, AlertTriangle, ExternalLink, MapPin, Hash, Building, Map, Flag, IdCard } from 'lucide-react';
-import { SERVICES, SERVICE_FEE } from '../constants';
+import { SERVICES, SERVICE_FEE, getEffectivePrice } from '../constants';
 import { Appointment } from '../types';
 
 interface BookingPageProps {
@@ -65,18 +65,21 @@ const BookingPage: React.FC<BookingPageProps> = ({ addAppointment }) => {
 
   const selectedServices = SERVICES.filter(s => formData.serviceIds.includes(s.id));
   const basePrice = selectedServices.reduce((acc, s) => {
-    const numericPart = s.price.replace('R$ ', '').replace(/\./g, '').replace(',', '.');
+    const numericPart = getEffectivePrice(s).replace('R$ ', '').replace(/\./g, '').replace(',', '.');
     const priceNum = parseFloat(numericPart);
     return acc + (isNaN(priceNum) ? 0 : priceNum);
   }, 0);
   const totalPrice = basePrice > 0 ? basePrice + SERVICE_FEE : 0;
-  const totalFormatted = basePrice > 0 
+  const totalFormatted = basePrice > 0
     ? `R$ ${totalPrice.toFixed(2).replace('.', ',')}`
     : 'A combinar';
 
   // Lógica de construção da mensagem movida para o corpo do componente para ser acessível em ambas as telas
-  const serviceDetails = selectedServices.map(s => `• *${s.name}*: ${s.price}`).join('\n');
-  
+  const hasPromo = selectedServices.some(s => s.promoPrice);
+  const serviceDetails = selectedServices.map(s =>
+    `• *${s.name}*: ${getEffectivePrice(s)}${s.promoPrice ? ` _(Promoção -50%, de ${s.price})_` : ''}`
+  ).join('\n');
+
   // Emojis em formato Unicode para máxima compatibilidade
   const emojiSparkles = "\u2728";
   const emojiFolder = "\uD83D\uDCC1"; // Folder icon
@@ -97,6 +100,7 @@ const BookingPage: React.FC<BookingPageProps> = ({ addAppointment }) => {
       `${emojiCard} Forma de Pagamento: ${formData.paymentMethod}\n\n` +
       `${emojiCrystal} *ORÁCULOS ESCOLHIDOS*\n` +
       `${serviceDetails}\n\n` +
+      (hasPromo ? `🏷️ *Promoção aplicada: 50% de desconto*\n\n` : '') +
       `${emojiMoney} *VALOR TOTAL: ${totalFormatted}*\n\n` +
       (formData.notes ? `${emojiNote} *NOTAS:*\n${formData.notes}\n\n` : "") +
       `${emojiHeart} Fico no aguardo da confirmação do dia e horário exato para realizar o pagamento. Gratidão! ${emojiSparkles}`;
@@ -154,12 +158,12 @@ const BookingPage: React.FC<BookingPageProps> = ({ addAppointment }) => {
     }, 1500);
   };
 
-  const GoldButtonClasses = "px-16 py-6 bg-[#d4af37] text-[#1a0b2e] rounded-full font-black text-xs uppercase tracking-[0.3em] shadow-2xl shadow-[rgba(212,175,55,0.4)] hover:scale-105 hover:brightness-110 transition-all active:scale-95 disabled:opacity-20 disabled:scale-100 disabled:shadow-none";
+  const GoldButtonClasses = "px-16 py-6 bg-[#d4af37] text-black rounded-full font-black text-xs uppercase tracking-[0.3em] shadow-2xl shadow-[rgba(212,175,55,0.4)] hover:scale-105 hover:brightness-110 transition-all active:scale-95 disabled:opacity-20 disabled:scale-100 disabled:shadow-none";
 
   if (confirmed) {
     return (
       <div className="bg-mystic-texture min-h-screen flex items-center justify-center py-20 px-4">
-        <div className="max-w-xl w-full bg-[#1a0b2e]/80 backdrop-blur-xl p-12 rounded-[3.5rem] shadow-[0_0_100px_rgba(157,80,187,0.2)] text-center space-y-8 border border-purple-500/30 animate-in zoom-in-95">
+        <div className="max-w-xl w-full bg-black/80 backdrop-blur-xl p-12 rounded-[3.5rem] shadow-[0_0_100px_rgba(157,80,187,0.2)] text-center space-y-8 border border-purple-500/30 animate-in zoom-in-95">
           <div className="w-24 h-24 bg-gold/10 text-gold rounded-full flex items-center justify-center mx-auto mb-4 border border-gold/30">
             <Sparkles size={48} className="animate-pulse" />
           </div>
@@ -218,7 +222,13 @@ const BookingPage: React.FC<BookingPageProps> = ({ addAppointment }) => {
                           {isSelected && <div className="absolute inset-0 bg-gold/20 flex items-center justify-center backdrop-blur-[2px]"><Check size={32} className="text-gold" /></div>}
                         </div>
                         <h4 className={`serif text-xl font-bold ${isSelected ? 'text-gold' : 'text-white'}`}>{s.name}</h4>
-                        <span className="text-xs text-gray-400 mt-2">{s.price}</span>
+                        {s.promoPrice && (
+                          <span className="text-[9px] font-black uppercase tracking-widest text-green-400 bg-green-500/10 border border-green-500/30 rounded-full px-2 py-0.5 w-fit mt-2">-50%</span>
+                        )}
+                        <div className="flex items-baseline gap-1.5 mt-2">
+                          {s.promoPrice && <span className="text-[10px] text-gray-500 line-through">{s.price}</span>}
+                          <span className="text-xs text-gray-400">{getEffectivePrice(s)}</span>
+                        </div>
                       </button>
                     );
                   })}
@@ -386,10 +396,21 @@ const BookingPage: React.FC<BookingPageProps> = ({ addAppointment }) => {
                       {loading ? 'Preparando firmeza...' : 'Enviar Solicitação via WhatsApp'}
                     </button>
                   </form>
-                  <div className="bg-[#0d0517] border border-white/10 rounded-[2.5rem] p-10 space-y-8">
+                  <div className="bg-black border border-white/10 rounded-[2.5rem] p-10 space-y-8">
                     <h3 className="serif text-2xl text-white">Resumo da Consulta</h3>
+                    {hasPromo && (
+                      <span className="inline-block text-[9px] font-black uppercase tracking-widest text-green-400 bg-green-500/10 border border-green-500/30 rounded-full px-2 py-0.5">Promoção -50% aplicada</span>
+                    )}
                     <div className="space-y-4">
-                      {selectedServices.map(s => <div key={s.id} className="flex justify-between text-sm text-gray-400"><span>{s.name}</span><span>{s.price}</span></div>)}
+                      {selectedServices.map(s => (
+                        <div key={s.id} className="flex justify-between text-sm text-gray-400">
+                          <span>{s.name}</span>
+                          <span className="flex items-baseline gap-1.5">
+                            {s.promoPrice && <span className="text-[10px] text-gray-600 line-through">{s.price}</span>}
+                            <span>{getEffectivePrice(s)}</span>
+                          </span>
+                        </div>
+                      ))}
                       <div className="pt-4 border-t border-white/10 space-y-3">
                         <div className="flex justify-between text-xs text-gray-500 uppercase tracking-widest"><span>Pagamento</span><span className="text-white">{formData.paymentMethod}</span></div>
                         <div className="flex justify-between text-xl text-gold serif pt-2"><span>Total Estimado</span><span>R$ {totalPrice.toFixed(2).replace('.', ',')}</span></div>

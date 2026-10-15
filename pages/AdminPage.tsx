@@ -186,15 +186,15 @@ const AdminPage: React.FC<AdminPageProps> = ({ user, appointments, updateAppoint
 
   return (
     <div className="min-h-screen bg-mystic-texture flex flex-col lg:flex-row">
-      <div className="lg:hidden bg-[#0d0517] p-6 flex items-center justify-between border-b border-white/5"><span className="serif font-bold text-white">Soraya Admin</span><button className="text-gold" onClick={() => setIsMobileMenuOpen(true)}><Menu size={24} /></button></div>
-      {isMobileMenuOpen && <div className="fixed inset-0 bg-black/80 z-[60] lg:hidden" onClick={() => setIsMobileMenuOpen(false)}><div className="w-80 h-full bg-[#0d0517] p-10 border-r border-white/10" onClick={e => e.stopPropagation()}>
+      <div className="lg:hidden bg-black p-6 flex items-center justify-between border-b border-white/5"><span className="serif font-bold text-white">Soraya Admin</span><button className="text-gold" onClick={() => setIsMobileMenuOpen(true)}><Menu size={24} /></button></div>
+      {isMobileMenuOpen && <div className="fixed inset-0 bg-black/80 z-[60] lg:hidden" onClick={() => setIsMobileMenuOpen(false)}><div className="w-80 h-full bg-black p-10 border-r border-white/10" onClick={e => e.stopPropagation()}>
          <div className="flex justify-between items-center mb-12"><div className="flex items-center space-x-3 text-white serif font-bold"><Moon className="text-gold" /><span>Admin</span></div><button onClick={() => setIsMobileMenuOpen(false)} className="text-white"><X /></button></div>
          <nav className="space-y-6">
             {['dashboard', 'agenda'].map(tab => <button key={tab} onClick={() => { setActiveTab(tab as any); setIsMobileMenuOpen(false); }} className={`w-full text-left p-4 rounded-xl font-bold uppercase tracking-widest text-[10px] ${activeTab === tab ? 'bg-gold text-deep-purple' : 'text-gray-400'}`}>{tab}</button>)}
          </nav>
       </div></div>}
       
-      <div className="hidden lg:flex flex-col w-72 bg-[#0d0517] p-10 border-r border-white/10 shrink-0">
+      <div className="hidden lg:flex flex-col w-72 bg-black p-10 border-r border-white/10 shrink-0">
          <div className="flex items-center space-x-3 text-white serif font-bold text-2xl mb-16"><Moon className="text-gold" /><span>Soraya Admin</span></div>
          <nav className="space-y-4 flex-grow">
             {[{id:'dashboard', icon: LayoutDashboard}, {id:'agenda', icon: Calendar}].map(item => (

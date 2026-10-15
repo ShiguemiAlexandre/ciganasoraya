@@ -57,7 +57,13 @@ const NavigationContent = ({ user, handleLogout, isMenuOpen, setIsMenuOpen }: an
   if (isAdminView) return null;
 
   return (
-    <nav className="relative z-[1001] bg-[#1a0b2e]/90 backdrop-blur-xl border-b border-purple-500/10 px-4 py-4 md:px-8">
+    <>
+      <div className="relative z-[1001] bg-black text-center py-2.5 px-4 border-b border-gold/20">
+        <p className="text-[10px] md:text-xs font-black uppercase tracking-[0.15em] md:tracking-[0.25em] text-white">
+          Última ação do ano <span className="text-gray-500 mx-1.5">•</span> Todas as leituras com <span className="text-gold text-xs md:text-base">50% de desconto</span>
+        </p>
+      </div>
+      <nav className="relative z-[1001] bg-black/90 backdrop-blur-xl border-b border-purple-500/10 px-4 py-4 md:px-8">
       <div className="max-w-7xl mx-auto flex justify-between items-center relative z-[1001]">
         <Link to="/" className="flex items-center space-x-3 group">
           <motion.div 
@@ -178,6 +184,7 @@ const NavigationContent = ({ user, handleLogout, isMenuOpen, setIsMenuOpen }: an
         )}
       </AnimatePresence>
     </nav>
+    </>
   );
 };
 
@@ -247,6 +254,21 @@ const AppContent: React.FC = () => {
     const savedAppointments = localStorage.getItem('soraya_appointments');
     if (savedUser) setUser(JSON.parse(savedUser));
     if (savedAppointments) setAppointments(JSON.parse(savedAppointments));
+  }, []);
+
+  // Mantém --header-height atualizada para que seções com min-height "100vh"
+  // possam descontar o header (que varia de altura: faixa de aviso pode
+  // quebrar linha em telas estreitas, menu muda entre mobile/desktop).
+  useEffect(() => {
+    const header = document.querySelector('header');
+    if (!header) return;
+    const updateHeaderHeight = () => {
+      document.documentElement.style.setProperty('--header-height', `${header.getBoundingClientRect().height}px`);
+    };
+    updateHeaderHeight();
+    const resizeObserver = new ResizeObserver(updateHeaderHeight);
+    resizeObserver.observe(header);
+    return () => resizeObserver.disconnect();
   }, []);
 
   const handleLogin = (userData: User) => {

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Sparkles, Clock, ChevronRight, X, Info, ArrowRight, Star, MessageCircle, HelpCircle, ChevronDown } from 'lucide-react';
-import { SERVICES } from '../constants';
+import { SERVICES, getEffectivePrice } from '../constants';
 import { Service } from '../types';
 import { motion, AnimatePresence } from 'motion/react';
 
@@ -106,8 +106,14 @@ const CatalogPage: React.FC = () => {
                 
                 <div className="flex items-center justify-between pt-6 border-t border-white/5">
                   <div className="flex flex-col">
+                    {game.promoPrice && (
+                      <span className="text-[9px] font-black uppercase tracking-widest text-green-400 bg-green-500/10 border border-green-500/30 rounded-full px-2 py-0.5 w-fit mb-1">-50%</span>
+                    )}
                     <div className="flex items-baseline space-x-2">
-                      <span className="text-white font-bold text-xl group-hover:text-gold transition-colors">{game.price}</span>
+                      {game.promoPrice && (
+                        <span className="text-gray-500 text-xs line-through">{game.price}</span>
+                      )}
+                      <span className="text-white font-bold text-xl group-hover:text-gold transition-colors">{getEffectivePrice(game)}</span>
                     </div>
                     {game.duration && (
                       <span className="text-[9px] text-gold font-black uppercase tracking-widest mt-1 opacity-70 group-hover:opacity-100 transition-opacity">{game.duration}</span>
@@ -170,7 +176,7 @@ const CatalogPage: React.FC = () => {
               exit={{ y: "100%", opacity: 0 }}
               transition={{ type: "spring", damping: 30, stiffness: 300, duration: 0.5 }}
               onClick={(e) => e.stopPropagation()}
-              className="relative w-full max-w-5xl bg-[#1a0b2e] border-t md:border border-white/10 rounded-t-[2.5rem] md:rounded-[3rem] overflow-hidden shadow-[0_0_100px_rgba(157,80,187,0.2)] flex flex-col md:flex-row h-[90vh] md:h-auto md:max-h-[80vh] cursor-default"
+              className="relative w-full max-w-5xl bg-black border-t md:border border-white/10 rounded-t-[2.5rem] md:rounded-[3rem] overflow-hidden shadow-[0_0_100px_rgba(157,80,187,0.2)] flex flex-col md:flex-row h-[90vh] md:h-auto md:max-h-[80vh] cursor-default"
             >
               {/* Mobile Drag Handle */}
               <div className="w-12 h-1.5 bg-white/20 rounded-full mx-auto my-4 shrink-0 md:hidden"></div>
@@ -199,7 +205,7 @@ const CatalogPage: React.FC = () => {
               <div className="flex flex-col md:flex-row w-full overflow-y-auto md:overflow-hidden">
                 {/* Image Section */}
                 <div className="w-full md:w-1/2 aspect-[2/3] md:aspect-auto md:h-auto overflow-hidden relative shrink-0">
-                  <div className="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-[#1a0b2e] via-transparent to-transparent z-10"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-black via-transparent to-transparent z-10"></div>
                   <img src={selectedGame.image} className="w-full h-full object-cover grayscale-[10%]" alt={selectedGame.name} />
                 </div>
 
@@ -238,7 +244,15 @@ const CatalogPage: React.FC = () => {
                   <div className="pt-8 border-t border-white/10 mt-auto">
                     <div className="flex flex-col space-y-6">
                       <div className="text-center md:text-left">
-                        <div className="text-white font-bold text-3xl">{selectedGame.price}</div>
+                        {selectedGame.promoPrice && (
+                          <span className="inline-block text-[9px] font-black uppercase tracking-widest text-green-400 bg-green-500/10 border border-green-500/30 rounded-full px-2 py-0.5 mb-1">50% OFF</span>
+                        )}
+                        <div className="flex items-baseline gap-3 justify-center md:justify-start">
+                          {selectedGame.promoPrice && (
+                            <span className="text-gray-500 text-lg line-through">{selectedGame.price}</span>
+                          )}
+                          <div className="text-white font-bold text-3xl">{getEffectivePrice(selectedGame)}</div>
+                        </div>
                         {selectedGame.duration && (
                           <div className="text-[10px] text-gold uppercase tracking-widest mt-1 font-black">
                             Duração: {selectedGame.duration}

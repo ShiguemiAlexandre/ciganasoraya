@@ -58,7 +58,7 @@ const AboutPage: React.FC = () => {
                 alt="Cartas de Tarot em ambiente místico" 
                 className="w-full h-full object-cover grayscale-[20%] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-1000"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#1a0b2e] via-transparent to-transparent opacity-60"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-60"></div>
             </div>
           </div>
         </div>
@@ -100,7 +100,7 @@ const AboutPage: React.FC = () => {
         </div>
 
         {/* Call to Action */}
-        <div className="relative p-10 md:p-20 rounded-[3.5rem] bg-gradient-to-br from-[#1a0b2e] via-[#2d144d] to-[#1a0b2e] text-white text-center space-y-10 shadow-[0_30px_60px_rgba(0,0,0,0.5)] border border-purple-500/20 overflow-hidden">
+        <div className="relative p-10 md:p-20 rounded-[3.5rem] bg-gradient-to-br from-black via-[#2d144d] to-black text-white text-center space-y-10 shadow-[0_30px_60px_rgba(0,0,0,0.5)] border border-purple-500/20 overflow-hidden">
           <div className="absolute top-0 right-0 p-8 opacity-10">
             <Moon size={120} className="text-gold rotate-12" />
           </div>
@@ -115,7 +115,7 @@ const AboutPage: React.FC = () => {
           <div className="relative z-10 pt-4">
             <Link 
               to="/agendar" 
-              className="inline-block px-16 py-6 bg-[#d4af37] text-[#1a0b2e] rounded-full font-black text-xs uppercase tracking-[0.3em] shadow-[0_20px_50px_rgba(212,175,55,0.4)] hover:scale-105 hover:brightness-110 transition-all active:scale-95 shadow-2xl"
+              className="inline-block px-16 py-6 bg-[#d4af37] text-black rounded-full font-black text-xs uppercase tracking-[0.3em] shadow-[0_20px_50px_rgba(212,175,55,0.4)] hover:scale-105 hover:brightness-110 transition-all active:scale-95 shadow-2xl"
             >
               Marcar Minha Consulta
             </Link>

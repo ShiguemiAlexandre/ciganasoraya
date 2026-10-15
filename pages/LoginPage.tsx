@@ -54,7 +54,7 @@ const LoginPage: React.FC<LoginPageProps> = ({ onLogin }) => {
 
   return (
     <div className="max-w-md mx-auto my-20 px-4">
-      <div className="bg-[#1a0b2e]/60 backdrop-blur-xl p-10 rounded-[3rem] shadow-2xl border border-purple-500/20 animate-in fade-in zoom-in-95">
+      <div className="bg-[black]/60 backdrop-blur-xl p-10 rounded-[3rem] shadow-2xl border border-purple-500/20 animate-in fade-in zoom-in-95">
         <div className="text-center mb-10">
           <div className="w-16 h-16 bg-purple-600/10 rounded-2xl flex items-center justify-center text-purple-400 mx-auto mb-6 border border-purple-500/20">
             <Moon size={32} />

@@ -132,7 +132,10 @@ const LandingPage: React.FC = () => {
   return (
     <div className="overflow-hidden">
       {/* Hero Section */}
-      <section className="relative min-h-screen flex flex-col items-center justify-start px-0 md:px-4 pt-4 md:pt-6 pb-20 overflow-hidden">
+      <section
+        className="relative flex flex-col items-center justify-start px-0 md:px-4 pt-4 md:pt-6 pb-20 overflow-hidden"
+        style={{ minHeight: 'calc(100vh - var(--header-height, 0px))' }}
+      >
         <div className="absolute inset-0 z-0 pointer-events-none opacity-40">
            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[radial-gradient(circle_at_center,rgba(157,80,187,0.15)_0%,transparent_60%)]"></div>
         </div>
@@ -155,13 +158,13 @@ const LandingPage: React.FC = () => {
               <>
                 <button 
                   onClick={() => scrollStep(heroRef, 'left', 0.8, baseHeroServices.length)} 
-                  className="absolute left-2 top-1/2 -translate-y-1/2 z-[100] w-14 h-14 bg-[#0d0517]/90 backdrop-blur-xl rounded-full flex items-center justify-center text-gold border border-gold/40 shadow-2xl active:scale-90 transition-transform"
+                  className="absolute left-2 top-1/2 -translate-y-1/2 z-[100] w-14 h-14 bg-[black]/90 backdrop-blur-xl rounded-full flex items-center justify-center text-gold border border-gold/40 shadow-2xl active:scale-90 transition-transform"
                 >
                   <ChevronLeft size={32} />
                 </button>
                 <button 
                   onClick={() => scrollStep(heroRef, 'right', 0.8, baseHeroServices.length)} 
-                  className="absolute right-2 top-1/2 -translate-y-1/2 z-[100] w-14 h-14 bg-[#0d0517]/90 backdrop-blur-xl rounded-full flex items-center justify-center text-gold border border-gold/40 shadow-2xl active:scale-90 transition-transform"
+                  className="absolute right-2 top-1/2 -translate-y-1/2 z-[100] w-14 h-14 bg-[black]/90 backdrop-blur-xl rounded-full flex items-center justify-center text-gold border border-gold/40 shadow-2xl active:scale-90 transition-transform"
                 >
                   <ChevronRight size={32} />
                 </button>
@@ -206,7 +209,7 @@ const LandingPage: React.FC = () => {
                         </div>
                       </div>
                     )}
-                    <div className={`relative w-full aspect-[2/3] rounded-[2.5rem] overflow-hidden border-2 transition-all duration-700 shadow-2xl bg-[#0d0517] ${isActive ? 'brightness-110' : 'brightness-75'}`}
+                    <div className={`relative w-full aspect-[2/3] rounded-[2.5rem] overflow-hidden border-2 transition-all duration-700 shadow-2xl bg-[black] ${isActive ? 'brightness-110' : 'brightness-75'}`}
                         style={{ borderColor: isActive ? 'rgba(212,175,55,0.5)' : 'rgba(157,80,187,0.1)' }}>
                       <img
                         src={service.image}
@@ -217,7 +220,7 @@ const LandingPage: React.FC = () => {
                           ${!isMobile && isActive ? 'scale-[1.15]' : ''}
                         `}
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-[#0d0517] via-[#0d0517]/40 to-transparent"></div>
+                      <div className="absolute inset-0 bg-gradient-to-t from-[black] via-[black]/40 to-transparent"></div>
                       <div className="absolute bottom-0 inset-x-0 p-8 flex flex-col items-center text-center pointer-events-none">
                         <div className={`w-full transition-all duration-500 transform ${isActive ? '-translate-y-6' : 'translate-y-0'}`}>
                           <h3 className={`serif text-2xl md:text-3xl font-bold ${isActive ? 'text-gold' : 'text-white'}`}>{service.name}</h3>
@@ -248,13 +251,13 @@ const LandingPage: React.FC = () => {
               <>
                 <button 
                   onClick={() => scrollStep(catalogRef, 'left', 0.75, previewServices.length)} 
-                  className="absolute left-2 top-1/2 -translate-y-1/2 z-[100] w-14 h-14 bg-[#1a0b2e]/90 backdrop-blur-xl rounded-full flex items-center justify-center text-gold border border-gold/40 shadow-2xl active:scale-90 transition-transform"
+                  className="absolute left-2 top-1/2 -translate-y-1/2 z-[100] w-14 h-14 bg-[black]/90 backdrop-blur-xl rounded-full flex items-center justify-center text-gold border border-gold/40 shadow-2xl active:scale-90 transition-transform"
                 >
                   <ChevronLeft size={28} />
                 </button>
                 <button 
                   onClick={() => scrollStep(catalogRef, 'right', 0.75, previewServices.length)} 
-                  className="absolute right-2 top-1/2 -translate-y-1/2 z-[100] w-14 h-14 bg-[#1a0b2e]/90 backdrop-blur-xl rounded-full flex items-center justify-center text-gold border border-gold/40 shadow-2xl active:scale-90 transition-transform"
+                  className="absolute right-2 top-1/2 -translate-y-1/2 z-[100] w-14 h-14 bg-[black]/90 backdrop-blur-xl rounded-full flex items-center justify-center text-gold border border-gold/40 shadow-2xl active:scale-90 transition-transform"
                 >
                   <ChevronRight size={28} />
                 </button>
@@ -289,7 +292,7 @@ const LandingPage: React.FC = () => {
                       <div className="aspect-[2/3] overflow-hidden">
                         <img src={game.image} alt={game.name} className={`w-full h-full object-cover transition-all duration-700 ${isMobile && !isActiveMobile ? 'grayscale-[60%]' : 'grayscale-0 group-hover:scale-110'}`} />
                       </div>
-                      <div className="absolute inset-0 bg-gradient-to-t from-[#1a0b2e] via-[#1a0b2e]/30 to-transparent"></div>
+                      <div className="absolute inset-0 bg-gradient-to-t from-[black] via-[black]/30 to-transparent"></div>
                       <div className="absolute bottom-0 inset-x-0 p-6 md:p-8 flex flex-col items-center text-center pointer-events-none">
                         <div className={`w-full transition-transform duration-500 ${isActiveMobile || (!isMobile && hoveredPreviewIdx === idx) ? '-translate-y-2' : 'translate-y-0'}`}>
                           <div className={`flex items-center justify-center space-x-2 text-[8px] font-black text-purple-400 uppercase tracking-widest transition-opacity duration-500 ${(isMobile && isActiveMobile) || (!isMobile && hoveredPreviewIdx === idx) ? 'opacity-100' : 'opacity-0'}`}>
@@ -327,7 +330,7 @@ const LandingPage: React.FC = () => {
       </section>
 
       {/* EXPERIENCE SECTION */}
-      <section className="relative py-24 md:py-32 px-4 bg-[#0d0517] overflow-hidden">
+      <section className="relative py-24 md:py-32 px-4 bg-[black] overflow-hidden">
         <div className="absolute inset-0 z-0 opacity-20 bg-[linear-gradient(45deg,transparent_25%,rgba(157,80,187,0.05)_50%,transparent_75%)] bg-[length:200%_200%] animate-pulse"></div>
         
         <div className="max-w-7xl mx-auto relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-20 md:gap-24 items-center">
@@ -337,7 +340,7 @@ const LandingPage: React.FC = () => {
               {[...Array(5)].map((_, i) => (
                 <div 
                   key={i}
-                  className="absolute inset-0 w-full h-full rounded-[2rem] border border-gold/40 bg-[#1a0b2e] shadow-2xl transition-all duration-700 ease-out flex flex-col items-center justify-center p-6 overflow-hidden"
+                  className="absolute inset-0 w-full h-full rounded-[2rem] border border-gold/40 bg-[black] shadow-2xl transition-all duration-700 ease-out flex flex-col items-center justify-center p-6 overflow-hidden"
                   style={{ transform: `rotate(${(i - 2) * 6}deg) translateX(${(i - 2) * 10}px)`, zIndex: 10 + i } as any}
                 >
                   <div className="relative flex flex-col items-center justify-center text-center space-y-4">
