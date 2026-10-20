@@ -10,7 +10,6 @@ export interface Service {
   description: string;
   duration?: string;
   price: string;
-  promoPrice?: string;
   isFeatured?: boolean;
   badge?: string;
   image: string;

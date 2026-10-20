@@ -2,8 +2,6 @@ import { Service, ServiceCategory } from './types';
 
 export const SERVICE_FEE = 0.00;
 
-export const getEffectivePrice = (service: Service): string => service.promoPrice ?? service.price;
-
 export const SERVICES: Service[] = [
   {
     id: 's2',
@@ -12,8 +10,7 @@ export const SERVICES: Service[] = [
     description: 'Leitura completa com Mesa Real (Baralho Cigano) e Tarot (aprofundamentos). Análise: Profissional, Financeiro, Saúde, Espiritual, Amoroso, Energias e caminhos. Perguntas ilimitadas dentro do tempo. Envio de orientações + banho energético personalizado.',
     duration: '1h',
     price: 'R$ 225,00',
-    promoPrice: 'R$ 112,50',
-    image: 'https://storage.googleapis.com/www.ciganasoraya.com/public/circulo-do-tempo-sale.jpeg',
+    image: 'https://storage.googleapis.com/www.ciganasoraya.com/public/circulo-do-tempo.jpeg',
     details: ['Perguntas ilimitadas dentro do tempo da sessão', 'Instrução de banho personalizada', 'Documento com direcionamentos da leitura (até 72h)',  'Análise dos campos: profissional, financeiro, saúde, espiritual, amoroso, energias e caminhos'],
     isFeatured: true,
     badge: 'LEITURA COMPLETA'
@@ -24,8 +21,7 @@ export const SERVICES: Service[] = [
     name: 'Mesa Real',
     description: 'Leitura da Mesa Real é realizada para compreender como estão seus caminhos, trazendo aconselhamentos e direcionamentos para cada área da vida. A leitura apresenta previsões para o futuro e mensagens da espiritualidade sobre os campos profissional, financeiro, amoroso, espiritual e da saúde. É ideal para quem prefere receber uma visão dos caminhos, em vez de fazer perguntas específicas.',
     price: 'R$ 170,00',
-    promoPrice: 'R$ 85,00',
-    image: 'https://storage.googleapis.com/www.ciganasoraya.com/public/mesa-real-sale.jpeg',
+    image: 'https://storage.googleapis.com/www.ciganasoraya.com/public/mesa-real.jpeg',
     details: [
       'Compreensão de como estão seus caminhos',
       'Aconselhamentos e direcionamentos para cada área da vida',
@@ -43,8 +39,7 @@ export const SERVICES: Service[] = [
     description: 'Leitura voltada para compreender como estão os caminhos profissionais, financeiros e de estudos, trazendo previsões, tendências e os movimentos necessários para o momento. Ideal para quem busca um norte para a vida profissional, deseja tomar decisões mais conscientes e entender quais caminhos podem favorecer seu crescimento. A leitura também inclui uma análise de pontos importantes do Mapa Astral, identificando áreas e possibilidades mais compatíveis com você, além de orientar onde direcionar sua energia para alcançar maior fluidez no campo profissional e quais momentos são mais favoráveis para descanso e recuperação.',
     duration: '50 min',
     price: 'R$ 167,00',
-    promoPrice: 'R$ 83,50',
-    image: 'https://storage.googleapis.com/www.ciganasoraya.com/public/caminho-ouro-sale.jpeg',
+    image: 'https://storage.googleapis.com/www.ciganasoraya.com/public/caminho-ouro.jpeg',
     details: [
       'Análise dos caminhos profissionais, financeiros e de estudos',
       'Previsões e tendências para o momento atual',
@@ -65,8 +60,7 @@ export const SERVICES: Service[] = [
     description: 'Análise: Relacionamentos, Sentimentos, Intenções, Bloqueios afetivos. Oráculos: Mesa Real do Amor, Tarot, Sibilla Italiana. Perguntas permitidas dentro do tempo.',
     duration: '45 min',
     price: 'R$ 139,00',
-    promoPrice: 'R$ 69,50',
-    image: 'https://storage.googleapis.com/www.ciganasoraya.com/public/espelho-coracao-sale.jpeg',
+    image: 'https://storage.googleapis.com/www.ciganasoraya.com/public/espelho%20coracao.jpeg',
     details: [
       'Mesa Real do Amor (Baralho Cigano)',
       'Aprofundamento com Tarot',
@@ -85,8 +79,7 @@ export const SERVICES: Service[] = [
     description: 'Perguntas objetivas sobre qualquer área da vida. Respostas claras com análise de passado, presente e futuro.',
     duration: '30 min',
     price: 'R$ 99,00',
-    promoPrice: 'R$ 49,50',
-    image: 'https://storage.googleapis.com/www.ciganasoraya.com/public/direcao-destino-sale.jpeg',
+    image: 'https://storage.googleapis.com/www.ciganasoraya.com/public/direcao-destino.jpeg',
     details: [
       'Perguntas objetivas sobre qualquer área da vida dentro do tempo da sessão',
       'Análise das influências do passado, presente e futuro',
@@ -101,8 +94,7 @@ export const SERVICES: Service[] = [
     name: 'Três Perguntas',
     description: 'Três perguntas objetivas ao Baralho Cigano. Resposta via canais digitais.',
     price: 'R$ 80,00',
-    promoPrice: 'R$ 40,00',
-    image: 'https://storage.googleapis.com/www.ciganasoraya.com/public/tres-perguntas-sale.jpeg',
+    image: 'https://storage.googleapis.com/www.ciganasoraya.com/public/tres-perguntas.jpeg',
     details: [
       'Baralho Cigano',
       'Três perguntas objetivas',
@@ -118,8 +110,7 @@ export const SERVICES: Service[] = [
     name: 'Uma Pergunta',
     description: 'Uma pergunta objetiva ao Baralho Cigano.',
     price: 'R$ 50,00',
-    promoPrice: 'R$ 25,00',
-    image: 'https://storage.googleapis.com/www.ciganasoraya.com/public/uma-pergunta-sale.jpeg',
+    image: 'https://storage.googleapis.com/www.ciganasoraya.com/public/uma-pergunta.jpeg',
     details: [
       'Baralho Cigano',
       '1 pergunta objetiva',

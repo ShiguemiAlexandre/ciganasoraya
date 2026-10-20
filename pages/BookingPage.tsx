@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { ChevronLeft, Sparkles, Moon, Check, Info, Sun, Sunrise, Sunset, User, CreditCard, QrCode, Globe, AlertTriangle, ExternalLink, MapPin, Hash, Building, Map, Flag, IdCard } from 'lucide-react';
-import { SERVICES, SERVICE_FEE, getEffectivePrice } from '../constants';
+import { SERVICES, SERVICE_FEE } from '../constants';
 import { Appointment } from '../types';
 
 interface BookingPageProps {
@@ -65,7 +65,7 @@ const BookingPage: React.FC<BookingPageProps> = ({ addAppointment }) => {
 
   const selectedServices = SERVICES.filter(s => formData.serviceIds.includes(s.id));
   const basePrice = selectedServices.reduce((acc, s) => {
-    const numericPart = getEffectivePrice(s).replace('R$ ', '').replace(/\./g, '').replace(',', '.');
+    const numericPart = s.price.replace('R$ ', '').replace(/\./g, '').replace(',', '.');
     const priceNum = parseFloat(numericPart);
     return acc + (isNaN(priceNum) ? 0 : priceNum);
   }, 0);
@@ -75,9 +75,8 @@ const BookingPage: React.FC<BookingPageProps> = ({ addAppointment }) => {
     : 'A combinar';
 
   // Lógica de construção da mensagem movida para o corpo do componente para ser acessível em ambas as telas
-  const hasPromo = selectedServices.some(s => s.promoPrice);
   const serviceDetails = selectedServices.map(s =>
-    `• *${s.name}*: ${getEffectivePrice(s)}${s.promoPrice ? ` _(Promoção -50%, de ${s.price})_` : ''}`
+    `• *${s.name}*: ${s.price}`
   ).join('\n');
 
   // Emojis em formato Unicode para máxima compatibilidade
@@ -100,7 +99,6 @@ const BookingPage: React.FC<BookingPageProps> = ({ addAppointment }) => {
       `${emojiCard} Forma de Pagamento: ${formData.paymentMethod}\n\n` +
       `${emojiCrystal} *ORÁCULOS ESCOLHIDOS*\n` +
       `${serviceDetails}\n\n` +
-      (hasPromo ? `🏷️ *Promoção aplicada: 50% de desconto*\n\n` : '') +
       `${emojiMoney} *VALOR TOTAL: ${totalFormatted}*\n\n` +
       (formData.notes ? `${emojiNote} *NOTAS:*\n${formData.notes}\n\n` : "") +
       `${emojiHeart} Fico no aguardo da confirmação do dia e horário exato para realizar o pagamento. Gratidão! ${emojiSparkles}`;
@@ -222,12 +220,8 @@ const BookingPage: React.FC<BookingPageProps> = ({ addAppointment }) => {
                           {isSelected && <div className="absolute inset-0 bg-gold/20 flex items-center justify-center backdrop-blur-[2px]"><Check size={32} className="text-gold" /></div>}
                         </div>
                         <h4 className={`serif text-xl font-bold ${isSelected ? 'text-gold' : 'text-white'}`}>{s.name}</h4>
-                        {s.promoPrice && (
-                          <span className="text-[9px] font-black uppercase tracking-widest text-green-400 bg-green-500/10 border border-green-500/30 rounded-full px-2 py-0.5 w-fit mt-2">-50%</span>
-                        )}
                         <div className="flex items-baseline gap-1.5 mt-2">
-                          {s.promoPrice && <span className="text-[10px] text-gray-500 line-through">{s.price}</span>}
-                          <span className="text-xs text-gray-400">{getEffectivePrice(s)}</span>
+                          <span className="text-xs text-gray-400">{s.price}</span>
                         </div>
                       </button>
                     );
@@ -398,16 +392,12 @@ const BookingPage: React.FC<BookingPageProps> = ({ addAppointment }) => {
                   </form>
                   <div className="bg-black border border-white/10 rounded-[2.5rem] p-10 space-y-8">
                     <h3 className="serif text-2xl text-white">Resumo da Consulta</h3>
-                    {hasPromo && (
-                      <span className="inline-block text-[9px] font-black uppercase tracking-widest text-green-400 bg-green-500/10 border border-green-500/30 rounded-full px-2 py-0.5">Promoção -50% aplicada</span>
-                    )}
                     <div className="space-y-4">
                       {selectedServices.map(s => (
                         <div key={s.id} className="flex justify-between text-sm text-gray-400">
                           <span>{s.name}</span>
                           <span className="flex items-baseline gap-1.5">
-                            {s.promoPrice && <span className="text-[10px] text-gray-600 line-through">{s.price}</span>}
-                            <span>{getEffectivePrice(s)}</span>
+                            <span>{s.price}</span>
                           </span>
                         </div>
                       ))}

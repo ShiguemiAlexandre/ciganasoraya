@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Sparkles, Clock, ChevronRight, X, Info, ArrowRight, Star, MessageCircle, HelpCircle, ChevronDown } from 'lucide-react';
-import { SERVICES, getEffectivePrice } from '../constants';
+import { SERVICES } from '../constants';
 import { Service } from '../types';
 import { motion, AnimatePresence } from 'motion/react';
 
@@ -106,14 +106,8 @@ const CatalogPage: React.FC = () => {
                 
                 <div className="flex items-center justify-between pt-6 border-t border-white/5">
                   <div className="flex flex-col">
-                    {game.promoPrice && (
-                      <span className="text-[9px] font-black uppercase tracking-widest text-green-400 bg-green-500/10 border border-green-500/30 rounded-full px-2 py-0.5 w-fit mb-1">-50%</span>
-                    )}
                     <div className="flex items-baseline space-x-2">
-                      {game.promoPrice && (
-                        <span className="text-gray-500 text-xs line-through">{game.price}</span>
-                      )}
-                      <span className="text-white font-bold text-xl group-hover:text-gold transition-colors">{getEffectivePrice(game)}</span>
+                      <span className="text-white font-bold text-xl group-hover:text-gold transition-colors">{game.price}</span>
                     </div>
                     {game.duration && (
                       <span className="text-[9px] text-gold font-black uppercase tracking-widest mt-1 opacity-70 group-hover:opacity-100 transition-opacity">{game.duration}</span>
@@ -244,14 +238,8 @@ const CatalogPage: React.FC = () => {
                   <div className="pt-8 border-t border-white/10 mt-auto">
                     <div className="flex flex-col space-y-6">
                       <div className="text-center md:text-left">
-                        {selectedGame.promoPrice && (
-                          <span className="inline-block text-[9px] font-black uppercase tracking-widest text-green-400 bg-green-500/10 border border-green-500/30 rounded-full px-2 py-0.5 mb-1">50% OFF</span>
-                        )}
                         <div className="flex items-baseline gap-3 justify-center md:justify-start">
-                          {selectedGame.promoPrice && (
-                            <span className="text-gray-500 text-lg line-through">{selectedGame.price}</span>
-                          )}
-                          <div className="text-white font-bold text-3xl">{getEffectivePrice(selectedGame)}</div>
+                          <div className="text-white font-bold text-3xl">{selectedGame.price}</div>
                         </div>
                         {selectedGame.duration && (
                           <div className="text-[10px] text-gold uppercase tracking-widest mt-1 font-black">
